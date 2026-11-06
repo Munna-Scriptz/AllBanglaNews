@@ -46,7 +46,7 @@ function SearchPopover({ onClose }) {
   return (
     <div
       id="nav-search-panel"
-      className="z-50 overflow-hidden rounded-[10px] border border-line bg-surface shadow-[0_24px_60px_-25px_rgba(24,25,22,0.35)] max-lg:fixed max-lg:inset-x-3 max-lg:top-[70px] lg:absolute lg:right-0 lg:top-full lg:mt-2 lg:w-[390px]"
+      className="z-50 overflow-hidden rounded-[10px] border border-line bg-surface shadow-[0_24px_60px_-25px_rgba(24,25,22,0.35)] max-xl:fixed max-xl:inset-x-3 max-xl:top-[70px] xl:absolute xl:right-0 xl:top-full xl:mt-2 xl:w-[390px]"
     >
       <form
         onSubmit={handleSubmit}
@@ -134,7 +134,7 @@ function SearchPopover({ onClose }) {
       {isSearching && (
         <div className="border-t border-line p-2">
           <button
-            type="submit"
+            type="button"
             onClick={handleSubmit}
             className="flex w-full items-center justify-between rounded-md bg-paper px-3 py-2.5 text-[11.5px] font-medium text-ink transition-colors hover:bg-tint"
           >
@@ -187,7 +187,7 @@ export default function Navbar() {
           <Brand />
 
           <nav
-            className="hidden items-center gap-0.5 lg:flex"
+            className="hidden items-center gap-0.5 xl:flex"
             aria-label="Primary"
           >
             {navItems.map((item) => (
@@ -261,7 +261,7 @@ export default function Navbar() {
               }}
               aria-label="Open navigation menu"
               aria-expanded={mobileOpen}
-              className="grid h-9 w-9 place-items-center rounded-md border border-transparent text-ink-soft transition-colors hover:border-line hover:bg-surface hover:text-ink lg:hidden"
+              className="grid h-9 w-9 place-items-center rounded-md border border-transparent text-ink-soft transition-colors hover:border-line hover:bg-surface hover:text-ink xl:hidden"
             >
               <Menu className="h-[18px] w-[18px]" strokeWidth={1.8} aria-hidden="true" />
             </button>

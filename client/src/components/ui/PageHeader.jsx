@@ -34,7 +34,7 @@ export default function PageHeader({
           <div>
             <p className="eyebrow">
               <span className="eyebrow-dot" aria-hidden="true" />
-              Kagoj directory
+              News directory
             </p>
             <h1 className="mt-3 text-[36px] font-semibold leading-[1.04] tracking-[-0.045em] text-ink sm:text-[44px] md:text-[50px]">
               {title}

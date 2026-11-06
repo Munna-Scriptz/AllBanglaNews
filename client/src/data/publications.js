@@ -1,5 +1,5 @@
 /**
- * Kagoj — Bangladesh News Directory
+ * All Bangla Newspapers — Bangladesh News Directory
  * Central publication data.
  *
  * To add a publication:

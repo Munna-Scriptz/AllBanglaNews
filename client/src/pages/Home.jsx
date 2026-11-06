@@ -26,7 +26,7 @@ export default function Home() {
   const scrollToDirectory = () => scrollToId('directory')
 
   useEffect(() => {
-    document.title = 'Kagoj — Bangladesh News Directory'
+    document.title = 'All Bangla Newspapers — Bangladesh News Directory'
   }, [])
 
   useEffect(() => {

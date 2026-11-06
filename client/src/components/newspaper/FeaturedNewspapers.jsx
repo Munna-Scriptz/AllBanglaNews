@@ -25,7 +25,7 @@ export default function FeaturedNewspapers() {
           <NewspaperGrid
             items={featuredPublications}
             featured
-            eagerCount={4}
+            eagerCount={8}
             ariaLabel="Popular newspapers"
           />
         </div>

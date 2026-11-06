@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 import { cn } from '../../utils/helpers'
 
 /**
- * The Kagoj wordmark. `tone="dark"` is for use on charcoal surfaces.
+ * The All Bangla Newspapers wordmark. `tone="dark"` is for charcoal surfaces.
  */
 export default function Brand({
   tone = 'light',
@@ -16,7 +16,7 @@ export default function Brand({
     <Link
       to="/"
       onClick={onClick}
-      aria-label="Kagoj — Bangladesh News Directory, home"
+      aria-label="All Bangla Newspapers — Bangladesh News Directory, home"
       className={cn(
         'group inline-flex shrink-0 items-center gap-2.5 rounded-sm',
         className,
@@ -46,11 +46,13 @@ export default function Brand({
       <span className="flex min-w-0 flex-col justify-center">
         <span
           className={cn(
-            'text-[21px] font-semibold leading-none tracking-[-0.055em]',
+            'text-[15px] font-semibold leading-none tracking-[-0.045em] min-[370px]:text-[17px] sm:text-[18px] xl:text-[20px]',
             isDark ? 'text-white' : 'text-ink',
           )}
         >
-          All Bangla Newspapers<span className="text-accent">.</span>
+          <span className="whitespace-nowrap">
+            All Bangla Newspapers<span className="text-accent">.</span>
+          </span>
         </span>
         {showTagline && (
           <span

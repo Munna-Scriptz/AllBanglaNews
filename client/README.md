@@ -1,4 +1,4 @@
-# Kagoj — Bangladesh News Directory
+# All Bangla Newspapers — Bangladesh News Directory
 
 A fast, frontend-only directory of Bangladeshi newspapers, online news portals,
 e-papers, TV channels, English-language dailies and international publications.

@@ -85,12 +85,12 @@ export default function Footer() {
 
           <div>
             <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
-              About Kagoj
+              About the directory
             </h2>
             <p className="mt-4 text-[12.5px] leading-6 text-white/55">
-              Kagoj is an independent, reader-first directory of Bangladeshi
-              media. It does not publish news and is not affiliated with the
-              publications listed here.
+              All Bangla Newspapers is an independent, reader-first directory
+              of Bangladeshi media. It does not publish news and is not
+              affiliated with the publications listed here.
             </p>
             <p className="mt-3 text-[11.5px] leading-5 text-white/35">
               All trademarks, names and logos belong to their respective
@@ -101,7 +101,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] leading-5 text-white/35">
-            © {year} Kagoj. Built for readers in Bangladesh.
+            © {year} All Bangla Newspapers. Built for readers in Bangladesh.
           </p>
           <div className="flex items-center justify-between gap-6 sm:justify-end">
             <p className="text-[11px] text-white/30">

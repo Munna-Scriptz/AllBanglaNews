@@ -27,9 +27,9 @@ export default function CategoryPage({ categoryId }) {
   const pageTitle = categoryId === 'epaper' ? 'E-Papers' : category.label
 
   useEffect(() => {
-    document.title = `${pageTitle} — Kagoj`
+    document.title = `${pageTitle} — All Bangla Newspapers`
     return () => {
-      document.title = 'Kagoj — Bangladesh News Directory'
+      document.title = 'All Bangla Newspapers — Bangladesh News Directory'
     }
   }, [pageTitle])
 

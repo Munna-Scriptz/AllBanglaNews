@@ -182,3 +182,20 @@
     scroll-behavior: auto !important;
   }
 }
+
+
+/* --color-paper: #f4f6f9;
+--color-surface: #ffffff;
+--color-ink: #111827;
+--color-ink-soft: #374151;
+--color-muted: #737d8c;
+--color-line: #e5e9ef;
+--color-line-strong: #cbd3df;
+
+--color-accent: #2457a7;
+--color-accent-dark: #193f7d;
+--color-accent-soft: #edf3fc;
+--color-tint: #eef1f6;
+
+--shadow-card: 0 1px 3px rgba(17, 24, 39, 0.04);
+--shadow-lift: 0 18px 38px -28px rgba(17, 24, 39, 0.22); */
