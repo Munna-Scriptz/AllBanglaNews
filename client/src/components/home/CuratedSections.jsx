@@ -82,7 +82,7 @@ export default function CuratedSections() {
                 title={section.title}
                 description={category.description}
                 href={category.path}
-                linkLabel={`View all ${getCategoryCount(section.id)}`}
+                linkLabel={`View all ${getCategoryCount(section.id)} ${getCategory(section.id).countLabel}`}
               />
               <div className="mt-7">
                 <NewspaperGrid

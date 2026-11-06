@@ -1,0 +1,37 @@
+# All Bangla Newspapers
+
+> Bangladesh News Directory — an independent, reader-first directory of Bangladeshi newspapers, online news portals, e-papers, TV channels, English dailies and international publications.
+
+Canonical: https://www.allbanglanewspapers.news/
+
+## What the site provides
+
+- A searchable directory of 76 Bangladeshi and international publications.
+- Category lists for Bangla newspapers, online news, e-papers, English newspapers, TV channels and international media.
+- Direct links to each publisher's official website. The directory does not host or republish news articles.
+
+## Pages
+
+- [Home](https://www.allbanglanewspapers.news/): Browse every Bangladeshi newspaper in one place, with search and category filters.
+- [Bangla Newspapers](https://www.allbanglanewspapers.news/bangla-newspapers): The Bengali-language dailies that shape Bangladesh's national conversation.
+- [Online News](https://www.allbanglanewspapers.news/online-news): Digital-first newsrooms publishing Bangladesh's news as it happens.
+- [E-Papers](https://www.allbanglanewspapers.news/e-paper): Page-for-page digital editions from Bangladeshi newspapers.
+- [English Newspapers](https://www.allbanglanewspapers.news/english-newspapers): Bangladesh's English-language press, from business to analysis.
+- [TV Channels](https://www.allbanglanewspapers.news/tv-channels): News and current-affairs broadcasters from across Bangladesh.
+- [International](https://www.allbanglanewspapers.news/international): Global publications for context beyond Bangladesh's borders.
+
+## Categories
+
+- Bangla Newspapers (20 listings): The Bengali-language dailies that shape Bangladesh's national conversation.
+- Online News (11 listings): Digital-first newsrooms publishing Bangladesh's news as it happens.
+- E-Papers (16 listings): Page-for-page digital editions from Bangladesh's leading newspapers.
+- English Newspapers (12 listings): Bangladesh's English-language press, from business to analysis.
+- TV Channels (16 listings): News and current-affairs broadcasters from across Bangladesh.
+- International (17 listings): Global publications for context beyond Bangladesh's borders.
+
+## Notes
+
+- Every publication card opens an external publisher website.
+- The site is independent and is not affiliated with the publications listed.
+- All trademarks, names and logos belong to their respective publishers.
+- Search result URLs using the ?q= parameter are marked noindex and are not included in the sitemap.

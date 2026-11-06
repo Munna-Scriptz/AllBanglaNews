@@ -6,6 +6,7 @@ import Hero from '../components/home/Hero'
 import FeaturedNewspapers from '../components/newspaper/FeaturedNewspapers'
 import DirectoryExplorer from '../components/home/DirectoryExplorer'
 import CuratedSections from '../components/home/CuratedSections'
+import DirectoryGuide from '../components/home/DirectoryGuide'
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -24,10 +25,6 @@ export default function Home() {
   }
 
   const scrollToDirectory = () => scrollToId('directory')
-
-  useEffect(() => {
-    document.title = 'All Bangla Newspapers — Bangladesh News Directory'
-  }, [])
 
   useEffect(() => {
     if (location.hash !== '#directory') return
@@ -49,10 +46,10 @@ export default function Home() {
       >
         <div className="shell">
           <div className="mb-4 flex items-center justify-between gap-4">
-            <p id="browse-categories" className="eyebrow">
+            <h2 id="browse-categories" className="eyebrow">
               <span className="eyebrow-dot" aria-hidden="true" />
               Browse by category
-            </p>
+            </h2>
             <a
               href="#directory"
               className="text-[11px] font-medium text-muted transition-colors hover:text-ink"
@@ -72,7 +69,12 @@ export default function Home() {
         onClear={() => updateQuery('')}
       />
 
-      {!isSearching && <CuratedSections />}
+      {!isSearching && (
+        <>
+          <CuratedSections />
+          <DirectoryGuide />
+        </>
+      )}
     </>
   )
 }

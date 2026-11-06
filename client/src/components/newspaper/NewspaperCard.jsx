@@ -15,6 +15,7 @@ export default function NewspaperCard({
 
   return (
 
+
     <a
       href={publication.website}
       target="_blank"
@@ -26,15 +27,37 @@ export default function NewspaperCard({
         className,
       )}
     >
+      {/* Newspaper background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.16] transition-opacity duration-300 group-hover:opacity-[0.25]"
+        style={{
+          backgroundImage: `
+        linear-gradient(
+          135deg,
+          rgba(10, 10, 10, 0.78),
+          rgba(10, 10, 10, 0.45)
+        ),
+          url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=85')      `,
+        }}
+      />
+
+      {/* Subtle surface overlay */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-surface/40 via-transparent to-surface/80"
+      />
+
+      {/* Featured accent */}
       {featured && (
         <span
-          className="absolute inset-x-3 top-0 h-[2px] bg-accent sm:inset-x-4"
+          className="absolute inset-x-3 top-0 z-10 h-[2px] bg-accent sm:inset-x-4"
           aria-hidden="true"
         />
       )}
 
-      {/* Mobile: Logo and name in one row | Desktop: Original layout */}
-      <div className="flex min-w-0 items-center gap-3 sm:items-start sm:justify-between">
+      {/* Mobile: Logo and name | Desktop: Logo and external link */}
+      <div className="relative z-[1] flex min-w-0 items-center gap-3 sm:items-start sm:justify-between">
         <PublicationLogo
           publication={publication}
           eager={eager}
@@ -66,7 +89,7 @@ export default function NewspaperCard({
       </div>
 
       {/* Desktop title */}
-      <div className="mt-3.5 hidden min-w-0 sm:block">
+      <div className="relative z-[1] mt-3.5 hidden min-w-0 sm:block">
         <h3 className="line-clamp-2 min-h-[34px] text-[14.5px] font-semibold leading-[1.25] tracking-[-0.015em] text-ink">
           {publication.name}
         </h3>
@@ -81,7 +104,8 @@ export default function NewspaperCard({
         )}
       </div>
 
-      <div className="mt-auto pt-3 sm:pt-3.5">
+      {/* Footer */}
+      <div className="relative z-[1] mt-auto pt-3 sm:pt-3.5">
         <div className="flex items-center justify-between gap-2 border-t border-line/80 pt-2.5">
           <span className="truncate text-[9px] font-semibold uppercase tracking-[0.08em] text-muted sm:text-[9.5px] sm:tracking-[0.1em]">
             {label}
@@ -93,6 +117,7 @@ export default function NewspaperCard({
         </div>
       </div>
     </a>
+
 
   )
 }

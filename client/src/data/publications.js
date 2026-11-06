@@ -233,7 +233,7 @@ export const publications = [
     name: 'Dainik Inqilab',
     banglaName: 'দৈনিক ইনকিলাব',
     logo: '/logos/dainik-inqilab.png',
-    website: 'https://www.dainikinqilab.com/',
+    website: 'https://dailyinqilab.com/',
     category: 'bangla',
     language: 'Bangla',
     description:
@@ -293,7 +293,7 @@ export const publications = [
     name: 'Jaijaidin',
     banglaName: 'যায়যায়দিন',
     logo: '/logos/jaijaidin.png',
-    website: 'https://jaijaidinbd.com/',
+    website: 'https://www.jaijaidin.news/',
     category: 'bangla',
     language: 'Bangla',
     description:

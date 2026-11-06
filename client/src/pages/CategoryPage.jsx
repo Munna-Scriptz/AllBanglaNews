@@ -1,4 +1,4 @@
-import { useDeferredValue, useEffect, useMemo } from 'react'
+import { useDeferredValue, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import {
   getCategory,
@@ -10,6 +10,7 @@ import EmptyState from '../components/ui/EmptyState'
 import PageHeader from '../components/ui/PageHeader'
 import SearchBar from '../components/ui/SearchBar'
 import NewspaperGrid from '../components/newspaper/NewspaperGrid'
+import CategoryGuide from '../components/seo/CategoryGuide'
 
 export default function CategoryPage({ categoryId }) {
   const category = getCategory(categoryId)
@@ -25,13 +26,6 @@ export default function CategoryPage({ categoryId }) {
 
   const isSearching = query.trim().length > 0
   const pageTitle = categoryId === 'epaper' ? 'E-Papers' : category.label
-
-  useEffect(() => {
-    document.title = `${pageTitle} — All Bangla Newspapers`
-    return () => {
-      document.title = 'All Bangla Newspapers — Bangladesh News Directory'
-    }
-  }, [pageTitle])
 
   const updateQuery = (value) => {
     const nextParams = new URLSearchParams(searchParams)
@@ -52,6 +46,8 @@ export default function CategoryPage({ categoryId }) {
         count={total}
         countLabel={category.countLabel}
       />
+
+      {!isSearching && <CategoryGuide categoryId={categoryId} />}
 
       <section className="py-4 md:py-14" aria-label={`${pageTitle} directory`}>
         <div className="shell">

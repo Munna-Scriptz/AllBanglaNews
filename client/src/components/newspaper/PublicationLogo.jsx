@@ -28,8 +28,11 @@ export default function PublicationLogo({
       {!failed && publication.logo ? (
         <img
           src={publication.logo}
-          alt=""
+          alt={`${publication.name} logo`}
+          width="48"
+          height="48"
           loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
           decoding="async"
           onError={() => setFailed(true)}
           className={cn('h-full w-full object-contain p-1.5', imageClassName)}
