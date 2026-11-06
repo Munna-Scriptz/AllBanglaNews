@@ -9,7 +9,7 @@ export default function FeaturedNewspapers() {
   return (
     <section
       id="popular"
-      className="scroll-mt-20 border-b border-line bg-surface py-12 md:py-16"
+      className="scroll-mt-20 border-b border-line bg-surface py-4 md:py-12"
       aria-labelledby="popular-heading"
     >
       <div className="shell">

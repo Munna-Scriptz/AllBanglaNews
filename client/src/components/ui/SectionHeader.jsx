@@ -12,25 +12,28 @@ export default function SectionHeader({
   id,
 }) {
   return (
+
     <div
       id={id}
       className={cn(
-        'flex flex-col gap-5 border-b border-line pb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-10',
+        'flex flex-col gap-3 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:pb-6',
         className,
       )}
     >
-      <div className="max-w-2xl">
+      <div className="min-w-0 max-w-2xl">
         {eyebrow && (
-          <p className="eyebrow">
+          <p className="eyebrow hidden xl:flex">
             <span className="eyebrow-dot" aria-hidden="true" />
             {eyebrow}
           </p>
         )}
-        <h2 className="mt-3 text-[26px] font-semibold leading-[1.12] tracking-[-0.035em] text-ink sm:text-[30px]">
+
+        <h2 className="text-[22px] mt-3 font-semibold leading-[1.15] tracking-[-0.04em] text-ink min-[480px]:text-[25px] sm:text-[30px]">
           {title}
         </h2>
+
         {description && (
-          <p className="mt-2.5 text-[14px] leading-6 text-ink-soft/90">
+          <p className="mt-2 max-w-xl text-[12.5px] leading-[1.7] text-ink-soft/85 min-[480px]:text-[13px] sm:mt-2.5 sm:text-[14px] sm:leading-6">
             {description}
           </p>
         )}
@@ -39,16 +42,17 @@ export default function SectionHeader({
       {href && (
         <Link
           to={href}
-          className="group inline-flex shrink-0 items-center gap-2 self-start rounded-sm text-[12.5px] font-medium text-ink-soft transition-colors hover:text-accent sm:self-auto"
+          className="group inline-flex w-fit shrink-0 items-center gap-1.5 rounded-sm py-1 text-[11.5px] font-medium text-ink-soft transition-colors hover:text-accent sm:mb-0.5 sm:text-[12.5px]"
         >
           {linkLabel}
           <ArrowRight
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+            className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1 sm:h-4 sm:w-4"
             strokeWidth={1.8}
             aria-hidden="true"
           />
         </Link>
       )}
     </div>
+
   )
 }

@@ -72,7 +72,7 @@ export default function CuratedSections() {
         return (
           <section
             key={section.id}
-            className="border-b border-line py-12 last:border-b-0 md:py-14"
+            className="border-b border-line py-4 last:border-b-0 md:py-14"
             aria-labelledby={`curated-${section.id}`}
           >
             <div className="shell">

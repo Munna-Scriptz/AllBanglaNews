@@ -24,19 +24,20 @@ export default function SearchBar({
   }
 
   return (
+
     <form
       onSubmit={handleSubmit}
       role="search"
       className={cn(
-        'flex w-full items-center gap-1.5 rounded-[10px] border border-line bg-surface p-1.5 pl-4 shadow-card transition-shadow duration-200 focus-within:border-line-strong focus-within:ring-4 focus-within:ring-accent/5',
-        size === 'lg' && 'p-2 pl-5',
+        'flex w-full min-w-0 items-center gap-1 rounded-[9px] border border-line bg-surface p-1.5 pl-3 shadow-card transition-all duration-200 focus-within:border-line-strong focus-within:ring-4 focus-within:ring-accent/5 sm:gap-1.5 sm:rounded-[10px] sm:p-1.5 sm:pl-4',
+        size === 'lg' && 'sm:p-2 sm:pl-5',
         className,
       )}
     >
       <Search
         className={cn(
-          'h-[18px] w-[18px] shrink-0 text-muted',
-          size === 'lg' && 'h-5 w-5',
+          'h-4 w-4 shrink-0 text-muted sm:h-[18px] sm:w-[18px]',
+          size === 'lg' && 'sm:h-5 sm:w-5',
         )}
         strokeWidth={1.8}
         aria-hidden="true"
@@ -45,6 +46,7 @@ export default function SearchBar({
       <label htmlFor={id} className="sr-only">
         {label}
       </label>
+
       <input
         id={id}
         type="search"
@@ -55,8 +57,8 @@ export default function SearchBar({
         autoComplete="off"
         spellCheck="false"
         className={cn(
-          'min-w-0 flex-1 appearance-none bg-transparent py-2.5 text-[14px] leading-5 text-ink outline-none placeholder:text-muted/90 [&::-webkit-search-cancel-button]:hidden',
-          size === 'lg' && 'py-3 text-[15px]',
+          'h-9 min-w-0 flex-1 appearance-none bg-transparent px-1 text-[12px] leading-5 text-ink outline-none placeholder:text-muted/80 [&::-webkit-search-cancel-button]:hidden sm:h-10 sm:text-[13px]',
+          size === 'lg' && 'sm:h-11 sm:text-[14px]',
           inputClassName,
         )}
       />
@@ -66,9 +68,9 @@ export default function SearchBar({
           type="button"
           onClick={() => onChange('')}
           aria-label="Clear search"
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-md text-muted transition-colors hover:bg-tint hover:text-ink"
+          className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-muted transition-colors hover:bg-tint hover:text-ink sm:h-8 sm:w-8"
         >
-          <X className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
+          <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.8} aria-hidden="true" />
         </button>
       )}
 
@@ -76,13 +78,14 @@ export default function SearchBar({
         <button
           type="submit"
           className={cn(
-            'shrink-0 rounded-[7px] bg-ink px-4 py-2.5 text-[13px] font-medium text-white transition-colors duration-200 hover:bg-accent',
-            size === 'lg' && 'px-5 py-3 text-[13.5px]',
+            'shrink-0 rounded-[6px] bg-ink px-3 py-2 text-[11px] font-medium text-white transition-colors duration-200 hover:bg-accent sm:rounded-[7px] sm:px-4 sm:py-2.5 sm:text-[12px]',
+            size === 'lg' && 'sm:px-5 sm:py-3 sm:text-[13px]',
           )}
         >
           {buttonLabel}
         </button>
       )}
     </form>
+
   )
 }

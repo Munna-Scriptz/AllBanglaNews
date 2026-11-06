@@ -53,11 +53,11 @@ export default function CategoryPage({ categoryId }) {
         countLabel={category.countLabel}
       />
 
-      <section className="py-10 md:py-14" aria-label={`${pageTitle} directory`}>
+      <section className="py-4 md:py-14" aria-label={`${pageTitle} directory`}>
         <div className="shell">
           <CategoryNavigation variant="tabs" activeId={categoryId} />
 
-          <div className="mt-6 flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-4 xl:mt-6 flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">
             <SearchBar
               id={`${categoryId}-search`}
               value={query}
@@ -71,9 +71,8 @@ export default function CategoryPage({ categoryId }) {
               className="text-[11.5px] font-medium text-muted"
             >
               {isSearching
-                ? `${results.length} ${
-                    results.length === 1 ? 'result' : 'results'
-                  } for “${query.trim()}”`
+                ? `${results.length} ${results.length === 1 ? 'result' : 'results'
+                } for “${query.trim()}”`
                 : `${total} ${category.countLabel} in the directory`}
             </p>
           </div>

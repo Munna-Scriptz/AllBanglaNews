@@ -44,7 +44,7 @@ export default function DirectoryExplorer({
   return (
     <section
       id="directory"
-      className="scroll-mt-20 py-12 md:py-16"
+      className="scroll-mt-20 py-4 md:py-16"
       aria-labelledby="directory-heading"
     >
       <div className="shell">
@@ -84,9 +84,8 @@ export default function DirectoryExplorer({
             {results.length === 0
               ? 'No publications match your filters'
               : isSearching
-                ? `${results.length} ${
-                    results.length === 1 ? 'result' : 'results'
-                  }${categoryId !== 'all' ? ` in ${activeCategory.label}` : ''}`
+                ? `${results.length} ${results.length === 1 ? 'result' : 'results'
+                }${categoryId !== 'all' ? ` in ${activeCategory.label}` : ''}`
                 : `Showing ${visibleItems.length} of ${results.length} publications`}
           </p>
           <p className="hidden sm:block">

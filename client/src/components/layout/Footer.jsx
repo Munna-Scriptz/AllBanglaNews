@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, CodeXml } from 'lucide-react'
 import { Link } from 'react-router'
 import {
   categories,
@@ -104,9 +104,16 @@ export default function Footer() {
             © {year} All Bangla Newspapers. Built for readers in Bangladesh.
           </p>
           <div className="flex items-center justify-between gap-6 sm:justify-end">
-            <p className="text-[11px] text-white/30">
-              Links open the publisher&apos;s official site.
-            </p>
+            <a
+              href="https://munna-scriptz.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 text-white/50 hover:text-neutral-400 transition-colors duration-300 text-[11px]"
+            >
+              <CodeXml size={14} className="opacity-70" />
+              <span>Developed by <span className="underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-500 transition-colors">Munna-Scriptz</span></span>
+              <ArrowUpRight size={12} className="opacity-70" />
+            </a>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

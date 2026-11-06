@@ -1,15 +1,9 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
-import {
-  categories,
-  getCategoryCount,
-} from '../../data/publications'
+import { categories, getCategoryCount } from '../../data/publications'
 import { cn } from '../../utils/helpers'
 import CategoryIcon from './CategoryIcon'
 
-/**
- * Category shortcuts (card links) and category filters (tabs).
- */
 export default function CategoryNavigation({
   variant = 'cards',
   activeId = 'all',
@@ -22,11 +16,12 @@ export default function CategoryNavigation({
     ? categories
     : categories.filter((category) => category.id !== 'all')
 
+
   if (variant === 'cards') {
     return (
       <div
         className={cn(
-          'grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7',
+          'flex flex-wrap gap-2.5 sm:gap-3',
           className,
         )}
         aria-label="Browse categories"
@@ -41,27 +36,50 @@ export default function CategoryNavigation({
               to={category.path}
               onClick={() => onSelect?.(category.id)}
               className={cn(
-                'group flex h-full min-h-[118px] flex-col justify-between rounded-[10px] border p-3.5 transition-all duration-200 sm:min-h-[126px]',
+                // Mobile: horizontal compact cards
+                'group flex min-h-[64px] min-w-0 flex-[1_1_calc(50%-5px)] items-center gap-2.5 rounded-[10px] border p-2.5 transition-all duration-200',
+                // Desktop: original vertical card layout
+                'sm:min-h-[126px] sm:flex-[1_1_calc(33.333%-8px)] sm:flex-col sm:items-stretch sm:justify-between sm:p-3.5',
+                'md:flex-[1_1_calc(25%-9px)] lg:flex-[1_1_calc(14.285%-11px)]',
                 isActive
                   ? 'border-ink bg-ink text-white shadow-card'
                   : 'border-line bg-surface text-ink hover:-translate-y-0.5 hover:border-line-strong hover:shadow-card',
               )}
               aria-current={isActive ? 'page' : undefined}
             >
-              <span className="flex items-start justify-between gap-2">
-                <span
-                  className={cn(
-                    'grid h-8 w-8 place-items-center rounded-[6px] transition-colors',
-                    isActive
-                      ? 'bg-white/10 text-white'
-                      : 'bg-tint text-ink-soft group-hover:text-accent',
-                  )}
-                >
-                  <CategoryIcon
-                    name={category.icon}
-                    className="h-[17px] w-[17px]"
-                  />
+              <span
+                className={cn(
+                  'grid h-8 w-8 shrink-0 place-items-center rounded-[6px] transition-colors sm:h-9 sm:w-9',
+                  isActive
+                    ? 'bg-white/10 text-white'
+                    : 'bg-tint text-ink-soft group-hover:text-accent',
+                )}
+              >
+                <CategoryIcon
+                  name={category.icon}
+                  className="h-4 w-4 sm:h-[17px] sm:w-[17px]"
+                />
+              </span>
+
+              <span className="min-w-0 flex-1 sm:mt-5 sm:flex-none">
+                <span className="block truncate text-[11px] font-semibold leading-[1.25] tracking-[-0.01em] sm:text-[12.5px]">
+                  {category.label}
                 </span>
+
+                {showCounts && (
+                  <span
+                    className={cn(
+                      'mt-1 block truncate text-[9px] font-medium sm:text-[10.5px]',
+                      isActive ? 'text-white/45' : 'text-muted',
+                    )}
+                  >
+                    {count} publications
+                  </span>
+                )}
+              </span>
+
+              {/* Desktop arrow only */}
+              <span className="hidden sm:flex sm:items-start sm:justify-end sm:gap-2 sm:self-start sm:absolute sm:right-3.5 sm:top-3.5">
                 <ArrowUpRight
                   className={cn(
                     'h-3.5 w-3.5 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
@@ -71,28 +89,13 @@ export default function CategoryNavigation({
                   aria-hidden="true"
                 />
               </span>
-
-              <span className="mt-5 block">
-                <span className="block text-[12.5px] font-semibold leading-[1.25] tracking-[-0.01em]">
-                  {category.label}
-                </span>
-                {showCounts && (
-                  <span
-                    className={cn(
-                      'mt-1 block text-[10.5px] font-medium',
-                      isActive ? 'text-white/45' : 'text-muted',
-                    )}
-                  >
-                    {count} publications
-                  </span>
-                )}
-              </span>
             </Link>
           )
         })}
       </div>
     )
   }
+
 
   return (
     <div
