@@ -1,0 +1,78 @@
+import { useEffect } from 'react'
+import { useLocation, useSearchParams } from 'react-router'
+import { scrollToId } from '../utils/helpers'
+import CategoryNavigation from '../components/ui/CategoryNavigation'
+import Hero from '../components/home/Hero'
+import FeaturedNewspapers from '../components/newspaper/FeaturedNewspapers'
+import DirectoryExplorer from '../components/home/DirectoryExplorer'
+import CuratedSections from '../components/home/CuratedSections'
+
+export default function Home() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const location = useLocation()
+  const query = searchParams.get('q') ?? ''
+  const isSearching = query.trim().length > 0
+
+  const updateQuery = (value) => {
+    const nextParams = new URLSearchParams(searchParams)
+    if (value.trim()) {
+      nextParams.set('q', value)
+    } else {
+      nextParams.delete('q')
+    }
+    setSearchParams(nextParams, { replace: true })
+  }
+
+  const scrollToDirectory = () => scrollToId('directory')
+
+  useEffect(() => {
+    document.title = 'Kagoj — Bangladesh News Directory'
+  }, [])
+
+  useEffect(() => {
+    if (location.hash !== '#directory') return
+    const timer = window.setTimeout(scrollToDirectory, 80)
+    return () => window.clearTimeout(timer)
+  }, [location.hash])
+
+  return (
+    <>
+      <Hero
+        query={query}
+        onQueryChange={updateQuery}
+        onSearch={scrollToDirectory}
+      />
+
+      <section
+        className="border-b border-line py-8 md:py-10"
+        aria-labelledby="browse-categories"
+      >
+        <div className="shell">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <p id="browse-categories" className="eyebrow">
+              <span className="eyebrow-dot" aria-hidden="true" />
+              Browse by category
+            </p>
+            <a
+              href="#directory"
+              className="text-[11px] font-medium text-muted transition-colors hover:text-ink"
+            >
+              Complete directory
+            </a>
+          </div>
+          <CategoryNavigation variant="cards" activeId="all" />
+        </div>
+      </section>
+
+      <FeaturedNewspapers />
+
+      <DirectoryExplorer
+        query={query}
+        onQueryChange={updateQuery}
+        onClear={() => updateQuery('')}
+      />
+
+      {!isSearching && <CuratedSections />}
+    </>
+  )
+}

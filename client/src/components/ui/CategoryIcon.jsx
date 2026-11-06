@@ -1,0 +1,32 @@
+import {
+  Globe,
+  Languages,
+  LayoutGrid,
+  Newspaper,
+  Radio,
+  Tablet,
+  Tv,
+} from 'lucide-react'
+import { cn } from '../../utils/helpers'
+
+const iconMap = {
+  LayoutGrid,
+  Newspaper,
+  Radio,
+  Tablet,
+  Languages,
+  Tv,
+  Globe,
+}
+
+export default function CategoryIcon({ name, className, strokeWidth = 1.8 }) {
+  const Icon = iconMap[name] ?? Newspaper
+
+  return (
+    <Icon
+      className={cn('h-5 w-5', className)}
+      strokeWidth={strokeWidth}
+      aria-hidden="true"
+    />
+  )
+}
