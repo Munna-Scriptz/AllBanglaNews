@@ -47,8 +47,6 @@ export default function CategoryPage({ categoryId }) {
         countLabel={category.countLabel}
       />
 
-      {!isSearching && <CategoryGuide categoryId={categoryId} />}
-
       <section className="py-4 md:py-14" aria-label={`${pageTitle} directory`}>
         <div className="shell">
           <CategoryNavigation variant="tabs" activeId={categoryId} />
@@ -107,6 +105,9 @@ export default function CategoryPage({ categoryId }) {
           )}
         </div>
       </section>
+
+      {!isSearching && <CategoryGuide categoryId={categoryId} />}
+
     </>
   )
 }
