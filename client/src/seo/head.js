@@ -56,7 +56,7 @@ export const buildHeadTags = (meta, schemas) => {
     metaTag('property', 'og:title', meta.title, 'og:title'),
     metaTag('property', 'og:description', meta.description, 'og:description'),
     metaTag('property', 'og:image', image, 'og:image'),
-    metaTag('property', 'og:image:type', 'image/png', 'og:image:type'),
+    metaTag('property', 'og:image:type', 'image/jpeg', 'og:image:type'),
     metaTag('property', 'og:image:width', DEFAULT_OG_IMAGE_WIDTH, 'og:image:width'),
     metaTag('property', 'og:image:height', DEFAULT_OG_IMAGE_HEIGHT, 'og:image:height'),
     metaTag('property', 'og:image:alt', meta.imageAlt, 'og:image:alt'),

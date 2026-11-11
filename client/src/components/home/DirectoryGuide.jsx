@@ -69,6 +69,19 @@ export default function DirectoryGuide() {
                 Bangladesh, the list is arranged to help you find it without
                 noise or unnecessary clicks.
               </p>
+
+              <div
+                lang="bn"
+                className="max-w-2xl border-l-2 border-accent/35 bg-paper px-4 py-3.5 text-[12.5px] leading-6 text-ink-soft/90 sm:text-[13px] sm:leading-7"
+              >
+                <strong className="font-semibold text-ink">
+                  সকল বাংলা পত্রিকা এক জায়গায়।
+                </strong>{' '}
+                বাংলাদেশের জাতীয় ও আঞ্চলিক বাংলা দৈনিক, অনলাইন নিউজ পোর্টাল,
+                ই-পেপার, ইংরেজি পত্রিকা এবং বাংলা টিভি চ্যানেলের তালিকা এখানে
+                পাবেন। নাম দিয়ে খুঁজুন বা বিভাগ অনুযায়ী ফিল্টার করুন, তারপর
+                সরাসরি পত্রিকার অফিসিয়াল ওয়েবসাইটে যান।
+              </div>
             </div>
           </div>
 

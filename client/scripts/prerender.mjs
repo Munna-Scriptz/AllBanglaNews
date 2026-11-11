@@ -113,7 +113,7 @@ const buildLlmsTxt = () => {
 
   return `# ${SITE_NAME}
 
-> ${SITE_TAGLINE} — an independent, reader-first directory of Bangladeshi newspapers, online news portals, e-papers, TV channels, English dailies and international publications.
+> ${SITE_TAGLINE} — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, online news portals, e-papers, TV channels and international publications.
 
 Canonical: ${SITE_URL}/
 

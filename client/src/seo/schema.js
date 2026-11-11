@@ -29,6 +29,7 @@ const buildOrganization = () => ({
     '@type': 'Country',
     name: 'Bangladesh',
   },
+  knowsLanguage: ['English', 'Bengali'],
   knowsAbout: categories
     .filter((category) => category.id !== 'all')
     .map((category) => category.label),

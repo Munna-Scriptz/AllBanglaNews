@@ -21,14 +21,10 @@ export default function Hero({ query, onQueryChange, onSearch }) {
   return (
 
     <section className="relative isolate overflow-hidden border-b border-line bg-surface">
-      {/* Newspaper background */}
+      {/* Warm paper background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-[0.13]"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1800&q=85')",
-        }}
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,#fbfaf7_0%,#ffffff_42%,#f1efe9_100%)]"
       />
 
       {/* Editorial red lighting */}
@@ -78,9 +74,17 @@ export default function Hero({ query, onQueryChange, onSearch }) {
             </h1>
 
             <p className="mt-4 max-w-xl text-[13px] leading-6 text-ink-soft/90 sm:text-[14px] sm:leading-7">
-              Browse a complete Bangladesh newspaper list — Bangla dailies,
+              Browse the complete All Bangla newspaper list — Bangla dailies,
               online news portals, e-papers, English newspapers, TV channels and
               international publications — in one organised directory.
+            </p>
+
+            <p
+              lang="bn"
+              className="mt-2 max-w-xl text-[12px] leading-6 text-muted sm:text-[12.5px]"
+            >
+              সকল বাংলা পত্রিকা, আজকের পত্রিকা, ই-পেপার ও বাংলা টিভি চ্যানেল
+              এক জায়গায়।
             </p>
 
             {/* Search */}

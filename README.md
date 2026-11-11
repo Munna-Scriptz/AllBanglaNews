@@ -75,7 +75,8 @@ To add or rename a route:
 
 - The canonical production host is `https://www.allbanglanewspapers.news`.
 - `vercel.json` redirects the apex domain to `www`, enables clean URLs, sends
-  `X-Robots-Tag: noindex` to `*.vercel.app` hosts, and caches static assets.
+  `X-Robots-Tag: noindex` to `*.vercel.app` hosts and `?q=` search URLs, and
+  caches static assets.
 - Prerendered pages are written as both `route.html` and
   `route/index.html` for compatibility with static hosts.
 - After the first production deployment, submit
@@ -84,12 +85,17 @@ To add or rename a route:
 
 ## Adding a publication
 
-1. Add a favicon/logo to `public/logos/{id}.png`.
-2. Add an entry to `publications` in `src/data/publications.js`.
+1. Add an official wordmark or publication logo to `public/logos/` using
+   `.svg`, `.webp` or a high-resolution `.png`. Prefer the publisher's own
+   wordmark instead of a favicon or app icon.
+2. Add an entry to `publications` in `src/data/publications.js` with the exact
+   logo path.
 3. Use an existing category id: `bangla`, `online`, `epaper`, `english`, `tv`
    or `international`. Set `epaper: true` if the publication has a digital
    edition.
 
-All publication cards link to official publisher websites and open in a new
-tab. Missing logos fall back automatically to typographic initials. Logo images
-include descriptive alt text, intrinsic dimensions and lazy loading.
+The directory currently contains 92 publications. All cards link to official
+publisher websites and open in a new tab. Missing or failed logos fall back
+automatically to typographic initials. Logo images include descriptive alt
+text, intrinsic dimensions and lazy loading, and cards give wordmarks a wide
+presentation area so small favicon files are not stretched.

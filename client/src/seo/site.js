@@ -8,10 +8,10 @@ export const SITE_URL = 'https://www.allbanglanewspapers.news'
 export const SITE_NAME = 'All Bangla Newspapers'
 export const SITE_TAGLINE = 'Bangladesh News Directory'
 export const SITE_DESCRIPTION =
-  'A reader-first directory of Bangladeshi newspapers, online news portals, e-papers, TV channels, English dailies and international publications.'
+  'A complete All Bangla newspaper list and reader-first directory of Bangladeshi dailies, online news portals, e-papers, TV channels and international publications.'
 export const SITE_LANGUAGE = 'en'
 export const SITE_LOCALE = 'en_BD'
-export const DEFAULT_OG_IMAGE = '/og-image.png'
+export const DEFAULT_OG_IMAGE = '/og-image.jpg'
 export const DEFAULT_OG_IMAGE_ALT =
   'All Bangla Newspapers — a directory of Bangladeshi newspapers, e-papers and TV channels'
 export const DEFAULT_OG_IMAGE_WIDTH = 1200

@@ -109,7 +109,7 @@ export default function Seo() {
     upsertMeta('og:title', 'property', 'og:title', meta.title)
     upsertMeta('og:description', 'property', 'og:description', meta.description)
     upsertMeta('og:image', 'property', 'og:image', image)
-    upsertMeta('og:image:type', 'property', 'og:image:type', 'image/png')
+    upsertMeta('og:image:type', 'property', 'og:image:type', 'image/jpeg')
     upsertMeta('og:image:width', 'property', 'og:image:width', '1200')
     upsertMeta('og:image:height', 'property', 'og:image:height', '630')
     upsertMeta('og:image:alt', 'property', 'og:image:alt', meta.imageAlt)

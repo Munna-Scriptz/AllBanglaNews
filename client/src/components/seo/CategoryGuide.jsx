@@ -40,6 +40,15 @@ export default function CategoryGuide({ categoryId }) {
             ))}
           </div>
 
+          {content.banglaParagraph && (
+            <div
+              lang="bn"
+              className="mt-4 max-w-3xl border-l-2 border-accent/40 bg-surface/70 px-3.5 py-3 text-[12.5px] leading-6 text-ink-soft/90 sm:text-[13px] sm:leading-7"
+            >
+              {content.banglaParagraph}
+            </div>
+          )}
+
           <p className="mt-4 text-[11px] font-medium text-muted">
             {count} {category.countLabel} in this list, each linking to the
             publisher&apos;s official website.

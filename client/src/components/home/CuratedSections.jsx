@@ -19,6 +19,18 @@ const curatedSections = [
     ],
   },
   {
+    id: 'regional',
+    categoryId: 'bangla',
+    title: 'More Bangla dailies',
+    eyebrow: 'New in the directory',
+    ids: [
+      'ajker-patrika',
+      'dainik-azadi',
+      'dainik-purbokone',
+      'sylheter-dak',
+    ],
+  },
+  {
     id: 'online',
     title: 'Online news portals',
     eyebrow: 'Digital-first',
@@ -64,7 +76,8 @@ export default function CuratedSections() {
   return (
     <div className="border-t border-line">
       {curatedSections.map((section) => {
-        const category = getCategory(section.id)
+        const categoryId = section.categoryId ?? section.id
+        const category = getCategory(categoryId)
         const items = section.ids
           .map((id) => byId.get(id))
           .filter(Boolean)
@@ -82,7 +95,7 @@ export default function CuratedSections() {
                 title={section.title}
                 description={category.description}
                 href={category.path}
-                linkLabel={`View all ${getCategoryCount(section.id)} ${getCategory(section.id).countLabel}`}
+                linkLabel={`View all ${getCategoryCount(categoryId)} ${category.countLabel}`}
               />
               <div className="mt-7">
                 <NewspaperGrid

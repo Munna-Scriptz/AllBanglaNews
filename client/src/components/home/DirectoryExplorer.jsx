@@ -54,12 +54,12 @@ export default function DirectoryExplorer({
           title={
             isSearching
               ? `Results for “${query.trim()}”`
-              : 'Every publication, organised.'
+              : 'The complete Bangladesh newspaper list.'
           }
           description={
             isSearching
               ? 'Filter the results by category, or clear your search to browse the full index.'
-              : 'Search by name, language or category — then filter the index to narrow it down.'
+              : 'Search the All Bangla newspaper list by name, language or category — then filter the directory to narrow it down.'
           }
         />
 

@@ -29,16 +29,19 @@ export default function PublicationLogo({
         <img
           src={publication.logo}
           alt={`${publication.name} logo`}
-          width="48"
-          height="48"
+          width="240"
+          height="120"
           loading={eager ? 'eager' : 'lazy'}
           fetchPriority={eager ? 'high' : 'auto'}
           decoding="async"
           onError={() => setFailed(true)}
-          className={cn('h-full w-full object-contain p-1.5', imageClassName)}
+          className={cn(
+            'h-full w-full object-contain',
+            imageClassName ?? 'p-1.5',
+          )}
         />
       ) : (
-        <span className="select-none text-[13px] font-semibold tracking-[-0.02em] text-ink-soft">
+        <span className="select-none text-[13px] font-semibold tracking-[-0.02em] text-ink-soft sm:text-[15px]">
           {getInitials(publication.name)}
         </span>
       )}

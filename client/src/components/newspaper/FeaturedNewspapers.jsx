@@ -17,7 +17,7 @@ export default function FeaturedNewspapers() {
           id="popular-heading"
           eyebrow="Curated selection"
           title="Popular newspapers"
-          description="Explore some of the most recognised publications in Bangladesh."
+          description="Explore some of the most recognised Bangla and English publications in Bangladesh."
           href="/#directory"
           linkLabel={`View all ${publications.length} publications`}
         />
