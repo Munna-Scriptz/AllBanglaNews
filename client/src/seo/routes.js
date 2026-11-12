@@ -49,6 +49,8 @@ const categorySeo = {
     description:
       'Find Bangladeshi online news portals and Bangla news sites, from bdnews24 and Bangla Tribune to Jago News 24 and Dhaka Post, with direct publisher links.',
     keywords: [
+      'all online online news',
+      'all online online newspapers',
       'online Bangla news',
       'Bangla news online',
       'Bangladeshi online news',
@@ -74,6 +76,7 @@ const categorySeo = {
     description:
       'Browse today’s Bangladeshi e-papers and digital newspaper editions, including Prothom Alo, The Daily Star, Kaler Kantho and Jugantor, in one directory.',
     keywords: [
+      'all bangla e-paper',
       'Bangladeshi e-paper',
       'Bangla e-paper',
       'e-paper Bangladesh',
@@ -97,6 +100,7 @@ const categorySeo = {
     description:
       'Discover English newspapers in Bangladesh, including The Daily Star, Dhaka Tribune, The Financial Express, Daily Sun and The Independent, in one list.',
     keywords: [
+      'all english newspapers',
       'English newspapers Bangladesh',
       'Bangladeshi English newspaper',
       'English daily Bangladesh',
@@ -118,6 +122,7 @@ const categorySeo = {
     description:
       'Browse Bangladeshi TV channels and Bangla news broadcasters, including Somoy TV, Jamuna TV, Channel i, NTV, ATN News, Ekhon TV and more.',
     keywords: [
+      'all bangladeshi TV channels',
       'Bangladeshi TV channels',
       'Bangla news TV',
       'Bangla TV channel list',
@@ -144,6 +149,8 @@ const categorySeo = {
     description:
       'Browse international newspapers and global news sites, including BBC News, CNN, Reuters, Al Jazeera and The Guardian, plus Bangla-language world coverage.',
     keywords: [
+      'all international news',
+      'all international newspapers',
       'international newspapers',
       'world news sites',
       'global newspapers',
