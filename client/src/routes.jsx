@@ -1,11 +1,35 @@
+import { categories } from './data/publications'
+import { staticPageRoutes } from './seo/routes'
 import Layout from './layout/Layout'
 import Home from './pages/Home'
 import CategoryPage from './pages/CategoryPage'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
 import NotFound from './pages/NotFound'
+
+const staticPageComponents = {
+  about: <About />,
+  contact: <Contact />,
+  privacy: <Privacy />,
+}
+
+const categoryRoutes = categories
+  .filter((category) => category.id !== 'all')
+  .map((category) => ({
+    path: category.path.replace(/^\//, ''),
+    element: <CategoryPage categoryId={category.id} />,
+  }))
+
+const staticRoutes = staticPageRoutes.map((page) => ({
+  path: page.path.replace(/^\//, ''),
+  element: staticPageComponents[page.id],
+}))
 
 /**
  * Single route table shared by the browser router and the build-time
- * prerenderer. Keeping it in one place prevents metadata/content drift.
+ * prerenderer. Category paths come from publications.js, and static page
+ * paths come from the same metadata used by sitemap.xml.
  */
 export const appRoutes = [
   {
@@ -13,22 +37,30 @@ export const appRoutes = [
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      {
-        path: 'bangla-newspapers',
-        element: <CategoryPage categoryId="bangla" />,
-      },
-      { path: 'online-news', element: <CategoryPage categoryId="online" /> },
-      { path: 'e-paper', element: <CategoryPage categoryId="epaper" /> },
-      {
-        path: 'english-newspapers',
-        element: <CategoryPage categoryId="english" />,
-      },
-      { path: 'tv-channels', element: <CategoryPage categoryId="tv" /> },
-      {
-        path: 'international',
-        element: <CategoryPage categoryId="international" />,
-      },
+      ...categoryRoutes,
+      ...staticRoutes,
       { path: '*', element: <NotFound /> },
     ],
   },
+]
+
+const joinPath = (parent, child) => {
+  const base = parent === '/' ? '' : parent.replace(/\/+$/, '')
+  const suffix = child.replace(/^\/+/, '')
+  return `${base}/${suffix}`.replace(/\/+/g, '/') || '/'
+}
+
+const collectLeafPaths = (routes, parent = '/') =>
+  routes.flatMap((route) => {
+    if (route.path === '*') return []
+
+    const path = route.path ? joinPath(parent, route.path) : parent
+    return route.children
+      ? collectLeafPaths(route.children, path)
+      : [path]
+  })
+
+/** Every public leaf route, excluding the catch-all 404 route. */
+export const publicRoutePaths = [
+  ...new Set(collectLeafPaths(appRoutes, '/')),
 ]

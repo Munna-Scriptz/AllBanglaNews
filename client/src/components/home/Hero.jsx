@@ -221,7 +221,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
                       </span>
 
                       <ArrowUpRight
-                        className="h-3.5 w-3.5 shrink-0 text-muted/40 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+                        className="h-3.5 w-3.5 shrink-0 text-muted transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
                         strokeWidth={1.8}
                         aria-hidden="true"
                       />
@@ -246,7 +246,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
               </div>
             </div>
 
-            <p className="mt-3 text-right text-[9px] uppercase tracking-[0.14em] text-muted/50">
+            <p className="mt-3 text-right text-[9px] uppercase tracking-[0.14em] text-muted">
               Curated in Dhaka · Bangladesh
             </p>
           </aside>

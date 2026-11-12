@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router'
 import { categoryContent } from '../../data/categoryContent'
 import { getCategory, getCategoryCount } from '../../data/publications'
+import { formatVerifiedDate } from '../../data/siteInfo'
 
 export default function CategoryGuide({ categoryId }) {
   const content = categoryContent[categoryId]
@@ -51,7 +52,8 @@ export default function CategoryGuide({ categoryId }) {
 
           <p className="mt-4 text-[11px] font-medium text-muted">
             {count} {category.countLabel} in this list, each linking to the
-            publisher&apos;s official website.
+            publisher&apos;s official website. Last verified:{' '}
+            {formatVerifiedDate()}.
           </p>
         </div>
 
@@ -97,7 +99,7 @@ export default function CategoryGuide({ categoryId }) {
                         </span>
                       </span>
                       <ArrowRight
-                        className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted/50 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
+                        className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
                         strokeWidth={1.8}
                         aria-hidden="true"
                       />

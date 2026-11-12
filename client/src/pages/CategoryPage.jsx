@@ -49,6 +49,7 @@ export default function CategoryPage({ categoryId }) {
 
       <section className="py-4 md:py-14" aria-label={`${pageTitle} directory`}>
         <div className="shell">
+          <h2 className="sr-only">{pageTitle} list</h2>
           <CategoryNavigation variant="tabs" activeId={categoryId} />
 
           <div className="mt-4 xl:mt-6 flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">

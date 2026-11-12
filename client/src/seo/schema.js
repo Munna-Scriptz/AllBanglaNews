@@ -44,14 +44,6 @@ const buildWebSite = () => ({
   description: SITE_DESCRIPTION,
   inLanguage: 'en',
   publisher: { '@id': organizationId },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${absoluteUrl('/')}?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
 })
 
 const buildPage = (meta, type = 'WebPage') => {
@@ -130,12 +122,13 @@ const buildItemList = (meta) => {
  * included — no ratings, review counts, traffic figures or invented awards.
  */
 export const buildSchemas = (meta) => {
-  if (!meta || meta.id === 'not-found') return null
+  if (!meta || meta.id === 'not-found' || meta.isSearch) return null
 
   const graph = [buildWebSite(), buildOrganization()]
-  const pageType = meta.id === 'home' ? 'WebPage' : 'CollectionPage'
+  const pageType = meta.pageType ?? (meta.categoryId ? 'CollectionPage' : 'WebPage')
+  const isListingPage = meta.id === 'home' || Boolean(meta.categoryId)
   const page = buildPage(meta, pageType)
-  const itemList = buildItemList(meta)
+  const itemList = isListingPage ? buildItemList(meta) : null
 
   if (page) graph.push(page)
   if (meta.id !== 'home') {

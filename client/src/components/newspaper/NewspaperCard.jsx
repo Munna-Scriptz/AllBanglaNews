@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react'
 import { getCategory } from '../../data/publications'
 import { cn } from '../../utils/helpers'
 import PublicationLogo from './PublicationLogo'
@@ -19,33 +18,11 @@ export default function NewspaperCard({
       target="_blank"
       rel="noopener noreferrer"
       title={`${publication.name} — ${publication.description}`}
-      aria-label={`${publication.name}, ${category.label} — opens the official website in a new tab`}
       className={cn(
-        'group relative flex h-full min-h-[188px] flex-col overflow-hidden rounded-[10px] border border-line bg-surface p-2.5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-lift focus-visible:-translate-y-0.5 focus-visible:border-ink focus-visible:shadow-lift sm:min-h-[214px] sm:p-3.5',
+        'group relative flex h-full min-h-[188px] flex-col overflow-hidden rounded-[10px] border border-line bg-[linear-gradient(135deg,#fbfaf7_0%,#ffffff_48%,#f1efe9_100%)] p-2.5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-lift focus-visible:-translate-y-0.5 focus-visible:border-ink focus-visible:shadow-lift sm:min-h-[214px] sm:p-3.5',
         className,
       )}
     >
-      {/* Newspaper background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.16] transition-opacity duration-300 group-hover:opacity-[0.25]"
-        style={{
-          backgroundImage: `
-        linear-gradient(
-          135deg,
-          rgba(10, 10, 10, 0.78),
-          rgba(10, 10, 10, 0.45)
-        ),
-          url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=85')      `,
-        }}
-      />
-
-      {/* Subtle surface overlay */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-surface/40 via-transparent to-surface/80"
-      />
-
       {/* Featured accent */}
       {featured && (
         <span
@@ -71,7 +48,7 @@ export default function NewspaperCard({
         {publication.banglaName && (
           <p
             lang="bn"
-            className="mt-0.5 truncate text-[10.5px] leading-5 text-muted/90 sm:text-[11.5px]"
+            className="mt-0.5 truncate text-[10.5px] leading-5 text-muted sm:text-[11.5px]"
           >
             {publication.banglaName}
           </p>
@@ -85,16 +62,18 @@ export default function NewspaperCard({
             {label}
           </span>
 
-          <span className="flex shrink-0 items-center gap-1.5 text-[9px] font-medium text-muted/80 sm:text-[10px]">
+          <span className="flex shrink-0 items-center gap-1.5 text-[9px] font-medium text-muted sm:text-[10px]">
             {publication.language}
-            <ArrowUpRight
-              className="h-3 w-3 text-muted/45 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-              strokeWidth={1.9}
+            <span
+              className="text-[11px] leading-none transition-colors group-hover:text-accent"
               aria-hidden="true"
-            />
+            >
+              ↗
+            </span>
           </span>
         </div>
       </div>
+      <span className="sr-only"> Opens the official website in a new tab.</span>
     </a>
   )
 }

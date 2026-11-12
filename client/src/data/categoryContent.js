@@ -43,7 +43,7 @@ export const categoryContent = {
       'বাংলাদেশের অনলাইন সংবাদপত্র ও বাংলা নিউজ পোর্টালের তালিকা এখানে দেওয়া হয়েছে। দিনের সর্বশেষ খবর, রাজনীতি, অর্থনীতি, খেলা ও বিনোদনের আপডেট পেতে যেকোনো পোর্টালের অফিসিয়াল সাইটে যান।',
     paragraphs: [
       'Online news portals publish continuously, often breaking stories before the next print edition. This collection covers digital-first Bangla and English newsrooms, including national portals, wire services and specialist outlets.',
-      'Use the list to compare sources, follow a developing story or find a newsroom that covers a particular beat. Each link opens the publisher’s own website. For printed editions, visit the Bangla newspaper list; for page-for-page digital editions, see the e-paper directory.',
+      'Use the list to compare sources, follow a developing story or find a newsroom that covers a particular beat. Each link opens the publisher’s own website. For printed editions, visit the Bangla newspaper list; for page-for-page digital editions, see the e-paper directory. The list is a finding aid, not a ranking of accuracy, reach or popularity.',
     ],
     highlights: [
       'Digital-first Bangla newsrooms',
@@ -71,10 +71,10 @@ export const categoryContent = {
   epaper: {
     heading: 'About Bangladeshi e-papers and digital editions',
     banglaParagraph:
-      'আজকের বাংলা ও ইংরেজি পত্রিকার ই-পেপার এখানে খুঁজে পাবেন। প্রতিটি লিংক সংশ্লিষ্ট পত্রিকার অফিসিয়াল ডিজিটাল সংস্করণে নিয়ে যাবে; কিছু ই-পেপার বিনামূল্যে, আবার কিছু সাবস্ক্রিপশনভিত্তিক।',
+      'আজকের বাংলা ও ইংরেজি পত্রিকার ই-পেপার এখানে খুঁজে পাবেন। যেখানে সরাসরি ই-পেপার লিংক যাচাই করা গেছে, সেখানে লিংকটি সংশ্লিষ্ট পত্রিকার অফিসিয়াল ডিজিটাল সংস্করণে নিয়ে যাবে; অন্যথায় পত্রিকার অফিসিয়াল হোমপেজে নিয়ে যাবে। কিছু ই-পেপার বিনামূল্যে, আবার কিছু সাবস্ক্রিপশনভিত্তিক।',
     paragraphs: [
       'An e-paper reproduces the printed newspaper page by page, usually as a PDF or an interactive reader. This list collects Bangladeshi publications that offer a digital edition, so you can read today’s paper without leaving your browser.',
-      'Availability and access can vary: some e-papers are free, while others require a subscription or registration. The links below go to each publisher’s official site; use the publication’s own e-paper section to choose a date and edition.',
+      'Access rules vary by publisher, and the publisher controls whether an edition is free, registration-only or subscription-only. The links below go to each publisher’s official site; use the publication’s own e-paper section to choose a date and edition. Where a direct e-paper address has been verified, the listing opens that edition; otherwise it keeps the publisher’s homepage so you can find the current issue.',
     ],
     highlights: [
       'Page-for-page digital newspaper editions',
@@ -105,7 +105,7 @@ export const categoryContent = {
       'বাংলাদেশ থেকে প্রকাশিত ইংরেজি দৈনিক ও ব্যবসায়িক পত্রিকার তালিকা এখানে রয়েছে। জাতীয়, আন্তর্জাতিক, অর্থনীতি ও মতামতের ইংরেজি সংবাদ পড়তে প্রতিটি পত্রিকার অফিসিয়াল ওয়েবসাইটে যান।',
     paragraphs: [
       'Bangladesh’s English-language press serves readers who prefer English coverage of national politics, business, culture and international affairs. This list includes established dailies, business papers and weekly magazines published in Bangladesh.',
-      'English titles often provide analysis and opinion alongside daily news. Each entry links to the publisher’s official website; some also offer e-paper editions, which you can find in the e-paper directory.',
+      'English titles often provide analysis and opinion alongside daily news. Each entry links to the publisher’s official website; some also offer e-paper editions, which you can find in the e-paper directory. The list covers established dailies, business papers and weeklies rather than every English-language blog or magazine in the country.',
     ],
     highlights: [
       'National English dailies',
@@ -136,7 +136,7 @@ export const categoryContent = {
       'বাংলাদেশের বাংলা টিভি চ্যানেল ও সংবাদ সম্প্রচারকের তালিকা এখানে দেওয়া হয়েছে। লাইভ বাংলা নিউজ, টক শো ও বুলেটিন দেখতে চ্যানেলের অফিসিয়াল ওয়েবসাইট বা লাইভ স্ট্রিম পেজ ব্যবহার করুন।',
     paragraphs: [
       'Bangladesh’s television sector includes 24-hour news channels, general entertainment broadcasters and state-run television. This list focuses on channels that publish news and current-affairs content online, so you can follow bulletins, talk shows and live streams.',
-      'Each link opens the broadcaster’s official website or live-stream page. Channel availability, schedules and streaming rights are controlled by the broadcaster and may differ by country.',
+      'Each link opens the broadcaster’s official website or live-stream page. Channel availability, schedules and streaming rights are controlled by the broadcaster and may differ by country. The directory links to official pages only; it does not host live streams or embed broadcaster video. Where a channel does not publish a working live page, the listing still points to its official website.',
     ],
     highlights: [
       '24-hour Bangla news channels',
@@ -167,7 +167,7 @@ export const categoryContent = {
       'বিশ্বের বিভিন্ন দেশের সংবাদপত্র, নিউজ এজেন্সি ও আন্তর্জাতিক সংবাদমাধ্যমের তালিকা এখানে রয়েছে। বিবিসি বাংলা, ডয়চে ভেলে বাংলা ও ভিওএ বাংলাসহ বাংলা ভাষার আন্তর্জাতিক সংবাদসেবাও এখানে পাবেন।',
     paragraphs: [
       'International publications add context to Bangladesh’s news, from South Asian politics to global markets and conflict reporting. This selection includes global news agencies, newspapers and broadcasters with strong online coverage.',
-      'These links leave the All Bangla Newspapers directory and open the publisher’s own website. Paywalls, registration requirements and regional availability are set by each publication.',
+      'These links leave the All Bangla Newspapers directory and open the publisher’s own website. Paywalls, registration requirements and regional availability are set by each publication. The selection focuses on outlets with accessible online reporting and, where available, Bangla-language services. It is a reading list, not a claim that every outlet covers Bangladesh equally.',
     ],
     highlights: [
       'Global news agencies and wire services',

@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.allbanglanewspapers.news/sitemap.xml
-Host: https://www.allbanglanewspapers.news

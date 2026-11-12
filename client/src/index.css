@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-700.css";
+@import "@fontsource/hind-siliguri/bengali-400.css";
+@import "@fontsource/hind-siliguri/bengali-600.css";
 
 @theme {
   --font-sans:
@@ -10,7 +16,7 @@
   --color-surface: #ffffff;
   --color-ink: #181916;
   --color-ink-soft: #45473f;
-  --color-muted: #797b73;
+  --color-muted: #54564f;
   --color-line: #e5e2da;
   --color-line-strong: #d1cec3;
   --color-accent: #b42318;

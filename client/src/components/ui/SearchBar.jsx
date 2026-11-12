@@ -57,7 +57,7 @@ export default function SearchBar({
         autoComplete="off"
         spellCheck="false"
         className={cn(
-          'h-9 min-w-0 flex-1 appearance-none bg-transparent px-1 text-[12px] leading-5 text-ink outline-none placeholder:text-muted/80 [&::-webkit-search-cancel-button]:hidden sm:h-10 sm:text-[13px]',
+          'h-9 min-w-0 flex-1 appearance-none bg-transparent px-1 text-[12px] leading-5 text-ink outline-none placeholder:text-muted [&::-webkit-search-cancel-button]:hidden sm:h-10 sm:text-[13px]',
           size === 'lg' && 'sm:h-11 sm:text-[14px]',
           inputClassName,
         )}

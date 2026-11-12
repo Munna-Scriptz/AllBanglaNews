@@ -115,7 +115,7 @@ function SearchPopover({ onClose }) {
                     </span>
                   </span>
                   <ArrowUpRight
-                    className="h-3.5 w-3.5 shrink-0 text-muted/40 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+                    className="h-3.5 w-3.5 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
                     strokeWidth={1.8}
                     aria-hidden="true"
                   />

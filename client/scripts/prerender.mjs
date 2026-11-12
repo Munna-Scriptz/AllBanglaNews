@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const dist = path.join(root, 'dist')
 const seoPattern = /<!--seo:start-->[\s\S]*?<!--seo:end-->/
+const buildDate = new Date().toISOString().slice(0, 10)
 
 const escapeXml = (value = '') =>
   String(value)
@@ -85,7 +86,10 @@ const writeRoute = (routePath, page) => {
 const buildSitemap = () => {
   const urls = seoRoutes.map((route) => getPageMeta(route.path).canonical)
   const entries = urls
-    .map((url) => `  <url>\n    <loc>${escapeXml(url)}</loc>\n  </url>`)
+    .map(
+      (url) =>
+        `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`,
+    )
     .join('\n')
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -93,6 +97,36 @@ const buildSitemap = () => {
 ${entries}
 </urlset>
 `
+}
+
+const buildRobots = () =>
+  `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+
+const validateRouteTable = (routesModule) => {
+  const publicPaths = routesModule.publicRoutePaths
+
+  if (!Array.isArray(publicPaths) || publicPaths.length === 0) {
+    throw new Error('routes.jsx did not export publicRoutePaths.')
+  }
+
+  const publicSet = new Set(publicPaths)
+  const seoSet = new Set(seoRoutes.map((route) => route.path))
+  const missingMeta = publicPaths.filter((routePath) => !seoSet.has(routePath))
+  const missingRoute = seoRoutes
+    .map((route) => route.path)
+    .filter((routePath) => !publicSet.has(routePath))
+
+  if (missingMeta.length > 0) {
+    throw new Error(
+      `Route(s) without SEO metadata: ${missingMeta.join(', ')}`,
+    )
+  }
+
+  if (missingRoute.length > 0) {
+    throw new Error(
+      `SEO route(s) without a matching React route: ${missingRoute.join(', ')}`,
+    )
+  }
 }
 
 const buildLlmsTxt = () => {
@@ -151,6 +185,9 @@ const main = async () => {
   })
 
   try {
+    const routesModule = await vite.ssrLoadModule('/src/routes.jsx')
+    validateRouteTable(routesModule)
+
     const { render } = await vite.ssrLoadModule('/src/entry-server.jsx')
 
     for (const route of seoRoutes) {
@@ -166,13 +203,19 @@ const main = async () => {
     const notFoundMeta = getPageMeta('/not-found')
     const { html: notFoundHtml } = await render('/not-found')
     const notFoundPage = injectPage(template, notFoundMeta, null, notFoundHtml)
+
+    if (!notFoundPage.includes('content="noindex, follow"')) {
+      throw new Error('404.html is missing the noindex robots directive.')
+    }
+
     fs.writeFileSync(path.join(dist, '404.html'), notFoundPage)
     console.log('prerendered 404.html')
 
     fs.writeFileSync(path.join(dist, 'sitemap.xml'), buildSitemap())
+    fs.writeFileSync(path.join(dist, 'robots.txt'), buildRobots())
     fs.writeFileSync(path.join(dist, 'llms.txt'), buildLlmsTxt())
     console.log(
-      `generated sitemap.xml (${seoRoutes.length} URLs) and llms.txt`,
+      `generated sitemap.xml (${seoRoutes.length} URLs), robots.txt and llms.txt`,
     )
   } finally {
     await vite.close()

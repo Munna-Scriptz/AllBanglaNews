@@ -23,7 +23,6 @@ export default function PublicationLogo({
         'flex shrink-0 items-center justify-center overflow-hidden rounded-[8px] border border-line bg-[#fbfaf7]',
         className,
       )}
-      aria-hidden="true"
     >
       {!failed && publication.logo ? (
         <img

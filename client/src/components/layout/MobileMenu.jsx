@@ -155,7 +155,7 @@ export default function MobileMenu({ open, onClose }) {
               <span className="flex items-center gap-2 text-[11px] font-medium text-muted">
                 {getCategoryCount(category.id)}
                 <ArrowUpRight
-                  className="h-3 w-3 text-muted/50"
+                  className="h-3 w-3 text-muted"
                   strokeWidth={1.8}
                   aria-hidden="true"
                 />

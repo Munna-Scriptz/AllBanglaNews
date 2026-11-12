@@ -58,7 +58,7 @@ export default function Brand({
           <span
             className={cn(
               'mt-1 hidden text-[8px] font-medium uppercase leading-none tracking-[0.16em] sm:block',
-              isDark ? 'text-white/40' : 'text-muted',
+              isDark ? 'text-white/55' : 'text-muted',
             )}
           >
             Bangladesh News Directory

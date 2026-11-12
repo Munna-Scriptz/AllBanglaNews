@@ -9,10 +9,13 @@ import Brand from '../ui/Brand'
 
 const exploreLinks = [
   { label: 'Home', to: '/' },
-  { label: 'Popular newspapers', to: '/#popular' },
+  { label: 'Bangla newspapers', to: '/bangla-newspapers' },
   { label: 'Complete directory', to: '/#directory' },
   { label: 'E-Papers', to: '/e-paper' },
   { label: 'TV Channels', to: '/tv-channels' },
+  { label: 'About', to: '/about' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'Privacy', to: '/privacy' },
 ]
 
 const categoryLinks = categories
@@ -37,15 +40,15 @@ export default function Footer() {
               portals, e-papers and broadcasters. No accounts, no noise — just
               the publications.
             </p>
-            <div className="mt-5 flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.13em] text-white/35">
+            <div className="mt-5 flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.13em] text-white/55">
               <span>{publications.length} publications</span>
               <span className="h-3 w-px bg-white/15" aria-hidden="true" />
-              <span>6 categories</span>
+              <span>{categories.length - 1} categories</span>
             </div>
           </div>
 
           <div>
-            <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+            <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/55">
               Explore
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -63,7 +66,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+            <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/55">
               Directory
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -74,7 +77,7 @@ export default function Footer() {
                     className="group flex items-center justify-between gap-4 text-[12.5px] text-white/60 transition-colors hover:text-white"
                   >
                     <span>{category.label}</span>
-                    <span className="text-[10px] tabular-nums text-white/25">
+                    <span className="text-[10px] tabular-nums text-white/55">
                       {category.count}
                     </span>
                   </Link>
@@ -84,7 +87,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+            <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/55">
               About the directory
             </h2>
             <p className="mt-4 text-[12.5px] leading-6 text-white/55">
@@ -92,7 +95,7 @@ export default function Footer() {
               of Bangladeshi media. It does not publish news and is not
               affiliated with the publications listed here.
             </p>
-            <p className="mt-3 text-[11.5px] leading-5 text-white/35">
+            <p className="mt-3 text-[11.5px] leading-5 text-white/55">
               All trademarks, names and logos belong to their respective
               publishers. Every card opens an external website in a new tab.
             </p>
@@ -100,7 +103,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[11px] leading-5 text-white/35">
+          <p className="text-[11px] leading-5 text-white/55">
             © {year} All Bangla Newspapers. Built for readers in Bangladesh.
           </p>
           <div className="flex items-center justify-between gap-6 sm:justify-end">
@@ -108,7 +111,7 @@ export default function Footer() {
               href="https://munna-scriptz.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1 text-white/50 hover:text-neutral-400 transition-colors duration-300 text-[11px]"
+              className="flex items-center gap-1 text-white/60 hover:text-white transition-colors duration-300 text-[11px]"
             >
               <CodeXml size={14} className="opacity-70" />
               <span>Developed by <span className="underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-500 transition-colors">Munna-Scriptz</span></span>
@@ -117,7 +120,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="group inline-flex items-center gap-1.5 text-[11px] font-medium text-white/50 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-1.5 text-[11px] font-medium text-white/60 transition-colors hover:text-white"
             >
               Back to top
               <ArrowUp

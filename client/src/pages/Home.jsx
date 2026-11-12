@@ -3,10 +3,9 @@ import { useLocation, useSearchParams } from 'react-router'
 import { scrollToId } from '../utils/helpers'
 import CategoryNavigation from '../components/ui/CategoryNavigation'
 import Hero from '../components/home/Hero'
-import FeaturedNewspapers from '../components/newspaper/FeaturedNewspapers'
 import DirectoryExplorer from '../components/home/DirectoryExplorer'
-import CuratedSections from '../components/home/CuratedSections'
 import DirectoryGuide from '../components/home/DirectoryGuide'
+import FaqSection from '../components/home/FaqSection'
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -61,8 +60,6 @@ export default function Home() {
         </div>
       </section>
 
-      <FeaturedNewspapers />
-
       <DirectoryExplorer
         query={query}
         onQueryChange={updateQuery}
@@ -71,8 +68,8 @@ export default function Home() {
 
       {!isSearching && (
         <>
-          <CuratedSections />
           <DirectoryGuide />
+          <FaqSection />
         </>
       )}
     </>

@@ -38,7 +38,6 @@ export const buildHeadTags = (meta, schemas) => {
   const tags = [
     `<title>${escapeHtml(meta.title)}</title>`,
     metaTag('name', 'description', meta.description, 'description'),
-    metaTag('name', 'keywords', meta.keywords.join(', '), 'keywords'),
     metaTag('name', 'robots', meta.robots, 'robots'),
     metaTag('name', 'author', SITE_NAME, 'author'),
   ]

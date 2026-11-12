@@ -97,7 +97,8 @@ export default function DirectoryExplorer({
           <>
             <div className="mt-5">
               <NewspaperGrid
-                items={visibleItems}
+                items={results}
+                visibleCount={visibleCount}
                 ariaLabel={
                   isSearching ? 'Search results' : 'Complete publication directory'
                 }

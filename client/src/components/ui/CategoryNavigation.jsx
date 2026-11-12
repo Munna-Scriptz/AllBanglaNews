@@ -70,7 +70,7 @@ export default function CategoryNavigation({
                   <span
                     className={cn(
                       'mt-1 block truncate text-[9px] font-medium sm:text-[10.5px]',
-                      isActive ? 'text-white/45' : 'text-muted',
+                      isActive ? 'text-white/60' : 'text-muted',
                     )}
                   >
                     {count} publications
@@ -83,7 +83,7 @@ export default function CategoryNavigation({
                 <ArrowUpRight
                   className={cn(
                     'h-3.5 w-3.5 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
-                    isActive ? 'text-white/40' : 'text-muted/60',
+                    isActive ? 'text-white/60' : 'text-muted',
                   )}
                   strokeWidth={1.8}
                   aria-hidden="true"

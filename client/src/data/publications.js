@@ -7,8 +7,11 @@
  *   2. Add an entry below using the same shape.
  *
  * `epaper` marks publications that also offer a digital edition.
- * `popularity` and `ranking` are intentionally null — they are reserved for
- * verified data only and are never rendered with invented numbers.
+ * `epaperUrl` is set only when the publisher's separate e-paper page has been
+ * verified; otherwise it stays null and the listing falls back to the official
+ * homepage. `popularity` and `ranking` are intentionally null — they are
+ * reserved for verified data only and are never rendered with invented
+ * numbers.
  */
 
 export const categories = [
@@ -105,6 +108,9 @@ export const publications = [
       "One of Bangladesh's most established Bengali dailies, with national reporting, analysis and opinion.",
     featured: true,
     epaper: true,
+    epaperUrl: 'https://epaper.prothomalo.com/',
+    epaperDescription:
+      'Read today’s Prothom Alo e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -120,6 +126,9 @@ export const publications = [
       'A leading Bengali daily covering national politics, districts, business and entertainment.',
     featured: true,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Bangladesh Pratidin’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -135,6 +144,9 @@ export const publications = [
       'A national Bengali daily with broad coverage of politics, business, sports and culture.',
     featured: true,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Kaler Kantho’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -150,6 +162,9 @@ export const publications = [
       'A national Bengali daily offering politics, economy, sports and feature reporting.',
     featured: true,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Jugantor’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -165,6 +180,9 @@ export const publications = [
       "One of the country's oldest Bengali dailies, publishing national and international news.",
     featured: true,
     epaper: true,
+    epaperUrl: 'https://epaper.ittefaq.com.bd/',
+    epaperDescription:
+      'Read today’s Ittefaq e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -180,6 +198,9 @@ export const publications = [
       'A Bengali daily recognised for reporting, analysis and cultural coverage.',
     featured: true,
     epaper: true,
+    epaperUrl: 'https://epaper.samakal.com/',
+    epaperDescription:
+      'Read today’s Samakal e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -195,6 +216,9 @@ export const publications = [
       'A national Bengali daily covering current affairs, politics and regional news.',
     featured: false,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Naya Diganta’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -210,6 +234,9 @@ export const publications = [
       'A Bengali daily with a focus on national news, business and international affairs.',
     featured: false,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Manab Zamin’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -225,6 +252,9 @@ export const publications = [
       'A Bengali business daily covering markets, the economy and enterprise.',
     featured: false,
     epaper: true,
+    epaperUrl: 'https://epaper.bonikbarta.com/',
+    epaperDescription:
+      'Read today’s Bonik Barta e-paper, the business daily’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -240,6 +270,9 @@ export const publications = [
       'A long-running Bengali daily with national, political and international coverage.',
     featured: false,
     epaper: true,
+    epaperUrl: 'https://epaper.dailyinqilab.com/',
+    epaperDescription:
+      'Read today’s Dainik Inqilab e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -405,6 +438,9 @@ export const publications = [
       'A national Bengali daily covering politics, the economy, sports and everyday life.',
     featured: false,
     epaper: true,
+    epaperUrl: 'https://epaper.ajkerpatrika.com/',
+    epaperDescription:
+      'Read today’s Ajker Patrika e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -420,6 +456,9 @@ export const publications = [
       'A historic Bengali daily published from Chattogram, covering regional and national news.',
     featured: false,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Dainik Azadi’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -435,6 +474,9 @@ export const publications = [
       'A Chattogram-based Bengali daily covering the port city, nearby districts and national affairs.',
     featured: false,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Dainik Purbokone’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -467,6 +509,9 @@ export const publications = [
       "Bangladesh's leading English daily, with national, business and international coverage.",
     featured: true,
     epaper: true,
+    epaperUrl: 'https://epaper.thedailystar.net/',
+    epaperDescription:
+      'Read The Daily Star e-paper; the publisher’s digital edition redirects to a login portal.',
     popularity: null,
     ranking: null,
   },
@@ -482,6 +527,9 @@ export const publications = [
       'An English daily covering Bangladesh politics, business, culture and global affairs.',
     featured: true,
     epaper: true,
+    epaperUrl: 'https://epaper.dhakatribune.com/',
+    epaperDescription:
+      'Read today’s Dhaka Tribune e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -497,6 +545,9 @@ export const publications = [
       'An English business daily focused on markets, the economy and policy.',
     featured: false,
     epaper: true,
+    epaperUrl: 'https://epaper.thefinancialexpress.com.bd/',
+    epaperDescription:
+      'Read today’s Financial Express e-paper, the business daily’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -512,6 +563,9 @@ export const publications = [
       'An English daily offering national news, opinion and analysis.',
     featured: false,
     epaper: true,
+    epaperUrl: 'https://epaper.newagebd.net/',
+    epaperDescription:
+      'Read today’s New Age e-paper, the publisher’s page-by-page digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -527,6 +581,9 @@ export const publications = [
       'An English business publication covering the economy, markets and policy.',
     featured: false,
     epaper: true,
+    epaperUrl: 'https://epaper.tbsnews.net/',
+    epaperDescription:
+      'Read today’s Business Standard e-paper at the publisher’s official digital edition.',
     popularity: null,
     ranking: null,
   },
@@ -542,6 +599,9 @@ export const publications = [
       'An English daily with national, business and lifestyle coverage.',
     featured: false,
     epaper: true,
+    epaperUrl: null,
+    epaperDescription:
+      'Visit Daily Sun’s official website to find today’s e-paper edition.',
     popularity: null,
     ranking: null,
   },
@@ -1486,10 +1546,25 @@ export const publications = [
 export const getCategory = (id) =>
   categories.find((category) => category.id === id) ?? categories[0]
 
+/**
+ * E-paper listings reuse the newspaper identity but point at a separate
+ * digital edition where one has been verified. Unverified editions keep the
+ * official homepage and explain that in the listing description.
+ */
+const toEpaperListing = (publication) => ({
+  ...publication,
+  website: publication.epaperUrl ?? publication.website,
+  description:
+    publication.epaperDescription ??
+    `Read today’s ${publication.name} e-paper at the publisher’s official website.`,
+})
+
 export const getPublicationsByCategory = (categoryId) => {
   if (!categoryId || categoryId === 'all') return publications
   if (categoryId === 'epaper') {
-    return publications.filter((publication) => publication.epaper)
+    return publications
+      .filter((publication) => publication.epaper)
+      .map(toEpaperListing)
   }
   return publications.filter(
     (publication) => publication.category === categoryId,
@@ -1508,6 +1583,8 @@ const buildSearchText = (publication) =>
     publication.name,
     publication.banglaName,
     publication.description,
+    publication.epaperDescription,
+    publication.epaper ? 'e-paper epaper digital edition' : '',
     publication.language,
     getCategory(publication.category).label,
   ]

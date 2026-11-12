@@ -90,7 +90,6 @@ export default function Seo() {
     document.title = meta.title
 
     upsertMeta('description', 'name', 'description', meta.description)
-    upsertMeta('keywords', 'name', 'keywords', meta.keywords.join(', '))
     upsertMeta('robots', 'name', 'robots', meta.robots)
     upsertMeta('author', 'name', 'author', SITE_NAME)
 
