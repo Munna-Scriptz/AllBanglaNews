@@ -60,11 +60,7 @@ export default function Home() {
         </div>
       </section>
 
-      <DirectoryExplorer
-        query={query}
-        onQueryChange={updateQuery}
-        onClear={() => updateQuery('')}
-      />
+      <DirectoryExplorer query={query} onClear={() => updateQuery('')} />
 
       {!isSearching && (
         <>

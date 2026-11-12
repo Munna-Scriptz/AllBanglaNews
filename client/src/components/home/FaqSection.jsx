@@ -8,11 +8,22 @@ import {
 import { formatVerifiedDate } from '../../data/siteInfo'
 
 const categoryCount = categories.filter((category) => category.id !== 'all').length
+const publicationCount = publications.filter(
+  (publication) => publication.category !== 'radio',
+).length
+const radioCount = getCategoryCount('radio')
+const categoryEntryTotal = categories
+  .filter((category) => category.id !== 'all')
+  .reduce((total, category) => total + getCategoryCount(category.id), 0)
 
 const faqs = [
   {
     question: 'How many publications are in the directory?',
-    answer: `The directory currently lists ${publications.length} publications across ${categoryCount} categories. That includes Bangla and English newspapers, online news portals, e-paper editions, TV channels and international publications. The count comes directly from the directory data, not from an estimate.`,
+    answer: `The directory currently lists ${publications.length} unique outlets across ${categoryCount} categories: ${publicationCount} publications and ${radioCount} radio stations. That includes national and local newspapers, online news portals, e-paper editions, TV channels and international publications. Each outlet is counted once, regardless of how many views it appears in.`,
+  },
+  {
+    question: 'Why do the category counts add up to more than the total?',
+    answer: `The category cards show ${categoryEntryTotal} entries in total because e-paper is a cross-cutting view. A newspaper with a digital edition appears in both its newspaper category and E-Paper, so those entries are counted twice. The headline figure of ${publications.length} remains the unique outlet count.`,
   },
   {
     question: 'Does All Bangla Newspapers publish or host news?',

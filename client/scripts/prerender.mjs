@@ -130,6 +130,11 @@ const validateRouteTable = (routesModule) => {
 }
 
 const buildLlmsTxt = () => {
+  const publicationCount = publications.filter(
+    (publication) => publication.category !== 'radio',
+  ).length
+  const radioCount = getCategoryCount('radio')
+
   const pageLines = seoRoutes
     .map((route) => {
       const meta = getPageMeta(route.path)
@@ -147,15 +152,15 @@ const buildLlmsTxt = () => {
 
   return `# ${SITE_NAME}
 
-> ${SITE_TAGLINE} — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, online news portals, e-papers, TV channels and international publications.
+> ${SITE_TAGLINE} — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, local district titles, radio stations, online news portals, e-papers, TV channels and international publications.
 
 Canonical: ${SITE_URL}/
 
 ## What the site provides
 
-- A searchable directory of ${publications.length} Bangladeshi and international publications.
-- Category lists for Bangla newspapers, online news, e-papers, English newspapers, TV channels and international media.
-- Direct links to each publisher's official website. The directory does not host or republish news articles.
+- A searchable directory of ${publications.length} unique outlets: ${publicationCount} publications and ${radioCount} radio stations.
+- Category lists for Bangla newspapers, local newspapers across eight divisions, radio stations, online news, e-papers, English newspapers, TV channels and international media.
+- Direct links to each publisher or broadcaster's official website. The directory does not host or republish news articles.
 
 ## Pages
 

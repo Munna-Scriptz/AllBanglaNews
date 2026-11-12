@@ -3,6 +3,7 @@ import { staticPageRoutes } from './seo/routes'
 import Layout from './layout/Layout'
 import Home from './pages/Home'
 import CategoryPage from './pages/CategoryPage'
+import LocalPage from './pages/LocalPage'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
@@ -15,7 +16,7 @@ const staticPageComponents = {
 }
 
 const categoryRoutes = categories
-  .filter((category) => category.id !== 'all')
+  .filter((category) => category.id !== 'all' && category.id !== 'local')
   .map((category) => ({
     path: category.path.replace(/^\//, ''),
     element: <CategoryPage categoryId={category.id} />,
@@ -38,6 +39,7 @@ export const appRoutes = [
     children: [
       { index: true, element: <Home /> },
       ...categoryRoutes,
+      { path: 'local-newspapers', element: <LocalPage /> },
       ...staticRoutes,
       { path: '*', element: <NotFound /> },
     ],

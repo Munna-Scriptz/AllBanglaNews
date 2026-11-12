@@ -10,7 +10,7 @@ export default function NewspaperCard({
   className,
 }) {
   const category = getCategory(publication.category)
-  const label = metaLabel ?? category.shortLabel
+  const label = metaLabel ?? publication.district ?? category.shortLabel
 
   return (
     <a

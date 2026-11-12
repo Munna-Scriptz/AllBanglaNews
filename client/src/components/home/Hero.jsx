@@ -52,8 +52,8 @@ export default function Hero({ query, onQueryChange, onSearch }) {
         NEWS
       </div>
 
-      <div className="shell relative py-3 md:py-12 lg:py-20">
-        <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:gap-14">
+      <div className="shell relative py-5 md:py-9 lg:py-12">
+        <div className="flex flex-col gap-8 xl:flex-row xl:items-start xl:gap-14">
           {/* Main hero content */}
           <div className="min-w-0 max-w-4xl flex-1">
             <p className="eyebrow hidden xl:flex">
@@ -61,7 +61,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
               Bangladesh News Directory
             </p>
 
-            <h1 className="mt-4 text-[32px] font-semibold leading-[1.08] tracking-[-0.045em] text-ink min-[480px]:text-[38px] sm:text-[46px] md:text-[56px] lg:text-[64px]">
+            <h1 className="mt-2 text-[30px] font-semibold leading-[1.06] tracking-[-0.045em] text-ink min-[480px]:text-[34px] sm:text-[42px] md:text-[50px] lg:text-[54px]">
               All Bangla newspapers,
               <br className="hidden sm:block" />{' '}
               <span className="relative inline-block text-accent">
@@ -73,22 +73,14 @@ export default function Hero({ query, onQueryChange, onSearch }) {
               </span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-[13px] leading-6 text-ink-soft/90 sm:text-[14px] sm:leading-7">
-              Browse the complete All Bangla newspaper list — Bangla dailies,
-              online news portals, e-papers, English newspapers, TV channels and
-              international publications — in one organised directory.
-            </p>
-
-            <p
-              lang="bn"
-              className="mt-2 max-w-xl text-[12px] leading-6 text-muted sm:text-[12.5px]"
-            >
-              সকল বাংলা পত্রিকা, আজকের পত্রিকা, ই-পেপার ও বাংলা টিভি চ্যানেল
-              এক জায়গায়।
+            <p className="mt-3 max-w-xl text-[13px] leading-6 text-ink-soft/90 sm:text-[14px] sm:leading-7">
+              Browse national and local newspapers, radio stations, online
+              portals, e-papers, TV channels and international publications in
+              one organised directory.
             </p>
 
             {/* Search */}
-            <div className="mt-6 w-full max-w-xl">
+            <div className="mt-5 w-full max-w-xl">
               <SearchBar
                 id="hero-search"
                 value={query}
@@ -103,7 +95,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
             </div>
 
             {/* Quick searches */}
-            <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-2 text-[10px] text-muted sm:text-[11px]">
+            <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 text-[10px] text-muted sm:text-[11px]">
               <span className="font-medium">Try</span>
               {quickSearches.map((name) => (
                 <button
@@ -118,13 +110,13 @@ export default function Hero({ query, onQueryChange, onSearch }) {
             </div>
 
             {/* Directory statistics */}
-            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-5 sm:mt-9 sm:gap-x-7 sm:pt-6">
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-4 sm:mt-7 sm:gap-x-7 sm:pt-5">
               <div className="flex items-baseline gap-1.5">
                 <span className="text-[15px] font-bold tabular-nums tracking-tight text-accent sm:text-[17px]">
                   {publications.length}
                 </span>
                 <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-muted sm:text-[10px]">
-                  Publications
+                  Unique outlets
                 </span>
               </div>
 
@@ -138,7 +130,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
                   {getCategoryCount('epaper')}
                 </span>
                 <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-muted sm:text-[10px]">
-                  E-papers
+                  Digital editions
                 </span>
               </div>
 
@@ -169,7 +161,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
 
           {/* Quick picks sidebar */}
           <aside
-            className="hidden w-full xl:mt-10 xl:block xl:w-[280px] xl:shrink-0"
+            className="hidden w-full xl:block xl:w-[280px] xl:shrink-0"
             aria-label="Quick picks"
           >
             <div className="relative overflow-hidden rounded-[10px] border border-line bg-paper/90 shadow-card">

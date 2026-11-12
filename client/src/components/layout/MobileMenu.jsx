@@ -11,9 +11,7 @@ import Brand from '../ui/Brand'
 import CategoryIcon from '../ui/CategoryIcon'
 import SearchBar from '../ui/SearchBar'
 
-const navCategories = ['bangla', 'online', 'epaper', 'tv', 'english', 'international']
-  .map((id) => categories.find((category) => category.id === id))
-  .filter(Boolean)
+const navCategories = categories.filter((category) => category.id !== 'all')
 
 export default function MobileMenu({ open, onClose }) {
   const [term, setTerm] = useState('')
@@ -166,7 +164,7 @@ export default function MobileMenu({ open, onClose }) {
 
         <div className="shrink-0 border-t border-line px-5 py-4">
           <p className="text-[11px] leading-5 text-muted">
-            {publications.length} publications indexed. Every link opens the
+            {publications.length} unique outlets indexed. Every link opens the
             publisher&apos;s official website.
           </p>
         </div>

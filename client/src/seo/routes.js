@@ -18,6 +18,11 @@ const categorySeo = {
     description:
       'Browse all Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq, Jugantor and regional dailies, with links to official websites.',
   },
+  local: {
+    title: 'Local Newspapers (স্থানীয় পত্রিকা) — 8 Divisions',
+    description:
+      'Browse district-level newspapers and local news portals from Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.',
+  },
   online: {
     title: 'Online Bangla News (অনলাইন পত্রিকা) — Bangladeshi Sites',
     description:
@@ -27,6 +32,11 @@ const categorySeo = {
     title: 'Bangladeshi E-Paper (ই-পেপার) — Today’s Editions',
     description:
       'Browse today’s Bangladeshi e-papers and digital newspaper editions, including Prothom Alo, Ittefaq, Samakal, Dhaka Tribune and more.',
+  },
+  radio: {
+    title: 'Bangladesh Radio Stations (রেডিও) — FM & Live',
+    description:
+      'Find Bangladeshi FM and state radio stations, including Bangladesh Betar, Radio Foorti, Radio Today and Dhaka FM, with official websites and live-listening links.',
   },
   english: {
     title: 'English Newspapers (ইংরেজি পত্রিকা) — Bangladesh List',
@@ -120,7 +130,7 @@ export const seoRoutes = [
     pageType: 'CollectionPage',
     title: 'All Bangla Newspapers (সকল বাংলা পত্রিকা) — Complete List',
     description:
-      'All Bangla Newspapers is a complete Bangladesh newspaper list: Bangla dailies, online news, e-papers, English papers, TV channels and international press.',
+      'All Bangla Newspapers is a complete Bangladesh media directory: national and local newspapers, radio stations, online news, e-papers, English papers, TV channels and international press.',
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: DEFAULT_OG_IMAGE_ALT,
@@ -136,7 +146,7 @@ export const notFoundMeta = {
   categoryId: null,
   title: 'Page not found — All Bangla Newspapers',
   description:
-    'The page you requested is not in the All Bangla Newspapers directory. Return to the homepage to browse Bangladeshi newspapers, e-papers and TV channels.',
+    'The page you requested is not in the All Bangla Newspapers directory. Return to the homepage to browse Bangladeshi newspapers, local titles, radio stations, e-papers and TV channels.',
   robots: NOINDEX_ROBOTS,
   image: DEFAULT_OG_IMAGE,
   imageAlt: DEFAULT_OG_IMAGE_ALT,

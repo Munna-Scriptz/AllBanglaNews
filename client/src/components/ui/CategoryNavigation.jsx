@@ -16,12 +16,11 @@ export default function CategoryNavigation({
     ? categories
     : categories.filter((category) => category.id !== 'all')
 
-
   if (variant === 'cards') {
     return (
       <div
         className={cn(
-          'flex flex-wrap gap-2.5 sm:gap-3',
+          'hide-scrollbar -mx-1 flex snap-x gap-2.5 overflow-x-auto px-1 pb-1 sm:gap-3',
           className,
         )}
         aria-label="Browse categories"
@@ -36,11 +35,7 @@ export default function CategoryNavigation({
               to={category.path}
               onClick={() => onSelect?.(category.id)}
               className={cn(
-                // Mobile: horizontal compact cards
-                'group flex min-h-[64px] min-w-0 flex-[1_1_calc(50%-5px)] items-center gap-2.5 rounded-[10px] border p-2.5 transition-all duration-200',
-                // Desktop: original vertical card layout
-                'sm:min-h-[126px] sm:flex-[1_1_calc(33.333%-8px)] sm:flex-col sm:items-stretch sm:justify-between sm:p-3.5',
-                'md:flex-[1_1_calc(25%-9px)] lg:flex-[1_1_calc(14.285%-11px)]',
+                'group relative flex min-h-[112px] w-[164px] shrink-0 snap-start flex-col justify-between rounded-[10px] border p-3 transition-all duration-200 sm:min-h-[128px] sm:w-[178px] sm:p-3.5',
                 isActive
                   ? 'border-ink bg-ink text-white shadow-card'
                   : 'border-line bg-surface text-ink hover:-translate-y-0.5 hover:border-line-strong hover:shadow-card',
@@ -61,25 +56,24 @@ export default function CategoryNavigation({
                 />
               </span>
 
-              <span className="min-w-0 flex-1 sm:mt-5 sm:flex-none">
-                <span className="block truncate text-[11px] font-semibold leading-[1.25] tracking-[-0.01em] sm:text-[12.5px]">
+              <span className="min-w-0">
+                <span className="block text-[11px] font-semibold leading-[1.25] tracking-[-0.01em] sm:text-[12.5px]">
                   {category.label}
                 </span>
 
                 {showCounts && (
                   <span
                     className={cn(
-                      'mt-1 block truncate text-[9px] font-medium sm:text-[10.5px]',
+                      'mt-1 block text-[9px] font-medium leading-4 sm:text-[10.5px]',
                       isActive ? 'text-white/60' : 'text-muted',
                     )}
                   >
-                    {count} publications
+                    {count} {category.countLabel}
                   </span>
                 )}
               </span>
 
-              {/* Desktop arrow only */}
-              <span className="hidden sm:flex sm:items-start sm:justify-end sm:gap-2 sm:self-start sm:absolute sm:right-3.5 sm:top-3.5">
+              <span className="absolute right-3 top-3 flex sm:right-3.5 sm:top-3.5">
                 <ArrowUpRight
                   className={cn(
                     'h-3.5 w-3.5 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
@@ -95,7 +89,6 @@ export default function CategoryNavigation({
       </div>
     )
   }
-
 
   return (
     <div

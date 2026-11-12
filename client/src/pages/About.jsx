@@ -9,16 +9,22 @@ export default function About() {
     <ContentPage
       eyebrow="About this directory"
       title="About All Bangla Newspapers"
-      intro="All Bangla Newspapers is an independent, reader-first directory of Bangladeshi newspapers, online news portals, e-papers, television channels and international publications."
+      intro="All Bangla Newspapers is an independent, reader-first directory of Bangladeshi newspapers, local district titles, radio stations, online news portals, e-papers, television channels and international publications."
     >
       <h2 className="text-[20px] font-semibold tracking-[-0.03em] text-ink">
         What this site is
       </h2>
       <p>
-        The directory brings {publications.length} publications together across{' '}
+        The directory brings {publications.length} unique outlets together across{' '}
         {categoryCount} categories. Each listing points to the publisher&apos;s
         official website, so you can read the news at its original source
         instead of through a copy or aggregator.
+      </p>
+      <p>
+        The headline count treats each outlet once. Category cards count entries
+        in each view, and e-paper is a cross-cutting view, so those totals are
+        larger than the unique outlet count. A newspaper with a digital edition
+        can appear in both its newspaper category and E-Paper.
       </p>
       <p>
         The site does not publish news, host articles or act as a newspaper. It

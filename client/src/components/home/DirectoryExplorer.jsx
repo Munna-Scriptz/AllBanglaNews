@@ -2,21 +2,17 @@ import { useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { Plus } from 'lucide-react'
 import {
   getCategory,
+  publications,
   searchPublications,
 } from '../../data/publications'
 import CategoryNavigation from '../ui/CategoryNavigation'
 import EmptyState from '../ui/EmptyState'
-import SearchBar from '../ui/SearchBar'
 import SectionHeader from '../ui/SectionHeader'
 import NewspaperGrid from '../newspaper/NewspaperGrid'
 
 const PAGE_SIZE = 12
 
-export default function DirectoryExplorer({
-  query,
-  onQueryChange,
-  onClear,
-}) {
+export default function DirectoryExplorer({ query, onClear }) {
   const [categoryId, setCategoryId] = useState('all')
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const deferredQuery = useDeferredValue(query)
@@ -59,24 +55,21 @@ export default function DirectoryExplorer({
           description={
             isSearching
               ? 'Filter the results by category, or clear your search to browse the full index.'
-              : 'Search the All Bangla newspaper list by name, language or category — then filter the directory to narrow it down.'
+              : 'Use the category filters below, or the search at the top of the page, to narrow the list.'
           }
         />
 
-        <div className="mt-7 space-y-4">
-          <SearchBar
-            id="directory-search"
-            value={query}
-            onChange={onQueryChange}
-            placeholder="Search the complete directory..."
-            className="max-w-xl"
-            label="Search the complete directory"
-          />
+        <div className="mt-7 space-y-3">
           <CategoryNavigation
             variant="tabs"
             activeId={categoryId}
             onSelect={setCategoryId}
           />
+          <p className="max-w-3xl text-[11px] leading-5 text-muted">
+            Category counts show entries in each view. E-paper overlaps the
+            newspaper categories, so the category totals add up to more than the{' '}
+            {publications.length} unique outlets.
+          </p>
         </div>
 
         <div className="mt-5 flex flex-col gap-1.5 border-b border-line pb-4 text-[11.5px] text-muted sm:flex-row sm:items-center sm:justify-between">

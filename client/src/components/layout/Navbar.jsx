@@ -13,10 +13,13 @@ import MobileMenu from './MobileMenu'
 
 const navItems = [
   { label: 'Home', to: '/', end: true },
-  ...['bangla', 'online', 'epaper', 'tv', 'english', 'international']
-    .map((id) => categories.find((category) => category.id === id))
-    .filter(Boolean)
-    .map((category) => ({ label: category.label, to: category.path })),
+  ...categories
+    .filter((category) => category.id !== 'all')
+    .map((category) => ({
+      label: category.shortLabel,
+      title: category.label,
+      to: category.path,
+    })),
 ]
 
 function SearchPopover({ onClose }) {
@@ -107,12 +110,14 @@ function SearchPopover({ onClose }) {
                     <span className="block truncate text-[12.5px] font-medium text-ink">
                       {publication.name}
                     </span>
-                    <span
-                      lang="bn"
-                      className="block truncate text-[10.5px] text-muted"
-                    >
-                      {publication.banglaName}
-                    </span>
+                    {publication.banglaName && (
+                      <span
+                        lang="bn"
+                        className="block truncate text-[10.5px] text-muted"
+                      >
+                        {publication.banglaName}
+                      </span>
+                    )}
                   </span>
                   <ArrowUpRight
                     className="h-3.5 w-3.5 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
@@ -195,6 +200,8 @@ export default function Navbar() {
                 key={item.to}
                 to={item.to}
                 end={item.end}
+                title={item.title ?? item.label}
+                aria-label={item.title ?? item.label}
                 className={({ isActive }) =>
                   cn(
                     'relative rounded-md px-2.5 py-2 text-[12px] font-medium whitespace-nowrap transition-colors duration-150 xl:px-3 xl:text-[12.5px]',

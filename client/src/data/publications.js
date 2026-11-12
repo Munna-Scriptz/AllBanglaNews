@@ -1,3 +1,9 @@
+import {
+  divisions as localDivisions,
+  localPublications,
+} from './localPublications.js'
+import { radioPublications } from './radioPublications.js'
+
 /**
  * All Bangla Newspapers — Bangladesh News Directory
  * Central publication data.
@@ -22,8 +28,8 @@ export const categories = [
     path: '/#directory',
     icon: 'LayoutGrid',
     description:
-      'Every Bangla newspaper, online portal, e-paper, TV channel and international publication in one directory.',
-    countLabel: 'publications',
+      'Every national and local newspaper, radio station, online portal, e-paper, TV channel and international publication in one directory.',
+    countLabel: 'unique outlets',
     meta: 'Complete index',
   },
   {
@@ -36,6 +42,17 @@ export const categories = [
       'A complete list of Bengali-language dailies published in Bangladesh, from national titles to regional voices.',
     countLabel: 'newspapers',
     meta: 'Bengali language',
+  },
+  {
+    id: 'local',
+    label: 'Local Newspapers',
+    shortLabel: 'Local',
+    path: '/local-newspapers',
+    icon: 'MapPin',
+    description:
+      'District-level Bangla newspapers and local news portals, grouped by Bangladesh’s eight divisions.',
+    countLabel: 'local titles',
+    meta: '8 divisions',
   },
   {
     id: 'online',
@@ -56,8 +73,19 @@ export const categories = [
     icon: 'Tablet',
     description:
       'Today’s e-paper editions from Bangladeshi newspapers, with page-for-page digital copies.',
-    countLabel: 'e-papers',
+    countLabel: 'digital editions',
     meta: 'Digital editions',
+  },
+  {
+    id: 'radio',
+    label: 'Radio Stations',
+    shortLabel: 'Radio',
+    path: '/radio',
+    icon: 'RadioTower',
+    description:
+      'Bangladeshi FM and state radio stations with official websites and live-listening pages.',
+    countLabel: 'stations',
+    meta: 'FM & online',
   },
   {
     id: 'english',
@@ -445,12 +473,44 @@ export const publications = [
     ranking: null,
   },
   {
+    id: 'shomoyer-kagoj',
+    name: 'Shomoyer Kagoj',
+    banglaName: 'সময়ের কাগজ',
+    logo: null,
+    website: 'https://somoyerkagoj.com/',
+    category: 'bangla',
+    language: 'Bangla',
+    description:
+      'A Dhaka-based Bangla daily covering national politics, economy and international news.',
+    featured: false,
+    epaper: false,
+    popularity: null,
+    ranking: null,
+  },
+  {
+    id: 'loksamaj',
+    name: 'Loksamaj',
+    banglaName: 'লোকসমাজ',
+    logo: null,
+    website: 'https://loksamaj.com/',
+    category: 'bangla',
+    language: 'Bangla',
+    description:
+      'A Bangla daily with national news, opinion, culture and special reports.',
+    featured: false,
+    epaper: false,
+    popularity: null,
+    ranking: null,
+  },
+  {
     id: 'dainik-azadi',
     name: 'Dainik Azadi',
     banglaName: 'দৈনিক আজাদী',
     logo: '/logos/dainik-azadi.png',
     website: 'https://dainikazadi.net/',
-    category: 'bangla',
+    category: 'local',
+    division: 'chattogram',
+    district: 'Chattogram',
     language: 'Bangla',
     description:
       'A historic Bengali daily published from Chattogram, covering regional and national news.',
@@ -468,7 +528,9 @@ export const publications = [
     banglaName: 'দৈনিক পূর্বকোণ',
     logo: '/logos/dainik-purbokone.png',
     website: 'https://dainikpurbokone.net/',
-    category: 'bangla',
+    category: 'local',
+    division: 'chattogram',
+    district: 'Chattogram',
     language: 'Bangla',
     description:
       'A Chattogram-based Bengali daily covering the port city, nearby districts and national affairs.',
@@ -486,7 +548,9 @@ export const publications = [
     banglaName: 'সিলেটের ডাক',
     logo: '/logos/sylheter-dak.png',
     website: 'https://sylheterdak.com.bd/',
-    category: 'bangla',
+    category: 'local',
+    division: 'sylhet',
+    district: 'Sylhet',
     language: 'Bangla',
     description:
       'A Bengali daily published from Sylhet, with regional and national reporting.',
@@ -1541,6 +1605,8 @@ export const publications = [
     popularity: null,
     ranking: null,
   },
+  ...localPublications,
+  ...radioPublications,
 ]
 
 export const getCategory = (id) =>
@@ -1573,6 +1639,45 @@ export const getPublicationsByCategory = (categoryId) => {
 
 export const getCategoryCount = (categoryId) =>
   getPublicationsByCategory(categoryId).length
+
+export { localDivisions }
+
+/**
+ * Local listings grouped in the official division order. District order follows
+ * the same sequence used on the local-newspapers page, so the page can render
+ * stable sections without a second data source.
+ */
+export const getLocalPublicationsByDivision = () =>
+  localDivisions
+    .map((division) => {
+      const items = publications
+        .filter(
+          (publication) =>
+            publication.category === 'local' &&
+            publication.division === division.id,
+        )
+        .sort((a, b) => {
+          const aIndex = division.districts.indexOf(a.district)
+          const bIndex = division.districts.indexOf(b.district)
+          return aIndex - bIndex || a.name.localeCompare(b.name)
+        })
+
+      return {
+        ...division,
+        items,
+        districtsCovered: division.districts.filter((district) =>
+          items.some((publication) => publication.district === district),
+        ),
+      }
+    })
+    .filter((division) => division.items.length > 0)
+
+export const getLocalDistrictCount = () =>
+  new Set(
+    publications
+      .filter((publication) => publication.category === 'local')
+      .map((publication) => publication.district),
+  ).size
 
 export const featuredPublications = publications.filter(
   (publication) => publication.featured,

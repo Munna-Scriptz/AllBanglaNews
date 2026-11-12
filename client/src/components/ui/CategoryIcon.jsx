@@ -2,8 +2,10 @@ import {
   Globe,
   Languages,
   LayoutGrid,
+  MapPin,
   Newspaper,
   Radio,
+  RadioTower,
   Tablet,
   Tv,
 } from 'lucide-react'
@@ -12,7 +14,9 @@ import { cn } from '../../utils/helpers'
 const iconMap = {
   LayoutGrid,
   Newspaper,
+  MapPin,
   Radio,
+  RadioTower,
   Tablet,
   Languages,
   Tv,

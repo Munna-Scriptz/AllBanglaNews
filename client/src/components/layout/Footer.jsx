@@ -10,6 +10,8 @@ import Brand from '../ui/Brand'
 const exploreLinks = [
   { label: 'Home', to: '/' },
   { label: 'Bangla newspapers', to: '/bangla-newspapers' },
+  { label: 'Local newspapers', to: '/local-newspapers' },
+  { label: 'Radio stations', to: '/radio' },
   { label: 'Complete directory', to: '/#directory' },
   { label: 'E-Papers', to: '/e-paper' },
   { label: 'TV Channels', to: '/tv-channels' },
@@ -36,12 +38,12 @@ export default function Footer() {
           <div>
             <Brand tone="dark" />
             <p className="mt-5 max-w-xs text-[12.5px] leading-6 text-white/55">
-              A calm, organised way to find Bangladesh&apos;s newspapers, news
-              portals, e-papers and broadcasters. No accounts, no noise — just
-              the publications.
+              A calm, organised way to find Bangladesh&apos;s newspapers, local
+              titles, radio stations, news portals, e-papers and broadcasters.
+              No accounts, no noise — just the outlets.
             </p>
             <div className="mt-5 flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.13em] text-white/55">
-              <span>{publications.length} publications</span>
+              <span>{publications.length} outlets</span>
               <span className="h-3 w-px bg-white/15" aria-hidden="true" />
               <span>{categories.length - 1} categories</span>
             </div>

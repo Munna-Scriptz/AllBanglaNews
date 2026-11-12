@@ -37,6 +37,37 @@ export const categoryContent = {
       },
     ],
   },
+  local: {
+    heading: 'About local newspapers and district news outlets',
+    banglaParagraph:
+      'ঢাকা, চট্টগ্রাম, রাজশাহী, খুলনা, বরিশাল, সিলেট, রংপুর ও ময়মনসিংহ—আটটি বিভাগের জেলা পর্যায়ের পত্রিকা ও স্থানীয় সংবাদ পোর্টাল এখানে বিভাগ অনুযায়ী সাজানো হয়েছে। প্রতিটি কার্ড সংশ্লিষ্ট প্রকাশনার অফিসিয়াল ওয়েবসাইটে নিয়ে যাবে।',
+    paragraphs: [
+      'Local newspapers cover the districts, towns and communities that national dailies often reach only briefly. This section groups verified district-level titles by Bangladesh’s eight divisions, with each card showing the outlet’s main coverage area. Some are established print papers; others are digital-first local newsrooms.',
+      'Coverage varies. A district title may report on one upazila, a whole district or a wider region, and not every district currently has a verified publication in this directory. Listings link to the publisher’s own site and are not ranked by size, traffic or influence.',
+    ],
+    highlights: [
+      'District-level papers across eight divisions',
+      'Local news portals and regional dailies',
+      'Cards labelled with the main coverage district',
+    ],
+    related: [
+      {
+        label: 'Browse Bangla newspapers',
+        to: '/bangla-newspapers',
+        description: 'National Bengali dailies and regional titles.',
+      },
+      {
+        label: 'Listen to Bangladeshi radio',
+        to: '/radio',
+        description: 'FM and state stations with official streams.',
+      },
+      {
+        label: 'Find local e-paper editions',
+        to: '/e-paper',
+        description: 'Digital editions from Bangladeshi publishers.',
+      },
+    ],
+  },
   online: {
     heading: 'About Bangladeshi online news portals',
     banglaParagraph:
@@ -96,6 +127,37 @@ export const categoryContent = {
         label: 'Explore online news portals',
         to: '/online-news',
         description: 'Continuously updated Bangla news sites.',
+      },
+    ],
+  },
+  radio: {
+    heading: 'About Bangladeshi radio stations',
+    banglaParagraph:
+      'বাংলাদেশের এফএম ও রাষ্ট্রীয় রেডিও স্টেশনের অফিসিয়াল ওয়েবসাইট ও লাইভ শোনার লিংক এখানে দেওয়া হয়েছে। সম্প্রচার সময়সূচি ও স্ট্রিমিং সেবা সংশ্লিষ্ট স্টেশন নিয়ন্ত্রণ করে।',
+    paragraphs: [
+      'Bangladesh’s radio scene includes state broadcaster Bangladesh Betar and a group of private FM stations, most based in Dhaka with online streams for listeners elsewhere. This list links to official station sites where live audio, programme information or contact details are available.',
+      'Streams and schedules can change without notice, and some stations may require a player or app. The directory does not host or relay audio; every link opens the broadcaster’s own website. For local newspapers and TV channels, use the related directory sections.',
+    ],
+    highlights: [
+      'State and private FM stations',
+      'Official station websites and live players',
+      'No third-party streaming aggregators',
+    ],
+    related: [
+      {
+        label: 'Browse local newspapers',
+        to: '/local-newspapers',
+        description: 'District titles grouped by division.',
+      },
+      {
+        label: 'Explore Bangladeshi TV channels',
+        to: '/tv-channels',
+        description: 'News and current-affairs broadcasters.',
+      },
+      {
+        label: 'Browse online news portals',
+        to: '/online-news',
+        description: 'Digital-first Bangla newsrooms.',
       },
     ],
   },

@@ -51,17 +51,18 @@ export default function DirectoryGuide() {
             <div className="mt-5 space-y-4">
               <p className="max-w-2xl text-[13px] leading-[1.8] text-ink-soft/90 sm:text-[13.5px] sm:leading-7">
                 All Bangla Newspapers is an independent directory of
-                Bangladeshi media. It brings together Bangla newspapers, online
-                news portals, e-papers, English-language dailies, television
-                channels and international publications in one searchable
-                index.
+                Bangladeshi media. It brings together national and local
+                newspapers, radio stations, online news portals, e-papers,
+                English-language dailies, television channels and international
+                publications in one searchable index.
               </p>
               <p className="max-w-2xl text-[13px] leading-[1.8] text-ink-soft/90 sm:text-[13.5px] sm:leading-7">
                 You can search by publication name in English or Bangla, filter
                 by category, and open any listing directly on the
                 publisher&apos;s official website. The directory does not host
                 news articles and is not affiliated with the publications
-                listed.
+                listed. The headline total counts each outlet once; category
+                views can overlap, especially E-Paper.
               </p>
               <p className="max-w-2xl text-[13px] leading-[1.8] text-ink-soft/90 sm:text-[13.5px] sm:leading-7">
                 Whether you are looking for a specific Bangla daily, today&apos;s
