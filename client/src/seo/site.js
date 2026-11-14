@@ -6,6 +6,10 @@
  */
 export const SITE_URL = 'https://www.allbanglanewspapers.news'
 export const SITE_NAME = 'All Bangla Newspapers'
+export const SITE_AUTHOR = 'Munna Scriptz'
+export const SITE_GITHUB_URL = 'https://github.com/Munna-Scriptz'
+export const SITE_REPO_URL =
+  'https://github.com/Munna-Scriptz/AllBanglaNews'
 export const SITE_TAGLINE = 'Bangladesh News Directory'
 export const SITE_DESCRIPTION =
   'A complete All Bangla newspaper list and reader-first directory of Bangladeshi dailies, local district titles, radio stations, online news portals, e-papers, TV channels and international publications.'

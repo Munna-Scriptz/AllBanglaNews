@@ -1,6 +1,7 @@
 import {
   DEFAULT_OG_IMAGE_HEIGHT,
   DEFAULT_OG_IMAGE_WIDTH,
+  SITE_AUTHOR,
   SITE_LOCALE,
   SITE_NAME,
   absoluteUrl,
@@ -39,7 +40,9 @@ export const buildHeadTags = (meta, schemas) => {
     `<title>${escapeHtml(meta.title)}</title>`,
     metaTag('name', 'description', meta.description, 'description'),
     metaTag('name', 'robots', meta.robots, 'robots'),
-    metaTag('name', 'author', SITE_NAME, 'author'),
+    metaTag('name', 'author', SITE_AUTHOR, 'author'),
+    metaTag('name', 'creator', SITE_AUTHOR, 'creator'),
+    metaTag('name', 'developer', SITE_AUTHOR, 'developer'),
   ]
 
   if (meta.canonical) {

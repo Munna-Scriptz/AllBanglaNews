@@ -3,6 +3,7 @@ import { useLocation } from 'react-router'
 import { buildSchemas } from '../../seo/schema'
 import { getPageMeta } from '../../seo/routes'
 import {
+  SITE_AUTHOR,
   SITE_LOCALE,
   SITE_NAME,
   absoluteUrl,
@@ -91,7 +92,9 @@ export default function Seo() {
 
     upsertMeta('description', 'name', 'description', meta.description)
     upsertMeta('robots', 'name', 'robots', meta.robots)
-    upsertMeta('author', 'name', 'author', SITE_NAME)
+    upsertMeta('author', 'name', 'author', SITE_AUTHOR)
+    upsertMeta('creator', 'name', 'creator', SITE_AUTHOR)
+    upsertMeta('developer', 'name', 'developer', SITE_AUTHOR)
 
     upsertLink('canonical', 'canonical', meta.canonical)
     upsertLink('hreflang-en', 'alternate', meta.canonical, 'en')

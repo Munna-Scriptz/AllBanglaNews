@@ -4,6 +4,7 @@ import { scrollToId } from '../utils/helpers'
 import CategoryNavigation from '../components/ui/CategoryNavigation'
 import Hero from '../components/home/Hero'
 import DirectoryExplorer from '../components/home/DirectoryExplorer'
+import CategoryShowcase from '../components/home/CategoryShowcase'
 import DirectoryGuide from '../components/home/DirectoryGuide'
 import FaqSection from '../components/home/FaqSection'
 
@@ -64,6 +65,7 @@ export default function Home() {
 
       {!isSearching && (
         <>
+          <CategoryShowcase />
           <DirectoryGuide />
           <FaqSection />
         </>

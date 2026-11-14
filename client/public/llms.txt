@@ -1,21 +1,23 @@
 # All Bangla Newspapers
 
-> Bangladesh News Directory — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, online news portals, e-papers, TV channels and international publications.
+> Bangladesh News Directory — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, local district titles, radio stations, online news portals, e-papers, TV channels and international publications.
 
 Canonical: https://www.allbanglanewspapers.news/
 
 ## What the site provides
 
-- A searchable directory of 92 Bangladeshi and international publications.
-- Category lists for Bangla newspapers, online news, e-papers, English newspapers, TV channels and international media.
-- Direct links to each publisher's official website. The directory does not host or republish news articles.
+- A searchable directory of 209 unique outlets: 200 publications and 9 radio stations.
+- Category lists for Bangla newspapers, local newspapers across eight divisions, radio stations, online news, e-papers, English newspapers, TV channels and international media.
+- Direct links to each publisher or broadcaster's official website. The directory does not host or republish news articles.
 
 ## Pages
 
-- [Home](https://www.allbanglanewspapers.news/): All Bangla Newspapers is a complete Bangladesh newspaper list: Bangla dailies, online news, e-papers, English papers, TV channels and international press.
+- [Home](https://www.allbanglanewspapers.news/): All Bangla Newspapers is a complete Bangladesh media directory: national and local newspapers, radio stations, online news, e-papers, English papers, TV channels and international press.
 - [Bangla Newspapers](https://www.allbanglanewspapers.news/bangla-newspapers): Browse all Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq, Jugantor and regional dailies, with links to official websites.
+- [Local Newspapers](https://www.allbanglanewspapers.news/local-newspapers): Browse district-level newspapers and local news portals from Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.
 - [Online News](https://www.allbanglanewspapers.news/online-news): Find Bangladeshi online news portals and Bangla news sites, from bdnews24 and Bangla Tribune to Jago News 24 and Dhaka Post, with direct publisher links.
 - [E-Papers](https://www.allbanglanewspapers.news/e-paper): Browse today’s Bangladeshi e-papers and digital newspaper editions, including Prothom Alo, Ittefaq, Samakal, Dhaka Tribune and more.
+- [Radio Stations](https://www.allbanglanewspapers.news/radio): Find Bangladeshi FM and state radio stations, including Bangladesh Betar, Radio Foorti, Radio Today and Dhaka FM, with official websites and live-listening links.
 - [English Newspapers](https://www.allbanglanewspapers.news/english-newspapers): Discover English newspapers in Bangladesh, including The Daily Star, Dhaka Tribune, The Financial Express, Daily Sun and The Independent, in one list.
 - [TV Channels](https://www.allbanglanewspapers.news/tv-channels): Browse Bangladeshi TV channels and Bangla news broadcasters, including Somoy TV, Jamuna TV, Channel i, NTV, ATN News, Ekhon TV and more.
 - [International](https://www.allbanglanewspapers.news/international): Browse international newspapers and global news sites, including BBC News, CNN, Reuters, Al Jazeera and The Guardian, plus Bangla-language world coverage.
@@ -25,9 +27,11 @@ Canonical: https://www.allbanglanewspapers.news/
 
 ## Categories
 
-- Bangla Newspapers (24 listings): Browse all Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq, Jugantor and regional dailies, with links to official websites.
+- Bangla Newspapers (23 listings): Browse all Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq, Jugantor and regional dailies, with links to official websites.
+- Local Newspapers (109 listings): Browse district-level newspapers and local news portals from Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.
 - Online News (12 listings): Find Bangladeshi online news portals and Bangla news sites, from bdnews24 and Bangla Tribune to Jago News 24 and Dhaka Post, with direct publisher links.
 - E-Papers (19 listings): Browse today’s Bangladeshi e-papers and digital newspaper editions, including Prothom Alo, Ittefaq, Samakal, Dhaka Tribune and more.
+- Radio Stations (9 listings): Find Bangladeshi FM and state radio stations, including Bangladesh Betar, Radio Foorti, Radio Today and Dhaka FM, with official websites and live-listening links.
 - English Newspapers (13 listings): Discover English newspapers in Bangladesh, including The Daily Star, Dhaka Tribune, The Financial Express, Daily Sun and The Independent, in one list.
 - TV Channels (23 listings): Browse Bangladeshi TV channels and Bangla news broadcasters, including Somoy TV, Jamuna TV, Channel i, NTV, ATN News, Ekhon TV and more.
 - International (20 listings): Browse international newspapers and global news sites, including BBC News, CNN, Reuters, Al Jazeera and The Guardian, plus Bangla-language world coverage.

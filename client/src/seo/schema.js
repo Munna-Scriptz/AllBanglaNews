@@ -4,9 +4,12 @@ import {
   publications,
 } from '../data/publications.js'
 import {
+  SITE_AUTHOR,
   SITE_DESCRIPTION,
+  SITE_GITHUB_URL,
   SITE_LOGO,
   SITE_NAME,
+  SITE_REPO_URL,
   absoluteUrl,
 } from './site.js'
 
@@ -17,6 +20,7 @@ const buildOrganization = () => ({
   '@type': 'Organization',
   '@id': organizationId,
   name: SITE_NAME,
+  alternateName: 'AllBanglaNews',
   url: absoluteUrl('/'),
   description: SITE_DESCRIPTION,
   logo: {
@@ -25,6 +29,12 @@ const buildOrganization = () => ({
     width: 512,
     height: 512,
   },
+  founder: {
+    '@type': 'Person',
+    name: SITE_AUTHOR,
+    url: SITE_GITHUB_URL,
+  },
+  sameAs: [SITE_GITHUB_URL, SITE_REPO_URL],
   areaServed: {
     '@type': 'Country',
     name: 'Bangladesh',

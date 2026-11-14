@@ -5,6 +5,10 @@ import {
   getCategoryCount,
   publications,
 } from '../../data/publications'
+import {
+  SITE_GITHUB_URL,
+  SITE_REPO_URL,
+} from '../../seo/site'
 import Brand from '../ui/Brand'
 
 const exploreLinks = [
@@ -108,15 +112,32 @@ export default function Footer() {
           <p className="text-[11px] leading-5 text-white/55">
             © {year} All Bangla Newspapers. Built for readers in Bangladesh.
           </p>
-          <div className="flex items-center justify-between gap-6 sm:justify-end">
+          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 sm:justify-end">
             <a
-              href="https://munna-scriptz.vercel.app/"
+              href={SITE_REPO_URL}
               target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1 text-white/60 hover:text-white transition-colors duration-300 text-[11px]"
+              rel="noopener noreferrer"
+              aria-label="View the All Bangla Newspapers source code on GitHub"
+              className="flex items-center gap-1 text-[11px] text-white/60 transition-colors duration-300 hover:text-white"
             >
               <CodeXml size={14} className="opacity-70" />
-              <span>Developed by <span className="underline underline-offset-4 decoration-neutral-800 hover:decoration-neutral-500 transition-colors">Munna-Scriptz</span></span>
+              <span>Source code</span>
+              <ArrowUpRight size={12} className="opacity-70" />
+            </a>
+            <a
+              href={SITE_GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Munna-Scriptz on GitHub"
+              className="flex items-center gap-1 text-[11px] text-white/60 transition-colors duration-300 hover:text-white"
+            >
+              <CodeXml size={14} className="opacity-70" />
+              <span>
+                Developed by{' '}
+                <span className="underline decoration-neutral-800 underline-offset-4 transition-colors hover:decoration-neutral-500">
+                  Munna-Scriptz
+                </span>
+              </span>
               <ArrowUpRight size={12} className="opacity-70" />
             </a>
             <button

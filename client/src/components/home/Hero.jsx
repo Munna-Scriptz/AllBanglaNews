@@ -66,10 +66,47 @@ export default function Hero({ query, onQueryChange, onSearch }) {
               <br className="hidden sm:block" />{' '}
               <span className="relative inline-block text-accent">
                 one place.
-                <span
+
+                <svg
                   aria-hidden="true"
-                  className="absolute -bottom-1 left-0 h-[3px] w-2/3 rounded-full bg-accent/50"
-                />
+                  viewBox="0 0 300 20"
+                  preserveAspectRatio="none"
+                  className="pointer-events-none absolute -bottom-[13px] left-0 h-[13px] w-full overflow-visible"
+                  fill="none"
+                >
+                  <defs>
+                    <linearGradient id="engraved-accent" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="currentColor" stopOpacity=".12" />
+                      <stop offset="35%" stopColor="currentColor" stopOpacity=".5" />
+                      <stop offset="78%" stopColor="currentColor" stopOpacity=".3" />
+                      <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Main carved shape */}
+                  <path
+                    d="M3 12.5C48 8.2 88 7.4 130 8.8C176 10.4 224 7.1 291 2.7C253 7.8 211 13.2 168 13.1C111 12.8 59 12.2 3 16Z"
+                    fill="url(#engraved-accent)"
+                  />
+
+                  {/* Engraved upper edge */}
+                  <path
+                    d="M8 12C78 7.6 143 10.8 207 8.3C239 7.1 263 5.1 283 3.7"
+                    stroke="currentColor"
+                    strokeWidth=".8"
+                    strokeLinecap="round"
+                    opacity=".38"
+                  />
+
+                  {/* Fine inner detail */}
+                  <path
+                    d="M22 15C83 12.1 126 14.5 180 12.8"
+                    stroke="currentColor"
+                    strokeWidth=".65"
+                    strokeLinecap="round"
+                    opacity=".2"
+                  />
+                </svg>
               </span>
             </h1>
 

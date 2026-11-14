@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import ContentPage from '../components/layout/ContentPage'
 import { categories, publications } from '../data/publications'
+import { SITE_GITHUB_URL, SITE_REPO_URL } from '../seo/site'
 
 const categoryCount = categories.filter((category) => category.id !== 'all').length
 
@@ -72,6 +73,31 @@ export default function About() {
           contact page
         </Link>
         . Please include the publication name and the URL you are checking.
+      </p>
+
+      <h2 className="text-[20px] font-semibold tracking-[-0.03em] text-ink">
+        Credits
+      </h2>
+      <p>
+        Built and maintained by{' '}
+        <a
+          href={SITE_GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent"
+        >
+          Munna Scriptz
+        </a>
+        . The source code and contribution guidelines are available on{' '}
+        <a
+          href={SITE_REPO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent"
+        >
+          GitHub
+        </a>
+        .
       </p>
     </ContentPage>
   )

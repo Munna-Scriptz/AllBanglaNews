@@ -19,7 +19,7 @@ export default function NewspaperCard({
       rel="noopener noreferrer"
       title={`${publication.name} — ${publication.description}`}
       className={cn(
-        'group relative flex h-full min-h-[188px] flex-col overflow-hidden rounded-[10px] border border-line bg-[linear-gradient(135deg,#fbfaf7_0%,#ffffff_48%,#f1efe9_100%)] p-2.5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-lift focus-visible:-translate-y-0.5 focus-visible:border-ink focus-visible:shadow-lift sm:min-h-[214px] sm:p-3.5',
+        'group relative flex h-full min-h-[168px] flex-col overflow-hidden rounded-[10px] border border-line bg-[linear-gradient(135deg,#fbfaf7_0%,#ffffff_48%,#f1efe9_100%)] p-2.5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-lift focus-visible:-translate-y-0.5 focus-visible:border-ink focus-visible:shadow-lift sm:min-h-[214px] sm:p-3.5',
         className,
       )}
     >
@@ -41,7 +41,7 @@ export default function NewspaperCard({
 
       {/* Name and local-language label */}
       <div className="relative z-[1] mt-2.5 min-w-0 sm:mt-3">
-        <h3 className="line-clamp-2 min-h-[32px] text-[12px] font-semibold leading-[1.3] tracking-[-0.015em] text-ink sm:min-h-[35px] sm:text-[14px] sm:leading-[1.25]">
+        <h3 className="line-clamp-2 min-h-[22px] text-[12px] font-semibold leading-[1.3] tracking-[-0.015em] text-ink sm:min-h-[35px] sm:text-[14px] sm:leading-[1.25]">
           {publication.name}
         </h3>
 
