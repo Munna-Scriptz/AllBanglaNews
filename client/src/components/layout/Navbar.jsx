@@ -1,9 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { NavLink, useLocation, useNavigate } from 'react-router'
-import { ArrowRight, ArrowUpRight, Menu, Search, X } from 'lucide-react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ChevronDown,
+  Menu,
+  Search,
+  X,
+} from 'lucide-react'
 import {
   categories,
   featuredPublications,
+  getLocalPublicationsByDivision,
   searchPublications,
 } from '../../data/publications'
 import { cn } from '../../utils/helpers'
@@ -11,10 +19,13 @@ import PublicationLogo from '../newspaper/PublicationLogo'
 import Brand from '../ui/Brand'
 import MobileMenu from './MobileMenu'
 
+const divisionLinks = getLocalPublicationsByDivision()
+
 const navItems = [
   { label: 'Home', to: '/', end: true },
+  { label: 'Divisions', dropdown: true },
   ...categories
-    .filter((category) => category.id !== 'all')
+    .filter((category) => category.id !== 'all' && category.id !== 'local')
     .map((category) => ({
       label: category.shortLabel,
       title: category.label,
@@ -155,13 +166,41 @@ function SearchPopover({ onClose }) {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [divisionsOpen, setDivisionsOpen] = useState(false)
   const searchRef = useRef(null)
+  const divisionsRef = useRef(null)
   const location = useLocation()
 
   useEffect(() => {
     setMobileOpen(false)
     setSearchOpen(false)
+    setDivisionsOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    if (!divisionsOpen) return
+
+    const handlePointerDown = (event) => {
+      if (
+        divisionsRef.current &&
+        !divisionsRef.current.contains(event.target)
+      ) {
+        setDivisionsOpen(false)
+      }
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setDivisionsOpen(false)
+    }
+
+    document.addEventListener('mousedown', handlePointerDown)
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [divisionsOpen])
 
   useEffect(() => {
     if (!searchOpen) return
@@ -195,35 +234,138 @@ export default function Navbar() {
             className="hidden items-center gap-0.5 xl:flex"
             aria-label="Primary"
           >
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.end}
-                title={item.title ?? item.label}
-                aria-label={item.title ?? item.label}
-                className={({ isActive }) =>
-                  cn(
-                    'relative rounded-md px-2.5 py-2 text-[12px] font-medium whitespace-nowrap transition-colors duration-150 xl:px-3 xl:text-[12.5px]',
-                    isActive
-                      ? 'text-ink'
-                      : 'text-ink-soft/85 hover:text-ink',
-                  )
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {item.label}
-                    {isActive && (
-                      <span
-                        className="absolute inset-x-2.5 -bottom-[3px] h-[2px] rounded-full bg-accent xl:inset-x-3"
+            {navItems.map((item) => {
+              if (item.dropdown) {
+                const divisionActive =
+                  location.pathname === '/local-newspapers' ||
+                  location.pathname.startsWith('/local-newspapers/')
+
+                return (
+                  <div
+                    key="divisions"
+                    ref={divisionsRef}
+                    className="relative"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setDivisionsOpen((open) => !open)
+                        setSearchOpen(false)
+                      }}
+                      aria-expanded={divisionsOpen}
+                      className={cn(
+                        'relative flex items-center gap-1 rounded-md px-2.5 py-2 text-[12px] font-medium whitespace-nowrap transition-colors duration-150 xl:px-2 xl:text-[12px]',
+                        divisionActive
+                          ? 'text-ink'
+                          : 'text-ink-soft/85 hover:text-ink',
+                      )}
+                    >
+                      Divisions
+                      <ChevronDown
+                        className={cn(
+                          'h-3 w-3 transition-transform duration-150',
+                          divisionsOpen && 'rotate-180',
+                        )}
+                        strokeWidth={1.8}
                         aria-hidden="true"
                       />
+                      {divisionActive && (
+                        <span
+                          className="absolute inset-x-2.5 -bottom-[3px] h-[2px] rounded-full bg-accent xl:inset-x-2"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </button>
+
+                    {divisionsOpen && (
+                      <div className="absolute left-0 top-full z-50 mt-2 w-[330px] rounded-[10px] border border-line bg-surface p-2.5 shadow-[0_24px_60px_-25px_rgba(24,25,22,0.35)]">
+                        <div className="flex items-center justify-between gap-2 px-2 pb-2">
+                          <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted">
+                            Local newspapers by division
+                          </p>
+                          <span className="text-[9px] font-medium text-muted">
+                            {divisionLinks.reduce(
+                              (total, division) => total + division.items.length,
+                              0,
+                            )}{' '}
+                            titles
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-1">
+                          {divisionLinks.map((division) => (
+                            <Link
+                              key={division.id}
+                              to={`/local-newspapers/${division.id}`}
+                              onClick={() => setDivisionsOpen(false)}
+                              className="group rounded-md px-2.5 py-2 transition-colors hover:bg-paper"
+                            >
+                              <span className="flex items-center justify-between gap-2">
+                                <span className="text-[12px] font-medium text-ink">
+                                  {division.label}
+                                </span>
+                                <span className="text-[9.5px] font-medium text-muted">
+                                  {division.items.length}
+                                </span>
+                              </span>
+                              <span
+                                lang="bn"
+                                className="mt-0.5 block text-[9.5px] text-muted"
+                              >
+                                {division.banglaLabel}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+
+                        <Link
+                          to="/local-newspapers"
+                          onClick={() => setDivisionsOpen(false)}
+                          className="mt-1 flex items-center justify-between rounded-md bg-paper px-2.5 py-2 text-[11px] font-medium text-ink transition-colors hover:bg-tint"
+                        >
+                          All local newspapers
+                          <ArrowRight
+                            className="h-3.5 w-3.5"
+                            strokeWidth={1.8}
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      </div>
                     )}
-                  </>
-                )}
-              </NavLink>
-            ))}
+                  </div>
+                )
+              }
+
+              return (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  title={item.title ?? item.label}
+                  aria-label={item.title ?? item.label}
+                  className={({ isActive }) =>
+                    cn(
+                      'relative rounded-md px-2.5 py-2 text-[12px] font-medium whitespace-nowrap transition-colors duration-150 xl:px-2 xl:text-[12px]',
+                      isActive
+                        ? 'text-ink'
+                        : 'text-ink-soft/85 hover:text-ink',
+                    )
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {item.label}
+                      {isActive && (
+                        <span
+                          className="absolute inset-x-2.5 -bottom-[3px] h-[2px] rounded-full bg-accent xl:inset-x-2"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </>
+                  )}
+                </NavLink>
+              )
+            })}
           </nav>
 
           <div className="flex items-center gap-1">
@@ -232,6 +374,7 @@ export default function Navbar() {
                 type="button"
                 onClick={() => {
                   setSearchOpen((open) => !open)
+                  setDivisionsOpen(false)
                   setMobileOpen(false)
                 }}
                 aria-label={
@@ -265,6 +408,7 @@ export default function Navbar() {
               onClick={() => {
                 setMobileOpen(true)
                 setSearchOpen(false)
+                setDivisionsOpen(false)
               }}
               aria-label="Open navigation menu"
               aria-expanded={mobileOpen}

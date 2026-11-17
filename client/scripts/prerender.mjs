@@ -143,7 +143,7 @@ const buildLlmsTxt = () => {
     .join('\n')
 
   const categoryLines = seoRoutes
-    .filter((route) => route.categoryId)
+    .filter((route) => route.categoryId && !route.isDivision)
     .map(
       (route) =>
         `- ${route.label} (${getCategoryCount(route.categoryId)} listings): ${route.description}`,
@@ -152,14 +152,15 @@ const buildLlmsTxt = () => {
 
   return `# ${SITE_NAME}
 
-> ${SITE_TAGLINE} — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, local district titles, radio stations, online news portals, e-papers, TV channels and international publications.
+> ${SITE_TAGLINE} — a complete All Bangla newspaper list and independent, reader-first directory of Bangladeshi dailies, local district titles, radio stations, online news portals, business publications, magazines, e-papers, TV channels, news agencies and international publications.
 
 Canonical: ${SITE_URL}/
 
 ## What the site provides
 
 - A searchable directory of ${publications.length} unique outlets: ${publicationCount} publications and ${radioCount} radio stations.
-- Category lists for Bangla newspapers, local newspapers across eight divisions, radio stations, online news, e-papers, English newspapers, TV channels and international media.
+- Category lists for Bangla newspapers, local newspapers across eight divisions, radio stations, online news, business and finance, e-papers, English newspapers, magazines, TV channels, news agencies and international media.
+- A dedicated page for each of Bangladesh's eight divisions: Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.
 - Direct links to each publisher or broadcaster's official website. The directory does not host or republish news articles.
 
 ## Pages

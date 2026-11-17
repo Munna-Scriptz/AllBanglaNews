@@ -1,4 +1,7 @@
 import {
+  BookOpen,
+  Briefcase,
+  Building2,
   Globe,
   Languages,
   LayoutGrid,
@@ -21,6 +24,9 @@ const iconMap = {
   Languages,
   Tv,
   Globe,
+  Briefcase,
+  BookOpen,
+  Building2,
 }
 
 export default function CategoryIcon({ name, className, strokeWidth = 1.8 }) {

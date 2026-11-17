@@ -1,9 +1,11 @@
 import { categories } from './data/publications'
+import { divisions } from './data/localPublications'
 import { staticPageRoutes } from './seo/routes'
 import Layout from './layout/Layout'
 import Home from './pages/Home'
 import CategoryPage from './pages/CategoryPage'
 import LocalPage from './pages/LocalPage'
+import DivisionPage from './pages/DivisionPage'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
@@ -21,6 +23,11 @@ const categoryRoutes = categories
     path: category.path.replace(/^\//, ''),
     element: <CategoryPage categoryId={category.id} />,
   }))
+
+const divisionRoutes = divisions.map((division) => ({
+  path: `local-newspapers/${division.id}`,
+  element: <DivisionPage divisionId={division.id} />,
+}))
 
 const staticRoutes = staticPageRoutes.map((page) => ({
   path: page.path.replace(/^\//, ''),
@@ -40,6 +47,7 @@ export const appRoutes = [
       { index: true, element: <Home /> },
       ...categoryRoutes,
       { path: 'local-newspapers', element: <LocalPage /> },
+      ...divisionRoutes,
       ...staticRoutes,
       { path: '*', element: <NotFound /> },
     ],

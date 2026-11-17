@@ -3,6 +3,8 @@ import { useLocation } from 'react-router'
 import { buildSchemas } from '../../seo/schema'
 import { getPageMeta } from '../../seo/routes'
 import {
+  DEFAULT_OG_IMAGE_HEIGHT,
+  DEFAULT_OG_IMAGE_WIDTH,
   SITE_AUTHOR,
   SITE_LOCALE,
   SITE_NAME,
@@ -112,8 +114,18 @@ export default function Seo() {
     upsertMeta('og:description', 'property', 'og:description', meta.description)
     upsertMeta('og:image', 'property', 'og:image', image)
     upsertMeta('og:image:type', 'property', 'og:image:type', 'image/jpeg')
-    upsertMeta('og:image:width', 'property', 'og:image:width', '1200')
-    upsertMeta('og:image:height', 'property', 'og:image:height', '630')
+    upsertMeta(
+      'og:image:width',
+      'property',
+      'og:image:width',
+      String(meta.imageWidth ?? DEFAULT_OG_IMAGE_WIDTH),
+    )
+    upsertMeta(
+      'og:image:height',
+      'property',
+      'og:image:height',
+      String(meta.imageHeight ?? DEFAULT_OG_IMAGE_HEIGHT),
+    )
     upsertMeta('og:image:alt', 'property', 'og:image:alt', meta.imageAlt)
     upsertMeta('og:locale', 'property', 'og:locale', SITE_LOCALE)
 

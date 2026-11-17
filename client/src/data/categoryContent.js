@@ -223,6 +223,99 @@ export const categoryContent = {
       },
     ],
   },
+  business: {
+    heading: 'About Bangladeshi business and financial news',
+    banglaParagraph:
+      'বাংলাদেশের ব্যবসা, অর্থনীতি, পুঁজিবাজার ও ব্যাংকিং সংবাদের প্রকাশনা এখানে একত্র করা হয়েছে। প্রতিটি লিংক সংশ্লিষ্ট প্রকাশনার অফিসিয়াল ওয়েবসাইটে নিয়ে যাবে, যেখানে বাজার তথ্য ও অর্থনৈতিক প্রতিবেদন পাওয়া যাবে।',
+    paragraphs: [
+      'Business coverage in Bangladesh ranges from daily newspapers with dedicated market sections to specialist portals tracking stocks, banking, commodities and personal finance. This list brings those sources together so readers can compare reporting and market information in one place.',
+      'Some entries are full newsrooms with original reporting; others are specialist data or market sites. Access rules, subscription requirements and update frequency are controlled by each publisher. The directory does not provide investment advice and does not rank outlets by accuracy, traffic or influence.',
+    ],
+    highlights: [
+      'Business dailies and financial newspapers',
+      'Stock-market and banking news portals',
+      'Economy, trade and personal-finance coverage',
+    ],
+    related: [
+      {
+        label: 'Browse Bangla newspapers',
+        to: '/bangla-newspapers',
+        description: 'National Bengali dailies with business sections.',
+      },
+      {
+        label: 'Explore online news portals',
+        to: '/online-news',
+        description: 'Digital-first newsrooms covering the economy.',
+      },
+      {
+        label: 'See English newspapers',
+        to: '/english-newspapers',
+        description: 'English-language business and financial dailies.',
+      },
+    ],
+  },
+  magazines: {
+    heading: 'About Bangladeshi magazines and periodicals',
+    banglaParagraph:
+      'বাংলাদেশের সাপ্তাহিক, মাসিক, সাহিত্য, বিজ্ঞান, প্রযুক্তি ও বিশেষ আগ্রহের ম্যাগাজিনের তালিকা এখানে রয়েছে। প্রকাশনার সময়সূচি ও পড়ার নিয়ম সংশ্লিষ্ট প্রকাশক নির্ধারণ করে।',
+    paragraphs: [
+      'Bangladesh has a long magazine tradition, from literary and current-affairs monthlies to technology, science, travel and specialist periodicals. This section collects publications that maintain a public web presence, whether they publish full issues online or selected articles.',
+      'Publication frequency, archive access and subscription rules vary widely. Some magazines are print-first with a small online archive; others publish continuously on the web. Each link opens the publisher’s own site, and inclusion is not a ranking of editorial quality or reach.',
+    ],
+    highlights: [
+      'Literary, current-affairs and specialist magazines',
+      'Weekly, monthly and occasional periodicals',
+      'Official publisher websites and archives',
+    ],
+    related: [
+      {
+        label: 'Browse Bangla newspapers',
+        to: '/bangla-newspapers',
+        description: 'Daily news publications and their websites.',
+      },
+      {
+        label: 'Explore online news portals',
+        to: '/online-news',
+        description: 'Digital-first reporting and analysis.',
+      },
+      {
+        label: 'See Bangladeshi e-papers',
+        to: '/e-paper',
+        description: 'Digital newspaper editions and archives.',
+      },
+    ],
+  },
+  agencies: {
+    heading: 'About news agencies and wire services',
+    banglaParagraph:
+      'বাংলাদেশ ও বিশ্বের সংবাদ সংস্থা, ওয়্যার সার্ভিস ও সিন্ডিকেটেড সংবাদ সরবরাহকারীর তালিকা এখানে দেওয়া হয়েছে। সংস্থাগুলো তাদের নিজস্ব নিউজরুম ও গ্রাহকদের মাধ্যমে সংবাদ পরিবেশন করে।',
+    paragraphs: [
+      'News agencies supply reporting, photographs and data to newspapers, broadcasters and digital publishers. This list includes Bangladeshi agencies such as BSS and UNB alongside international wire services whose reporting appears in media around the world.',
+      'Agency websites may be written for subscribers, editors or the general public, and some stories are not freely available. Each link opens the organisation’s official site. The directory does not republish wire copy and does not claim that every agency covers Bangladesh in the same depth.',
+    ],
+    highlights: [
+      'Bangladeshi national news agencies',
+      'International wire services and syndication',
+      'Official agency websites and public reporting',
+    ],
+    related: [
+      {
+        label: 'Browse online news portals',
+        to: '/online-news',
+        description: 'Digital newsrooms that publish agency reporting.',
+      },
+      {
+        label: 'See international publications',
+        to: '/international',
+        description: 'Global newspapers and broadcasters.',
+      },
+      {
+        label: 'Browse Bangla newspapers',
+        to: '/bangla-newspapers',
+        description: 'Daily papers and their newsroom websites.',
+      },
+    ],
+  },
   international: {
     heading: 'About international newspapers and global news sites',
     banglaParagraph:

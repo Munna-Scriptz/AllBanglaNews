@@ -1,5 +1,6 @@
 import {
   categories,
+  getLocalDivision,
   getPublicationsByCategory,
   publications,
 } from '../data/publications.js'
@@ -79,23 +80,35 @@ const buildBreadcrumb = (meta) => {
   const pageUrl = meta.canonical
   if (!pageUrl) return null
 
+  const items = [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: absoluteUrl('/'),
+    },
+  ]
+
+  if (meta.breadcrumbParent) {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: meta.breadcrumbParent.label,
+      item: absoluteUrl(meta.breadcrumbParent.path),
+    })
+  }
+
+  items.push({
+    '@type': 'ListItem',
+    position: items.length + 1,
+    name: meta.label,
+    item: pageUrl,
+  })
+
   return {
     '@type': 'BreadcrumbList',
     '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: absoluteUrl('/'),
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: meta.label,
-        item: pageUrl,
-      },
-    ],
+    itemListElement: items,
   }
 }
 
@@ -103,8 +116,9 @@ const buildItemList = (meta) => {
   const pageUrl = meta.canonical
   if (!pageUrl) return null
 
-  const items =
-    meta.id === 'home'
+  const items = meta.divisionId
+    ? (getLocalDivision(meta.divisionId)?.items ?? [])
+    : meta.id === 'home'
       ? publications
       : getPublicationsByCategory(meta.categoryId)
 

@@ -19,7 +19,7 @@ const categoryEntryTotal = categories
 const faqs = [
   {
     question: 'How many publications are in the directory?',
-    answer: `The directory currently lists ${publications.length} unique outlets across ${categoryCount} categories: ${publicationCount} publications and ${radioCount} radio stations. That includes national and local newspapers, online news portals, e-paper editions, TV channels and international publications. Each outlet is counted once, regardless of how many views it appears in.`,
+    answer: `The directory currently lists ${publications.length} unique outlets across ${categoryCount} categories: ${publicationCount} publications and ${radioCount} radio stations. That includes national and local newspapers, online news portals, business and financial publications, magazines, TV channels, radio stations, news agencies and international publications. E-paper editions are counted separately as a cross-cutting view. Each outlet is counted once, regardless of how many views it appears in.`,
   },
   {
     question: 'Why do the category counts add up to more than the total?',
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: 'How are newspapers and e-papers chosen?',
     answer:
-      'Listings are chosen for relevance to Bangladeshi readers and checked for an official website. Where a publisher provides a separate e-paper or digital edition, that address is used only after a working link has been verified. A position in the directory is not a ranking or an editorial endorsement.',
+      "Listings are chosen for relevance to Bangladeshi readers and linked to the publisher's official domain where one is available. Where a publisher provides a separate e-paper or digital edition, that address is used only after a working link has been verified. A position in the directory is not a ranking or an editorial endorsement.",
   },
   {
     question: 'What is the difference between a newspaper, an online portal and an e-paper?',

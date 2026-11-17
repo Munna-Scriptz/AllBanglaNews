@@ -2,6 +2,8 @@ import {
   categories,
   getCategory,
 } from '../data/publications.js'
+import { divisions } from '../data/localPublications.js'
+import { divisionImages } from '../data/divisionImages.js'
 import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
@@ -28,6 +30,21 @@ const categorySeo = {
     description:
       'Find Bangladeshi online news portals and Bangla news sites, from bdnews24 and Bangla Tribune to Jago News 24 and Dhaka Post, with direct publisher links.',
   },
+  business: {
+    title: 'Bangladeshi Business News (ব্যবসা ও অর্থনীতি) — List',
+    description:
+      'Browse Bangladeshi business and financial news publications, including Arthosuchak, Share Biz, Business Post, Amader Orthoneeti, market portals and specialist finance sites.',
+  },
+  magazines: {
+    title: 'Bangladeshi Magazines (ম্যাগাজিন) — Periodicals List',
+    description:
+      'Browse Bangladeshi magazines and periodicals, including Computer Jagat, Kali O Kalam, Weekly Bangalee, Scientific Bangladesh and specialist publications.',
+  },
+  agencies: {
+    title: 'News Agencies (সংবাদ সংস্থা) — Bangladesh & World',
+    description:
+      'Find Bangladeshi and international news agencies, including BSS, UNB, Reuters, Associated Press, AFP and other wire services in one directory.',
+  },
   epaper: {
     title: 'Bangladeshi E-Paper (ই-পেপার) — Today’s Editions',
     description:
@@ -51,7 +68,7 @@ const categorySeo = {
   international: {
     title: 'International News (আন্তর্জাতিক সংবাদ) — World Papers',
     description:
-      'Browse international newspapers and global news sites, including BBC News, CNN, Reuters, Al Jazeera and The Guardian, plus Bangla-language world coverage.',
+      'Browse international newspapers and global news sites, including BBC News, CNN, Al Jazeera, The Guardian and The New York Times, plus Bangla-language world coverage.',
   },
 }
 
@@ -75,6 +92,32 @@ const categoryRoutes = categories
     }
   })
 
+const divisionRoutes = divisions.map((division) => {
+  const image = divisionImages[division.id]
+  const districtList = division.districts.slice(0, 5).join(', ')
+
+  return {
+    id: `division-${division.id}`,
+    path: `/local-newspapers/${division.id}`,
+    label: `${division.label} Newspapers`,
+    categoryId: 'local',
+    divisionId: division.id,
+    breadcrumbParent: {
+      label: 'Local Newspapers',
+      path: '/local-newspapers',
+    },
+    isDivision: true,
+    pageType: 'CollectionPage',
+    title: `${division.label} Newspapers — All Regional ${division.label} Titles`,
+    description: `Browse all regional and ${division.label} newspapers in one directory, including titles from ${districtList} and other districts in ${division.label} Division.`,
+    robots: INDEX_ROBOTS,
+    image: absoluteUrl(image.src),
+    imageAlt: image.alt,
+    imageWidth: 800,
+    imageHeight: 500,
+  }
+})
+
 /**
  * Static editorial pages. Paths and metadata live here so routes.jsx,
  * prerendering, sitemap.xml and llms.txt all read the same definitions.
@@ -88,7 +131,7 @@ export const staticPageRoutes = [
     pageType: 'WebPage',
     title: 'About All Bangla Newspapers — Independent News Directory',
     description:
-      'Learn how All Bangla Newspapers selects publications, checks official website and e-paper links, and keeps the Bangladesh newspaper directory independent.',
+      'Learn how All Bangla Newspapers selects publications, links official websites and e-paper editions, and keeps the Bangladesh newspaper directory independent.',
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: 'About the All Bangla Newspapers directory',
@@ -130,12 +173,13 @@ export const seoRoutes = [
     pageType: 'CollectionPage',
     title: 'All Bangla Newspapers (সকল বাংলা পত্রিকা) — Complete List',
     description:
-      'All Bangla Newspapers is a complete Bangladesh media directory: national and local newspapers, radio stations, online news, e-papers, English papers, TV channels and international press.',
+      'All Bangla Newspapers is a complete Bangladesh media directory: national and local newspapers, online news, business and finance, magazines, radio stations, e-papers, English papers, TV channels, news agencies and international press.',
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: DEFAULT_OG_IMAGE_ALT,
   },
   ...categoryRoutes,
+  ...divisionRoutes,
   ...staticPageRoutes,
 ]
 
@@ -146,7 +190,7 @@ export const notFoundMeta = {
   categoryId: null,
   title: 'Page not found — All Bangla Newspapers',
   description:
-    'The page you requested is not in the All Bangla Newspapers directory. Return to the homepage to browse Bangladeshi newspapers, local titles, radio stations, e-papers and TV channels.',
+    'The page you requested is not in the All Bangla Newspapers directory. Return to the homepage to browse Bangladeshi newspapers, local titles, online news, business publications, magazines, radio stations, e-papers, TV channels and news agencies.',
   robots: NOINDEX_ROBOTS,
   image: DEFAULT_OG_IMAGE,
   imageAlt: DEFAULT_OG_IMAGE_ALT,

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router'
-import { ArrowUpRight, House, X } from 'lucide-react'
+import { ArrowUpRight, House, MapPin, X } from 'lucide-react'
 import {
   categories,
   getCategoryCount,
+  getLocalPublicationsByDivision,
   publications,
 } from '../../data/publications'
 import { cn } from '../../utils/helpers'
@@ -12,6 +13,7 @@ import CategoryIcon from '../ui/CategoryIcon'
 import SearchBar from '../ui/SearchBar'
 
 const navCategories = categories.filter((category) => category.id !== 'all')
+const divisionLinks = getLocalPublicationsByDivision()
 
 export default function MobileMenu({ open, onClose }) {
   const [term, setTerm] = useState('')
@@ -160,6 +162,48 @@ export default function MobileMenu({ open, onClose }) {
               </span>
             </NavLink>
           ))}
+
+          <div className="mt-6 border-t border-line pt-5">
+            <p className="eyebrow mb-3">
+              <span className="eyebrow-dot" aria-hidden="true" />
+              Divisions
+            </p>
+            <div className="grid grid-cols-2 gap-1.5">
+              {divisionLinks.map((division) => (
+                <NavLink
+                  key={division.id}
+                  to={`/local-newspapers/${division.id}`}
+                  onClick={onClose}
+                  className={({ isActive }) =>
+                    cn(
+                      'rounded-[7px] border px-2.5 py-2 transition-colors',
+                      isActive
+                        ? 'border-accent/40 bg-tint text-accent'
+                        : 'border-line bg-surface text-ink hover:border-line-strong',
+                    )
+                  }
+                >
+                  <span className="block text-[12px] font-semibold">
+                    {division.label}
+                  </span>
+                  <span
+                    lang="bn"
+                    className="mt-0.5 block text-[9.5px] text-muted"
+                  >
+                    {division.banglaLabel}
+                  </span>
+                  <span className="mt-1.5 flex items-center justify-between text-[9.5px] font-medium text-muted">
+                    {division.items.length} titles
+                    <MapPin
+                      className="h-3 w-3"
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
+                  </span>
+                </NavLink>
+              ))}
+            </div>
+          </div>
         </nav>
 
         <div className="shrink-0 border-t border-line px-5 py-4">

@@ -12,7 +12,7 @@ export const SITE_REPO_URL =
   'https://github.com/Munna-Scriptz/AllBanglaNews'
 export const SITE_TAGLINE = 'Bangladesh News Directory'
 export const SITE_DESCRIPTION =
-  'A complete All Bangla newspaper list and reader-first directory of Bangladeshi dailies, local district titles, radio stations, online news portals, e-papers, TV channels and international publications.'
+  'A complete All Bangla newspaper list and reader-first directory of Bangladeshi dailies, local district titles, online news portals, business publications, magazines, radio stations, e-papers, TV channels, news agencies and international publications.'
 export const SITE_LANGUAGE = 'en'
 export const SITE_LOCALE = 'en_BD'
 export const DEFAULT_OG_IMAGE = '/og-image.jpg'

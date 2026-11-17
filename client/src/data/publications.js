@@ -3,6 +3,7 @@ import {
   localPublications,
 } from './localPublications.js'
 import { radioPublications } from './radioPublications.js'
+import { expandedPublications } from './expandedPublications.js'
 
 /**
  * All Bangla Newspapers — Bangladesh News Directory
@@ -28,7 +29,7 @@ export const categories = [
     path: '/#directory',
     icon: 'LayoutGrid',
     description:
-      'Every national and local newspaper, radio station, online portal, e-paper, TV channel and international publication in one directory.',
+      'Every national and local newspaper, online portal, business publication, magazine, radio station, e-paper, TV channel, news agency and international publication in one directory.',
     countLabel: 'unique outlets',
     meta: 'Complete index',
   },
@@ -66,6 +67,17 @@ export const categories = [
     meta: 'Digital news',
   },
   {
+    id: 'business',
+    label: 'Business & Finance',
+    shortLabel: 'Business',
+    path: '/business-news',
+    icon: 'Briefcase',
+    description:
+      'Bangladeshi business dailies, financial news sites and market publications.',
+    countLabel: 'publications',
+    meta: 'Business & markets',
+  },
+  {
     id: 'epaper',
     label: 'E-Paper',
     shortLabel: 'E-Paper',
@@ -99,6 +111,17 @@ export const categories = [
     meta: 'English language',
   },
   {
+    id: 'magazines',
+    label: 'Magazines',
+    shortLabel: 'Magazines',
+    path: '/magazines',
+    icon: 'BookOpen',
+    description:
+      'Bangladeshi magazines, weekly periodicals and specialist publications.',
+    countLabel: 'magazines',
+    meta: 'Periodicals',
+  },
+  {
     id: 'tv',
     label: 'TV Channels',
     shortLabel: 'TV',
@@ -108,6 +131,17 @@ export const categories = [
       'Bangladeshi TV channels, including live news, current affairs and entertainment broadcasters.',
     countLabel: 'channels',
     meta: 'Television',
+  },
+  {
+    id: 'agencies',
+    label: 'News Agencies',
+    shortLabel: 'Agencies',
+    path: '/news-agencies',
+    icon: 'Building2',
+    description:
+      'Bangladeshi and international news agencies, wire services and syndicated news providers.',
+    countLabel: 'agencies',
+    meta: 'Wire services',
   },
   {
     id: 'international',
@@ -273,7 +307,7 @@ export const publications = [
     name: 'Bonik Barta',
     banglaName: 'বণিক বার্তা',
     logo: '/logos/bonik-barta.png',
-    website: 'https://www.bonikbarta.net/',
+    website: 'https://www.bonikbarta.com/',
     category: 'bangla',
     language: 'Bangla',
     description:
@@ -384,7 +418,7 @@ export const publications = [
     name: 'Amader Shomoy',
     banglaName: 'আমাদের সময়',
     logo: '/logos/amader-shomoy.png',
-    website: 'https://www.amadershomoy.com/',
+    website: 'https://www.dainikamadershomoy.com/',
     category: 'bangla',
     language: 'Bangla',
     description:
@@ -872,7 +906,7 @@ export const publications = [
     banglaName: 'ইউএনবি',
     logo: '/logos/unb.png',
     website: 'https://unb.com.bd/',
-    category: 'online',
+    category: 'agencies',
     language: 'English',
     description:
       "Bangladesh's national news agency, delivering wire-style news and reports.",
@@ -917,7 +951,7 @@ export const publications = [
     banglaName: 'বাংলাদেশ সংবাদ সংস্থা',
     logo: '/logos/bss.png',
     website: 'https://www.bssnews.net/',
-    category: 'online',
+    category: 'agencies',
     language: 'Bangla',
     description:
       "The state-run national news agency of Bangladesh, publishing in Bangla and English.",
@@ -1356,7 +1390,7 @@ export const publications = [
     banglaName: 'রয়টার্স',
     logo: '/logos/reuters.png',
     website: 'https://www.reuters.com/',
-    category: 'international',
+    category: 'agencies',
     language: 'English',
     description:
       'An international news agency delivering breaking news and market coverage.',
@@ -1416,7 +1450,7 @@ export const publications = [
     banglaName: 'অ্যাসোসিয়েটেড প্রেস',
     logo: '/logos/associated-press.png',
     website: 'https://apnews.com/',
-    category: 'international',
+    category: 'agencies',
     language: 'English',
     description:
       'A global news agency providing breaking news and wire reporting.',
@@ -1607,6 +1641,7 @@ export const publications = [
   },
   ...localPublications,
   ...radioPublications,
+  ...expandedPublications,
 ]
 
 export const getCategory = (id) =>
@@ -1622,7 +1657,7 @@ const toEpaperListing = (publication) => ({
   website: publication.epaperUrl ?? publication.website,
   description:
     publication.epaperDescription ??
-    `Read today’s ${publication.name} e-paper at the publisher’s official website.`,
+    `Visit ${publication.name}'s official website to find its e-paper or digital edition.`,
 })
 
 export const getPublicationsByCategory = (categoryId) => {
@@ -1670,7 +1705,11 @@ export const getLocalPublicationsByDivision = () =>
         ),
       }
     })
-    .filter((division) => division.items.length > 0)
+
+export const getLocalDivision = (divisionId) =>
+  getLocalPublicationsByDivision().find(
+    (division) => division.id === divisionId,
+  ) ?? null
 
 export const getLocalDistrictCount = () =>
   new Set(

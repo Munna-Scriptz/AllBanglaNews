@@ -1,9 +1,9 @@
 # All Bangla Newspapers — Bangladesh News Directory
 
 A fast, open-source, frontend-only directory of Bangladeshi media. It brings
-national and district newspapers, radio stations, online news portals, e-papers,
-TV channels and international publications into one searchable, mobile-friendly
-index.
+national and district newspapers, online news portals, business publications,
+magazines, radio stations, e-papers, TV channels, news agencies and international
+publications into one searchable, mobile-friendly index.
 
 **Live site:** [www.allbanglanewspapers.news](https://www.allbanglanewspapers.news)
 
@@ -13,16 +13,24 @@ data lives in the `src/data` folder and is prerendered at build time.
 
 ## What is inside
 
-- **209 unique outlets** across eight public categories.
-- **200 publications + 9 radio stations.**
-- **109 local titles** from **47 districts** across all eight divisions:
+- **623 unique outlets** across eleven public categories.
+- **598 publications + 25 radio stations.**
+- **79 international outlets** and **12 news agencies**, including both
+  Bangladeshi wire services and global agencies. International listings are
+  included for comparison and world coverage, not counted as local titles.
+- **143 local titles** from **49 districts** across all eight divisions:
   Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and
   Mymensingh.
-- **19 e-paper entries**: direct publisher editions where verified, otherwise
+- **71 e-paper entries**: direct publisher editions where verified, otherwise
   the official homepage with an explanatory label.
-- **228 category entries** in total. This is larger than the unique outlet
+- **694 category entries** in total. This is larger than the unique outlet
   count because e-paper is a cross-cutting view: a newspaper with a digital
   edition appears in both its newspaper category and E-Paper.
+- Dedicated division pages for Dhaka, Chattogram, Rajshahi, Khulna, Barishal,
+  Sylhet, Rangpur and Mymensingh, with division-specific counts, district
+  coverage and SEO copy.
+- Business and finance, magazines and news agencies are first-class categories,
+  not loose entries inside the online or international lists.
 
 Each card links directly to the publisher or broadcaster’s official website.
 The directory never hosts or republishes news articles, e-paper PDFs, live TV
@@ -32,6 +40,10 @@ streams or radio audio.
 
 - Search by publication name in English or Bangla.
 - Filter by category and browse local titles by division.
+- Divisions dropdown in the desktop navbar and division links in the mobile
+  menu.
+- Eight standalone division pages under `/local-newspapers/:division`, each
+  with its own title, description, canonical URL and ItemList schema.
 - Homepage previews for every category, with 12 cards and a show-more control.
 - Visual division cards on the local-newspapers page, using credited
   Wikimedia Commons photos.
@@ -78,11 +90,14 @@ npm run preview
 The prerenderer:
 
 1. Checks that every React route has matching SEO metadata.
-2. Produces static HTML for every public route, including `/local-newspapers`
-   and `/radio`.
+2. Produces static HTML for all 23 public routes, including `/local-newspapers`,
+   the eight division pages and `/radio`.
 3. Writes `404.html`.
-4. Regenerates `sitemap.xml`, `robots.txt` and `llms.txt`.
+4. Regenerates `sitemap.xml`, `robots.txt` and `llms.txt`, including all eight
+   division URLs in the sitemap.
 5. Keeps route-specific `<head>` metadata in sync with the app.
+6. Leaves the single site-wide `<meta name="keywords">` from `index.html` in
+   place; keyword metadata is not generated per route.
 
 ## Project structure
 
@@ -105,7 +120,8 @@ client/
 │   │   ├── seo/               # Client head updates and category guide
 │   │   └── ui/                # Search, category navigation, headers
 │   ├── data/
-│   │   ├── publications.js        # Categories and core publication records
+│   │   ├── publications.js         # Categories and core publication records
+│   │   ├── expandedPublications.js # Bulk-imported directory records and source domains
 │   │   ├── localPublications.js   # District-level records and divisions
 │   │   ├── divisionImages.js      # Division photos, credits and licenses
 │   │   ├── radioPublications.js   # Radio station records
@@ -114,7 +130,7 @@ client/
 │   │   ├── categoryContent.js     # Category guide copy
 │   │   └── siteInfo.js            # Contact email and last-verified date
 │   ├── layout/                # Shared app shell
-│   ├── pages/                 # Home, category, local, 404 and policy pages
+│   ├── pages/                 # Home, category, local, division, 404 and policy pages
 │   ├── seo/                   # Site constants, route metadata, schemas, head
 │   ├── routes.jsx             # Shared route table (browser + prerender)
 │   ├── entry-server.jsx       # Build-time render entry
@@ -147,8 +163,12 @@ Every outlet record uses the same public shape. Local titles add `division` and
 
 The public category ids are:
 
-`bangla`, `local`, `online`, `epaper`, `radio`, `english`, `tv`,
-`international`.
+`bangla`, `local`, `online`, `business`, `epaper`, `radio`, `english`,
+`magazines`, `tv`, `agencies`, `international`.
+
+Records imported from public directory listings also carry a `sourceDomain`
+field for traceability. It is not rendered as a ranking or verification badge;
+it only records which domain was used to create the entry.
 
 E-paper is a cross-cutting category. A record with `epaper: true` appears in
 its normal newspaper category and in the E-Paper view. Use `epaperUrl` only
@@ -163,8 +183,11 @@ edition cannot be verified, keep the official homepage and explain that in
 2. For a local title, confirm the main district and division. Do not guess a
    district from a domain name alone.
 3. Add or update the record in:
-   - `src/data/publications.js` for national, online, e-paper, English, TV and
-     international entries.
+   - `src/data/publications.js` for category definitions and core national,
+     online, e-paper, business, magazine, agency, English, TV and international
+     entries.
+   - `src/data/expandedPublications.js` for bulk-imported directory records. Add
+     `sourceDomain` so future audits can trace the entry.
    - `src/data/localPublications.js` for district-level entries.
    - `src/data/radioPublications.js` for radio stations.
 4. Add a logo in `client/public/logos/`. Prefer the publisher’s own wordmark or
@@ -213,6 +236,34 @@ Open an issue with:
 Please do not include private contact details. For sensitive corrections, use
 the contact page on the live site.
 
+## Data sources and verification
+
+The core directory was assembled from publisher websites and public newspaper
+listings, including:
+
+- A Bangladesh government newspaper-list PDF supplied by contributors.
+- A TBS article on Bangladeshi newspapers.
+- [newsmedialists.com](https://newsmedialists.com/)
+- [banglanewspapers.net](https://banglanewspapers.net/)
+- [allbanglanewspapersbd.com](https://allbanglanewspapersbd.com/)
+- [allonlinebanglanewspapers.com](https://allonlinebanglanewspapers.com/)
+- [allbanglanewspaper.xyz](https://allbanglanewspaper.xyz/)
+- [w3newspapers.com](https://www.w3newspapers.com/bangladesh/)
+
+The November 2026 expansion reconciled those sources, removed aliases and
+obvious non-media domains, and imported 414 additional records. Every imported
+record keeps its `sourceDomain`, and no publisher facts, contact details,
+traffic figures or ranking claims were inferred. The total is **623 unique
+outlets** after de-duplication.
+
+Bulk listings are a starting point, not proof that a site is active today. The
+November 2026 link audit checked 634 outbound URLs: 506 were reachable, 113
+redirected, and 128 failed or were blocked. Many failures were bot protection
+(401/403), timeouts or temporary DNS failures, so a failed probe is not proof
+that an outlet is dead. `LAST_VERIFIED` remains **2026-11-12** until blocked and
+unreachable links are manually reviewed. Run `npm run check-links` and spot-check
+before describing the entire directory as freshly verified.
+
 ## Pull request checklist
 
 - [ ] The link opens the publisher or broadcaster’s official domain.
@@ -249,14 +300,21 @@ The production site is designed for Vercel and the canonical host is
   - `https://www.allbanglanewspapers.news/robots.txt`
   - `https://www.allbanglanewspapers.news/llms.txt`
   - `https://www.allbanglanewspapers.news/local-newspapers`
+  - `https://www.allbanglanewspapers.news/local-newspapers/sylhet`
   - `https://www.allbanglanewspapers.news/radio`
+  - `https://www.allbanglanewspapers.news/business-news`
 
 ## SEO notes
 
-- Every public route has a unique title, description, canonical URL, Open Graph
-  tags, Twitter card tags and robots directive.
+- Every public route, including the eight division pages, has a unique title,
+  description, canonical URL, Open Graph tags, Twitter card tags and robots
+  directive.
+- Division pages use their own 800×500 division photo as the social image and
+  include a division-scoped `ItemList` schema.
 - JSON-LD uses `WebSite`, `Organization`, `BreadcrumbList` and `ItemList`.
   `Organization` includes the developer credit and GitHub links.
+- One site-wide `<meta name="keywords">` lives in `index.html`. It is deliberately
+  not generated per route, so it does not create route-specific keyword spam.
 - No ratings, review counts, traffic figures, awards or ranking guarantees are
   invented.
 - Search URLs using `?q=` are `noindex, follow` and point their canonical at the

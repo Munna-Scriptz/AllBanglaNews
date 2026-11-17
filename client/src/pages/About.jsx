@@ -10,7 +10,7 @@ export default function About() {
     <ContentPage
       eyebrow="About this directory"
       title="About All Bangla Newspapers"
-      intro="All Bangla Newspapers is an independent, reader-first directory of Bangladeshi newspapers, local district titles, radio stations, online news portals, e-papers, television channels and international publications."
+      intro="All Bangla Newspapers is an independent, reader-first directory of Bangladeshi newspapers, local district titles, online news portals, business publications, magazines, radio stations, e-papers, television channels, news agencies and international publications."
     >
       <h2 className="text-[20px] font-semibold tracking-[-0.03em] text-ink">
         What this site is
@@ -44,10 +44,11 @@ export default function About() {
         editorial quality.
       </p>
       <p>
-        E-paper links are checked separately from newspaper homepages. If a
-        publisher&apos;s digital edition cannot be verified, the listing keeps
-        the official homepage and is labelled accordingly. The current review
-        date is shown on category and policy pages.
+        E-paper flags identify outlets that may publish a digital edition. A
+        direct e-paper URL is used only when it has been verified; otherwise the
+        listing keeps the official homepage and explains that the edition is
+        reached from the publisher&apos;s site. The current review date is shown
+        on category and policy pages.
       </p>
 
       <h2 className="text-[20px] font-semibold tracking-[-0.03em] text-ink">

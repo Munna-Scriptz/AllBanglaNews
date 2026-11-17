@@ -36,6 +36,8 @@ const jsonForHtml = (value) =>
  */
 export const buildHeadTags = (meta, schemas) => {
   const image = absoluteUrl(meta.image)
+  const imageWidth = meta.imageWidth ?? DEFAULT_OG_IMAGE_WIDTH
+  const imageHeight = meta.imageHeight ?? DEFAULT_OG_IMAGE_HEIGHT
   const tags = [
     `<title>${escapeHtml(meta.title)}</title>`,
     metaTag('name', 'description', meta.description, 'description'),
@@ -59,8 +61,8 @@ export const buildHeadTags = (meta, schemas) => {
     metaTag('property', 'og:description', meta.description, 'og:description'),
     metaTag('property', 'og:image', image, 'og:image'),
     metaTag('property', 'og:image:type', 'image/jpeg', 'og:image:type'),
-    metaTag('property', 'og:image:width', DEFAULT_OG_IMAGE_WIDTH, 'og:image:width'),
-    metaTag('property', 'og:image:height', DEFAULT_OG_IMAGE_HEIGHT, 'og:image:height'),
+    metaTag('property', 'og:image:width', imageWidth, 'og:image:width'),
+    metaTag('property', 'og:image:height', imageHeight, 'og:image:height'),
     metaTag('property', 'og:image:alt', meta.imageAlt, 'og:image:alt'),
     metaTag('property', 'og:locale', SITE_LOCALE, 'og:locale'),
     metaTag('name', 'twitter:card', 'summary_large_image', 'twitter:card'),

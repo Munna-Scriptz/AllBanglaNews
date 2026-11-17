@@ -1,8 +1,8 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router'
 import {
   getCategory,
   getCategoryCount,
-  getLocalDistrictCount,
   getLocalPublicationsByDivision,
 } from '../data/publications'
 import { divisionImages } from '../data/divisionImages'
@@ -47,10 +47,10 @@ export default function LocalPage() {
                 aria-label="Browse local newspapers by division"
               >
                 {divisionCards.map((division, index) => (
-                  <a
+                  <Link
                     key={division.id}
-                    href={`#${division.id}`}
-                    aria-label={`Jump to ${division.label} Division, ${division.items.length} local titles`}
+                    to={`/local-newspapers/${division.id}`}
+                    aria-label={`Open ${division.label} Division page, ${division.items.length} local titles`}
                     className="group relative isolate flex min-h-[152px] flex-col justify-end overflow-hidden rounded-[10px] border border-line bg-ink p-3.5 text-white shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-lift focus-visible:-translate-y-0.5 focus-visible:border-ink focus-visible:shadow-lift sm:min-h-[174px] sm:p-4"
                   >
                     <img
@@ -82,7 +82,7 @@ export default function LocalPage() {
                         aria-hidden="true"
                       />
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </nav>
 

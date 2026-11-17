@@ -7,6 +7,7 @@ export default function PageHeader({
   category,
   count,
   countLabel,
+  parent,
 }) {
   return (
     <header className="border-b border-line bg-surface">
@@ -21,6 +22,21 @@ export default function PageHeader({
             <li aria-hidden="true">
               <ChevronRight className="h-3 w-3" strokeWidth={1.8} />
             </li>
+            {parent && (
+              <>
+                <li>
+                  <Link
+                    to={parent.to}
+                    className="transition-colors hover:text-ink"
+                  >
+                    {parent.label}
+                  </Link>
+                </li>
+                <li aria-hidden="true">
+                  <ChevronRight className="h-3 w-3" strokeWidth={1.8} />
+                </li>
+              </>
+            )}
             <li aria-current="page" className="text-ink-soft">
               {title}
             </li>
