@@ -4,6 +4,7 @@ import {
 } from './localPublications.js'
 import { radioPublications } from './radioPublications.js'
 import { expandedPublications } from './expandedPublications.js'
+import { autoLogos } from './autoLogos.js'
 
 /**
  * All Bangla Newspapers — Bangladesh News Directory
@@ -156,7 +157,7 @@ export const categories = [
   },
 ]
 
-export const publications = [
+const publicationRecords = [
   // ── Bangla newspapers ─────────────────────────────────────────────────────
   {
     id: 'prothom-alo',
@@ -1643,6 +1644,15 @@ export const publications = [
   ...radioPublications,
   ...expandedPublications,
 ]
+
+/**
+ * Curated logos always win. Imported records without a wordmark use a
+ * self-hosted publisher icon or generated monogram from `autoLogos.js`.
+ */
+export const publications = publicationRecords.map((publication) => ({
+  ...publication,
+  logo: publication.logo || autoLogos[publication.id] || null,
+}))
 
 export const getCategory = (id) =>
   categories.find((category) => category.id === id) ?? categories[0]

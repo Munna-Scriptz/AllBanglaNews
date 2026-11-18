@@ -33,7 +33,7 @@ const categorySeo = {
   business: {
     title: 'Bangladeshi Business News (ব্যবসা ও অর্থনীতি) — List',
     description:
-      'Browse Bangladeshi business and financial news publications, including Arthosuchak, Share Biz, Business Post, Amader Orthoneeti, market portals and specialist finance sites.',
+      'Browse Bangladeshi business and financial news, including Arthosuchak, Share Biz, Business Post, Amader Orthoneeti and market portals.',
   },
   magazines: {
     title: 'Bangladeshi Magazines (ম্যাগাজিন) — Periodicals List',
@@ -53,7 +53,7 @@ const categorySeo = {
   radio: {
     title: 'Bangladesh Radio Stations (রেডিও) — FM & Live',
     description:
-      'Find Bangladeshi FM and state radio stations, including Bangladesh Betar, Radio Foorti, Radio Today and Dhaka FM, with official websites and live-listening links.',
+      'Find Bangladeshi FM and state radio stations, including Bangladesh Betar, Radio Foorti and Radio Today, with official sites and live links.',
   },
   english: {
     title: 'English Newspapers (ইংরেজি পত্রিকা) — Bangladesh List',
@@ -68,7 +68,7 @@ const categorySeo = {
   international: {
     title: 'International News (আন্তর্জাতিক সংবাদ) — World Papers',
     description:
-      'Browse international newspapers and global news sites, including BBC News, CNN, Al Jazeera, The Guardian and The New York Times, plus Bangla-language world coverage.',
+      'Browse international newspapers and global news sites, including BBC News, CNN, Al Jazeera, The Guardian and The New York Times.',
   },
 }
 
@@ -94,7 +94,7 @@ const categoryRoutes = categories
 
 const divisionRoutes = divisions.map((division) => {
   const image = divisionImages[division.id]
-  const districtList = division.districts.slice(0, 5).join(', ')
+  const districtList = division.districts.slice(0, 4).join(', ')
 
   return {
     id: `division-${division.id}`,
@@ -109,7 +109,7 @@ const divisionRoutes = divisions.map((division) => {
     isDivision: true,
     pageType: 'CollectionPage',
     title: `${division.label} Newspapers — All Regional ${division.label} Titles`,
-    description: `Browse all regional and ${division.label} newspapers in one directory, including titles from ${districtList} and other districts in ${division.label} Division.`,
+    description: `Browse regional and ${division.label} newspapers, including titles from ${districtList} and other ${division.label} Division districts.`,
     robots: INDEX_ROBOTS,
     image: absoluteUrl(image.src),
     imageAlt: image.alt,
@@ -173,7 +173,7 @@ export const seoRoutes = [
     pageType: 'CollectionPage',
     title: 'All Bangla Newspapers (সকল বাংলা পত্রিকা) — Complete List',
     description:
-      'All Bangla Newspapers is a complete Bangladesh media directory: national and local newspapers, online news, business and finance, magazines, radio stations, e-papers, English papers, TV channels, news agencies and international press.',
+      'Complete Bangladesh media directory: national and local newspapers, online news, business, magazines, radio, e-papers, TV, agencies and world press.',
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: DEFAULT_OG_IMAGE_ALT,

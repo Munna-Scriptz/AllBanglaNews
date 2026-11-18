@@ -127,6 +127,7 @@ client/
 │   │   ├── radioPublications.js   # Radio station records
 │   │   ├── localLogos.js          # Local-title logo paths
 │   │   ├── radioLogos.js          # Radio logo paths
+│   │   ├── autoLogos.js           # Self-hosted site icons and generated monograms
 │   │   ├── categoryContent.js     # Category guide copy
 │   │   └── siteInfo.js            # Contact email and last-verified date
 │   ├── layout/                # Shared app shell
@@ -191,8 +192,8 @@ edition cannot be verified, keep the official homepage and explain that in
    - `src/data/localPublications.js` for district-level entries.
    - `src/data/radioPublications.js` for radio stations.
 4. Add a logo in `client/public/logos/`. Prefer the publisher’s own wordmark or
-   site icon. If no usable mark is available, the card falls back to a
-   typographic initial mark.
+   site icon. Imported records without a curated mark use a self-hosted
+   publisher icon where available and a generated monogram otherwise.
 5. Run `npm run lint` and `npm run build`.
 6. If a new route is added, update both `src/routes.jsx` and
    `src/seo/routes.js`. The build fails when those tables do not match.
@@ -327,9 +328,10 @@ Publication names, wordmarks and logos belong to their respective publishers.
 They are used for identification in a directory. If you are a rights holder and
 want a mark updated or removed, open a correction issue or use the contact page.
 
-Some local and radio sites do not expose a usable logo file. In those cases the
-card uses a generated typographic initial mark rather than an unverified or
-unrelated image.
+Some imported, local and radio sites do not expose a usable logo file. In those
+cases the card uses a self-hosted generated monogram rather than an unverified
+or unrelated image. Publisher site icons remain trademarks of their respective
+owners.
 
 ## Credits
 
