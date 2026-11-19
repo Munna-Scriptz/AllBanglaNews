@@ -10,9 +10,11 @@ import CategoryNavigation from '../components/ui/CategoryNavigation'
 import PageHeader from '../components/ui/PageHeader'
 import NewspaperGrid from '../components/newspaper/NewspaperGrid'
 import CategoryGuide from '../components/seo/CategoryGuide'
+import { getCategorySeo } from '../seo/routes'
 
 export default function LocalPage() {
   const category = getCategory('local')
+  const seo = getCategorySeo('local')
   const total = getCategoryCount('local')
   const divisions = getLocalPublicationsByDivision()
   const divisionCards = divisions.map((division) => ({
@@ -23,8 +25,8 @@ export default function LocalPage() {
   return (
     <>
       <PageHeader
-        title="Local Newspapers"
-        description={category.description}
+        title={seo.heading ?? 'Local Newspapers'}
+        description={seo.intro ?? category.description}
         category={category}
         count={total}
         countLabel={category.countLabel}

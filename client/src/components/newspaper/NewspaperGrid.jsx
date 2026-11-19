@@ -18,11 +18,9 @@ export default function NewspaperGrid({
       )}
       aria-label={ariaLabel}
     >
-      {items.map((publication, index) => {
-        const isHidden = visibleCount !== null && index >= visibleCount
-
-        return (
-          <li key={publication.id} className="min-w-0" hidden={isHidden}>
+      {(visibleCount === null ? items : items.slice(0, visibleCount)).map(
+        (publication, index) => (
+          <li key={publication.id} className="min-w-0">
             <NewspaperCard
               publication={publication}
               featured={featured}
@@ -30,8 +28,8 @@ export default function NewspaperGrid({
               eager={index < eagerCount}
             />
           </li>
-        )
-      })}
+        ),
+      )}
     </ul>
   )
 }

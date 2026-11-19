@@ -1,6 +1,8 @@
 import {
   categories,
   getCategory,
+  getCategoryCount,
+  publications,
 } from '../data/publications.js'
 import { divisions } from '../data/localPublications.js'
 import { divisionImages } from '../data/divisionImages.js'
@@ -17,18 +19,27 @@ import {
 const categorySeo = {
   bangla: {
     title: 'Bangla Newspapers (বাংলা পত্রিকা) — Complete List',
-    description:
-      'Browse all Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq, Jugantor and regional dailies, with links to official websites.',
+    heading: 'Bangla Newspapers in Bangladesh',
+    intro:
+      'This page lists the Bengali-language newspapers published in Bangladesh, from national dailies to regional titles. Every entry links to the publisher’s official website, where you can read today’s news and, where available, the e-paper edition.',
+    description: (count) =>
+      `Browse ${count} Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq and Jugantor, with links to official websites.`,
   },
   local: {
     title: 'Local Newspapers (স্থানীয় পত্রিকা) — 8 Divisions',
-    description:
-      'Browse district-level newspapers and local news portals from Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.',
+    heading: 'Bangladeshi Local Newspapers',
+    intro:
+      'This page groups district-level newspapers and local news portals by Bangladesh’s eight divisions. Coverage varies by district, and each card opens the publisher’s own website rather than a copy of the publication.',
+    description: (count) =>
+      `Browse ${count} district-level newspapers and local news portals from Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.`,
   },
   online: {
-    title: 'Online Bangla News (অনলাইন পত্রিকা) — Bangladeshi Sites',
-    description:
-      'Find Bangladeshi online news portals and Bangla news sites, from bdnews24 and Bangla Tribune to Jago News 24 and Dhaka Post, with direct publisher links.',
+    title: 'Online Bangla News (অনলাইন পত্রিকা) — Portal Directory',
+    heading: 'Online Bangla News Portals',
+    intro:
+      'This page lists Bangladeshi digital-first newsrooms, national portals and specialist news sites. Each link opens the publisher’s own website, where stories are updated throughout the day.',
+    description: (count) =>
+      `Browse ${count} Bangladeshi online news portals, including bdnews24, Bangla Tribune and Jago News 24, with direct publisher links.`,
   },
   business: {
     title: 'Bangladeshi Business News (ব্যবসা ও অর্থনীতি) — List',
@@ -47,23 +58,35 @@ const categorySeo = {
   },
   epaper: {
     title: 'Bangladeshi E-Paper (ই-পেপার) — Today’s Editions',
-    description:
-      'Browse today’s Bangladeshi e-papers and digital newspaper editions, including Prothom Alo, Ittefaq, Samakal, Dhaka Tribune and more.',
+    heading: 'Bangladeshi E-Papers',
+    intro:
+      'This page lists Bangladeshi publications that offer a digital edition. Where a direct e-paper address has been verified, the listing opens that edition; otherwise it opens the publisher’s homepage.',
+    description: (count) =>
+      `Browse ${count} Bangladeshi e-papers and digital newspaper editions, including Prothom Alo, Ittefaq, Samakal and Dhaka Tribune, with direct publisher links.`,
   },
   radio: {
     title: 'Bangladesh Radio Stations (রেডিও) — FM & Live',
-    description:
-      'Find Bangladeshi FM and state radio stations, including Bangladesh Betar, Radio Foorti and Radio Today, with official sites and live links.',
+    heading: 'Bangladeshi Radio Stations',
+    intro:
+      'This page links to Bangladesh Betar, private FM stations and online radio services. Each listing opens the broadcaster’s official site, which carries live audio and programme information when the station provides them.',
+    description: (count) =>
+      `Browse ${count} Bangladeshi radio stations, including Bangladesh Betar, Radio Foorti and Radio Today, with official websites and live-listening pages.`,
   },
   english: {
     title: 'English Newspapers (ইংরেজি পত্রিকা) — Bangladesh List',
-    description:
-      'Discover English newspapers in Bangladesh, including The Daily Star, Dhaka Tribune, The Financial Express, Daily Sun and The Independent, in one list.',
+    heading: 'English Newspapers in Bangladesh',
+    intro:
+      'This page lists the English-language dailies, business papers and weekly magazines published in Bangladesh. Each entry links to the publisher’s official website, where you can read current reporting and, where available, the e-paper.',
+    description: (count) =>
+      `Browse ${count} English-language newspapers in Bangladesh, including The Daily Star, Dhaka Tribune and The Financial Express, with official website links.`,
   },
   tv: {
-    title: 'Bangladeshi TV Channels (বাংলা টিভি) — Live News',
-    description:
-      'Browse Bangladeshi TV channels and Bangla news broadcasters, including Somoy TV, Jamuna TV, Channel i, NTV, ATN News, Ekhon TV and more.',
+    title: 'Bangladeshi TV Channels (বাংলা টিভি) — Full List',
+    heading: 'Bangladeshi TV Channels',
+    intro:
+      'This page lists Bangladeshi television channels that publish news or current-affairs content online. Each link opens the broadcaster’s official website or live page where one is available; the directory does not host or relay video.',
+    description: (count) =>
+      `Browse ${count} Bangladeshi TV channels, including Somoy TV, Jamuna TV, Channel i and NTV, with official websites and live-stream pages where available.`,
   },
   international: {
     title: 'International News (আন্তর্জাতিক সংবাদ) — World Papers',
@@ -77,6 +100,7 @@ const categoryRoutes = categories
   .map((category) => {
     const seo = categorySeo[category.id]
     const label = category.id === 'epaper' ? 'E-Papers' : category.label
+    const count = getCategoryCount(category.id)
 
     return {
       id: category.id,
@@ -84,8 +108,13 @@ const categoryRoutes = categories
       label,
       categoryId: category.id,
       pageType: 'CollectionPage',
+      heading: seo.heading ?? label,
+      intro: seo.intro ?? category.description,
       title: seo.title,
-      description: seo.description,
+      description:
+        typeof seo.description === 'function'
+          ? seo.description(count)
+          : seo.description,
       robots: INDEX_ROBOTS,
       image: DEFAULT_OG_IMAGE,
       imageAlt: `${label} in the All Bangla Newspapers directory`,
@@ -172,8 +201,7 @@ export const seoRoutes = [
     categoryId: null,
     pageType: 'CollectionPage',
     title: 'All Bangla Newspapers (সকল বাংলা পত্রিকা) — Complete List',
-    description:
-      'Complete Bangladesh media directory: national and local newspapers, online news, business, magazines, radio, e-papers, TV, agencies and world press.',
+    description: `Browse ${publications.length} newspaper and media listings: Bangladeshi national and local papers, online news, TV, radio, e-papers, magazines and world press.`,
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: DEFAULT_OG_IMAGE_ALT,
@@ -232,8 +260,15 @@ export const getPageMeta = (pathname, search = '') => {
 /** Category metadata used by the static content blocks and internal links. */
 export const getCategorySeo = (categoryId) => {
   const category = getCategory(categoryId)
+  const seo = categorySeo[categoryId] ?? {}
+  const count = getCategoryCount(categoryId)
+
   return {
     ...category,
-    ...(categorySeo[categoryId] ?? {}),
+    ...seo,
+    description:
+      typeof seo.description === 'function'
+        ? seo.description(count)
+        : (seo.description ?? category?.description),
   }
 }

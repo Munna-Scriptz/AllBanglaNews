@@ -11,9 +11,11 @@ import PageHeader from '../components/ui/PageHeader'
 import SearchBar from '../components/ui/SearchBar'
 import NewspaperGrid from '../components/newspaper/NewspaperGrid'
 import CategoryGuide from '../components/seo/CategoryGuide'
+import { getCategorySeo } from '../seo/routes'
 
 export default function CategoryPage({ categoryId }) {
   const category = getCategory(categoryId)
+  const seo = getCategorySeo(categoryId)
   const [searchParams, setSearchParams] = useSearchParams()
   const query = searchParams.get('q') ?? ''
   const deferredQuery = useDeferredValue(query)
@@ -25,7 +27,8 @@ export default function CategoryPage({ categoryId }) {
   )
 
   const isSearching = query.trim().length > 0
-  const pageTitle = categoryId === 'epaper' ? 'E-Papers' : category.label
+  const pageTitle =
+    seo.heading ?? (categoryId === 'epaper' ? 'E-Papers' : category.label)
 
   const updateQuery = (value) => {
     const nextParams = new URLSearchParams(searchParams)
@@ -41,7 +44,7 @@ export default function CategoryPage({ categoryId }) {
     <>
       <PageHeader
         title={pageTitle}
-        description={category.description}
+        description={seo.intro ?? category.description}
         category={category}
         count={total}
         countLabel={category.countLabel}

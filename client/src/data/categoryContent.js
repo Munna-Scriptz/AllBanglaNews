@@ -31,6 +31,11 @@ export const categoryContent = {
           'Digital-first newsrooms publishing throughout the day.',
       },
       {
+        label: 'Browse business and financial news',
+        to: '/business-news',
+        description: 'Market, banking and economy coverage.',
+      },
+      {
         label: 'See English newspapers in Bangladesh',
         to: '/english-newspapers',
         description: 'English-language dailies and business papers.',
@@ -186,6 +191,11 @@ export const categoryContent = {
         description: 'Digital editions of Bangladeshi English dailies.',
       },
       {
+        label: 'Browse business and financial news',
+        to: '/business-news',
+        description: 'Market, banking and economy coverage.',
+      },
+      {
         label: 'Browse international publications',
         to: '/international',
         description: 'Global newspapers and news agencies.',
@@ -210,6 +220,11 @@ export const categoryContent = {
         label: 'Explore online news portals',
         to: '/online-news',
         description: 'Text and video reporting from Bangladeshi newsrooms.',
+      },
+      {
+        label: 'Listen to Bangladeshi radio stations',
+        to: '/radio',
+        description: 'FM and state stations with official live pages.',
       },
       {
         label: 'Browse Bangla newspapers',
