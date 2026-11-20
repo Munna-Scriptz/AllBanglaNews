@@ -5,6 +5,8 @@ import {
 import { radioPublications } from './radioPublications.js'
 import { expandedPublications } from './expandedPublications.js'
 import { autoLogos } from './autoLogos.js'
+import { popularLogos } from './popularLogos.js'
+import { popularityScores } from './popularity.js'
 
 /**
  * All Bangla Newspapers — Bangladesh News Directory
@@ -17,9 +19,9 @@ import { autoLogos } from './autoLogos.js'
  * `epaper` marks publications that also offer a digital edition.
  * `epaperUrl` is set only when the publisher's separate e-paper page has been
  * verified; otherwise it stays null and the listing falls back to the official
- * homepage. `popularity` and `ranking` are intentionally null — they are
- * reserved for verified data only and are never rendered with invented
- * numbers.
+ * homepage. `popularity` is an editorial display priority, not a traffic or
+ * circulation figure. `ranking` remains null because it is reserved for
+ * verified data only.
  */
 
 export const categories = [
@@ -46,37 +48,15 @@ export const categories = [
     meta: 'Bengali language',
   },
   {
-    id: 'local',
-    label: 'Local Newspapers',
-    shortLabel: 'Local',
-    path: '/local-newspapers',
-    icon: 'MapPin',
+    id: 'english',
+    label: 'English Newspapers',
+    shortLabel: 'English',
+    path: '/english-newspapers',
+    icon: 'Languages',
     description:
-      'District-level Bangla newspapers and local news portals, grouped by Bangladesh’s eight divisions.',
-    countLabel: 'local titles',
-    meta: '8 divisions',
-  },
-  {
-    id: 'online',
-    label: 'Online News',
-    shortLabel: 'Online',
-    path: '/online-news',
-    icon: 'Radio',
-    description:
-      'Bangladeshi online news portals and Bangla news sites, updated throughout the day.',
-    countLabel: 'portals',
-    meta: 'Digital news',
-  },
-  {
-    id: 'business',
-    label: 'Business & Finance',
-    shortLabel: 'Business',
-    path: '/business-news',
-    icon: 'Briefcase',
-    description:
-      'Bangladeshi business dailies, financial news sites and market publications.',
-    countLabel: 'publications',
-    meta: 'Business & markets',
+      'English-language newspapers and business dailies published in Bangladesh.',
+    countLabel: 'newspapers',
+    meta: 'English language',
   },
   {
     id: 'epaper',
@@ -90,6 +70,50 @@ export const categories = [
     meta: 'Digital editions',
   },
   {
+    id: 'tv',
+    label: 'TV Channels',
+    shortLabel: 'TV',
+    path: '/tv-channels',
+    icon: 'Tv',
+    description:
+      'Bangladeshi TV channels, including live news, current affairs and entertainment broadcasters.',
+    countLabel: 'channels',
+    meta: 'Television',
+  },
+  {
+    id: 'online',
+    label: 'Online News',
+    shortLabel: 'Online',
+    path: '/online-news',
+    icon: 'Radio',
+    description:
+      'Bangladeshi online news portals and Bangla news sites, updated throughout the day.',
+    countLabel: 'portals',
+    meta: 'Digital news',
+  },
+  {
+    id: 'local',
+    label: 'Local Newspapers',
+    shortLabel: 'Local',
+    path: '/local-newspapers',
+    icon: 'MapPin',
+    description:
+      'District-level Bangla newspapers and local news portals, grouped by Bangladesh’s eight divisions.',
+    countLabel: 'local titles',
+    meta: '8 divisions',
+  },
+  {
+    id: 'international',
+    label: 'International',
+    shortLabel: 'International',
+    path: '/international',
+    icon: 'Globe',
+    description:
+      'International newspapers and global news services, including Bangla-language world coverage.',
+    countLabel: 'publications',
+    meta: 'Worldwide',
+  },
+  {
     id: 'radio',
     label: 'Radio Stations',
     shortLabel: 'Radio',
@@ -99,17 +123,6 @@ export const categories = [
       'Bangladeshi FM and state radio stations with official websites and live-listening pages.',
     countLabel: 'stations',
     meta: 'FM & online',
-  },
-  {
-    id: 'english',
-    label: 'English Newspapers',
-    shortLabel: 'English',
-    path: '/english-newspapers',
-    icon: 'Languages',
-    description:
-      'English-language newspapers and business dailies published in Bangladesh.',
-    countLabel: 'newspapers',
-    meta: 'English language',
   },
   {
     id: 'magazines',
@@ -123,15 +136,15 @@ export const categories = [
     meta: 'Periodicals',
   },
   {
-    id: 'tv',
-    label: 'TV Channels',
-    shortLabel: 'TV',
-    path: '/tv-channels',
-    icon: 'Tv',
+    id: 'business',
+    label: 'Business & Finance',
+    shortLabel: 'Business',
+    path: '/business-news',
+    icon: 'Briefcase',
     description:
-      'Bangladeshi TV channels, including live news, current affairs and entertainment broadcasters.',
-    countLabel: 'channels',
-    meta: 'Television',
+      'Bangladeshi business dailies, financial news sites and market publications.',
+    countLabel: 'publications',
+    meta: 'Business & markets',
   },
   {
     id: 'agencies',
@@ -143,17 +156,6 @@ export const categories = [
       'Bangladeshi and international news agencies, wire services and syndicated news providers.',
     countLabel: 'agencies',
     meta: 'Wire services',
-  },
-  {
-    id: 'international',
-    label: 'International',
-    shortLabel: 'International',
-    path: '/international',
-    icon: 'Globe',
-    description:
-      'International newspapers and global news services, including Bangla-language world coverage.',
-    countLabel: 'publications',
-    meta: 'Worldwide',
   },
 ]
 
@@ -1646,13 +1648,29 @@ const publicationRecords = [
 ]
 
 /**
- * Curated logos always win. Imported records without a wordmark use a
- * self-hosted publisher icon or generated monogram from `autoLogos.js`.
+ * Curated logos always win. Popular records without a wordmark use a published
+ * logo from `popularLogos.js`; the remaining records fall back to a self-hosted
+ * publisher icon from `autoLogos.js`. Popular records are
+ * then ordered by editorial popularity, with the original data order preserved
+ * for ties.
  */
-export const publications = publicationRecords.map((publication) => ({
-  ...publication,
-  logo: publication.logo || autoLogos[publication.id] || null,
-}))
+export const publications = publicationRecords
+  .map((publication) => ({
+    ...publication,
+    logo:
+      publication.logo ||
+      popularLogos[publication.id] ||
+      autoLogos[publication.id] ||
+      null,
+    popularity: popularityScores[publication.id] ?? 0,
+  }))
+  .map((publication, index) => ({ publication, index }))
+  .sort(
+    (a, b) =>
+      b.publication.popularity - a.publication.popularity ||
+      a.index - b.index,
+  )
+  .map(({ publication }) => publication)
 
 export const getCategory = (id) =>
   categories.find((category) => category.id === id) ?? categories[0]
@@ -1704,7 +1722,11 @@ export const getLocalPublicationsByDivision = () =>
         .sort((a, b) => {
           const aIndex = division.districts.indexOf(a.district)
           const bIndex = division.districts.indexOf(b.district)
-          return aIndex - bIndex || a.name.localeCompare(b.name)
+          return (
+            b.popularity - a.popularity ||
+            aIndex - bIndex ||
+            a.name.localeCompare(b.name)
+          )
         })
 
       return {

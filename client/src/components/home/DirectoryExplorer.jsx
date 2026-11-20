@@ -40,13 +40,13 @@ export default function DirectoryExplorer({ query, onClear }) {
   return (
     <section
       id="directory"
-      className="scroll-mt-20 py-4 md:py-16"
+      className="scroll-mt-20 py-4 md:py-2"
       aria-labelledby="directory-heading"
     >
       <div className="shell">
         <SectionHeader
           id="directory-heading"
-          eyebrow={isSearching ? 'Search results' : 'The complete directory'}
+          eyebrow={isSearching ? 'Search results' : ''}
           title={
             isSearching
               ? `Results for “${query.trim()}”`
@@ -59,17 +59,12 @@ export default function DirectoryExplorer({ query, onClear }) {
           }
         />
 
-        <div className="mt-7 space-y-3">
+        <div className="mt-4 space-y-3">
           <CategoryNavigation
             variant="tabs"
             activeId={categoryId}
             onSelect={setCategoryId}
           />
-          <p className="max-w-3xl text-[11px] leading-5 text-muted">
-            Category counts show entries in each view. E-paper overlaps the
-            newspaper categories, so the category totals add up to more than the{' '}
-            {publications.length} unique outlets.
-          </p>
         </div>
 
         <div className="mt-5 flex flex-col gap-1.5 border-b border-line pb-4 text-[11.5px] text-muted sm:flex-row sm:items-center sm:justify-between">

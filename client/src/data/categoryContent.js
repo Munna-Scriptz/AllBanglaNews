@@ -79,7 +79,7 @@ export const categoryContent = {
       'বাংলাদেশের অনলাইন সংবাদপত্র ও বাংলা নিউজ পোর্টালের তালিকা এখানে দেওয়া হয়েছে। দিনের সর্বশেষ খবর, রাজনীতি, অর্থনীতি, খেলা ও বিনোদনের আপডেট পেতে যেকোনো পোর্টালের অফিসিয়াল সাইটে যান।',
     paragraphs: [
       'Online news portals publish continuously, often breaking stories before the next print edition. This collection covers digital-first Bangla and English newsrooms, including national portals, wire services and specialist outlets.',
-      'Use the list to compare sources, follow a developing story or find a newsroom that covers a particular beat. Each link opens the publisher’s own website. For printed editions, visit the Bangla newspaper list; for page-for-page digital editions, see the e-paper directory. The list is a finding aid, not a ranking of accuracy, reach or popularity.',
+      'Use the list to compare sources, follow a developing story or find a newsroom that covers a particular beat. Each link opens the publisher’s own website. For printed editions, visit the Bangla newspaper list; for page-for-page digital editions, see the e-paper directory. The list is a finding aid, not a ranking of accuracy or reach; display order is editorial.',
     ],
     highlights: [
       'Digital-first Bangla newsrooms',

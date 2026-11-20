@@ -171,7 +171,8 @@ export default function DivisionPage({ divisionId: fixedDivisionId }) {
               </h2>
               <p className="mt-1 max-w-2xl text-[12.5px] leading-6 text-muted">
                 {division.items.length} titles across {coveredDistricts.length}{' '}
-                districts, sorted by district and publication name.
+                districts, sorted by popularity, then district and publication
+                name.
               </p>
             </div>
             <p className="text-[11px] font-medium text-muted">

@@ -127,7 +127,9 @@ client/
 │   │   ├── radioPublications.js   # Radio station records
 │   │   ├── localLogos.js          # Local-title logo paths
 │   │   ├── radioLogos.js          # Radio logo paths
-│   │   ├── autoLogos.js           # Self-hosted site icons and generated monograms
+│   │   ├── autoLogos.js           # Self-hosted publisher icons for imported records
+│   │   ├── popularLogos.js        # Published logos for editorially popular outlets
+│   │   ├── popularity.js          # Editorial display priority for listings
 │   │   ├── categoryContent.js     # Category guide copy
 │   │   └── siteInfo.js            # Contact email and last-verified date
 │   ├── layout/                # Shared app shell
@@ -155,12 +157,17 @@ Every outlet record uses the same public shape. Local titles add `division` and
   description: 'A Gazipur-based Bangla news site covering city and district affairs.',
   featured: false,
   epaper: false,
-  popularity: null,
+  popularity: 50,
   ranking: null,
   division: 'dhaka',
   district: 'Gazipur'
 }
 ```
+
+`popularity` is a manual editorial display priority used only to order
+listings. Higher values appear first. It is not a traffic estimate, circulation
+figure, readership survey or audited ranking; unranked records use `0` and keep
+their original data order. `ranking` remains `null`.
 
 The public category ids are:
 
@@ -193,7 +200,8 @@ edition cannot be verified, keep the official homepage and explain that in
    - `src/data/radioPublications.js` for radio stations.
 4. Add a logo in `client/public/logos/`. Prefer the publisher’s own wordmark or
    site icon. Imported records without a curated mark use a self-hosted
-   publisher icon where available and a generated monogram otherwise.
+   published icon where available; if no logo is published, the card falls back
+   to the outlet’s initials.
 5. Run `npm run lint` and `npm run build`.
 6. If a new route is added, update both `src/routes.jsx` and
    `src/seo/routes.js`. The build fails when those tables do not match.
@@ -317,7 +325,8 @@ The production site is designed for Vercel and the canonical host is
 - One site-wide `<meta name="keywords">` lives in `index.html`. It is deliberately
   not generated per route, so it does not create route-specific keyword spam.
 - No ratings, review counts, traffic figures, awards or ranking guarantees are
-  invented.
+  invented. Display order uses the editorial `popularity` score, which is not a
+  traffic or circulation measurement.
 - Search URLs using `?q=` are `noindex, follow` and point their canonical at the
   underlying category or homepage.
 - The sitemap and `llms.txt` are generated from the same route table as the app.
@@ -329,9 +338,9 @@ They are used for identification in a directory. If you are a rights holder and
 want a mark updated or removed, open a correction issue or use the contact page.
 
 Some imported, local and radio sites do not expose a usable logo file. In those
-cases the card uses a self-hosted generated monogram rather than an unverified
-or unrelated image. Publisher site icons remain trademarks of their respective
-owners.
+cases the card uses a typographic initials fallback rather than a generated,
+unverified or unrelated image. Publisher site icons remain trademarks of their
+respective owners.
 
 ## Credits
 

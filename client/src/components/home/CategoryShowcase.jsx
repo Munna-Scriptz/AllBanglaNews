@@ -51,7 +51,7 @@ function CategorySection({ category }) {
     >
       <div className="shell">
         <div className="flex flex-col gap-3 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:pb-6">
-          <div className="min-w-0 max-w-2xl border-l-3 border-accent/60 pl-4 sm:pl-5">
+          <div className="min-w-0 max-w-3xl border-l-3 border-accent/60 pl-4 sm:pl-5">
             <h2
               id={headingId}
               className="text-[22px] font-semibold leading-[1.15] tracking-[-0.04em] text-ink min-[480px]:text-[25px] sm:text-[30px]"
@@ -59,7 +59,7 @@ function CategorySection({ category }) {
               {category.label}
             </h2>
 
-            <p className="mt-2 max-w-xl text-[12.5px] leading-[1.7] text-ink-soft/85 min-[480px]:text-[13px] sm:mt-2.5 sm:text-[14px] sm:leading-6">
+            <p className="mt-2 max-w-3xl text-[12.5px] leading-[1.7] text-ink-soft/85 min-[480px]:text-[13px] sm:text-[14px] sm:leading-6 sm:block hidden">
               {category.description}
             </p>
           </div>
