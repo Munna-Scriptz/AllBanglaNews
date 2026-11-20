@@ -5,7 +5,7 @@
  */
 export const categoryContent = {
   bangla: {
-    heading: 'About the Bangladeshi Bangla newspaper list',
+    heading: 'About the All Bangla Newspapers list',
     banglaParagraph:
       'বাংলাদেশের জাতীয়, আঞ্চলিক, ব্যবসা ও খেলাধুলার খবর প্রকাশ করে এমন বাংলা দৈনিক পত্রিকার তালিকা এখানে একত্র করা হয়েছে। প্রতিটি লিংক সরাসরি পত্রিকার অফিসিয়াল ওয়েবসাইটে নিয়ে যাবে, যেখানে আজকের সংবাদ ও ই-পেপার পড়া যাবে।',
     paragraphs: [

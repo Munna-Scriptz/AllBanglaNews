@@ -18,12 +18,12 @@ import {
 
 const categorySeo = {
   bangla: {
-    title: 'Bangla Newspapers (বাংলা পত্রিকা) — Complete List',
-    heading: 'Bangla Newspapers in Bangladesh',
+    title: (count) => `All Bangla Newspaper List - ${count} Newspapers in Bangladesh`,
+    heading: 'All Bangla Newspapers in Bangladesh',
     intro:
-      'This page lists the Bengali-language newspapers published in Bangladesh, from national dailies to regional titles. Every entry links to the publisher’s official website, where you can read today’s news and, where available, the e-paper edition.',
+      "This is the complete list of all Bangla newspapers in Bangladesh, from national dailies such as Prothom Alo and Ittefaq to regional titles. Every entry links to the publisher's official website, where you can read today's news and, where available, the e-paper edition.",
     description: (count) =>
-      `Browse ${count} Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq and Jugantor, with links to official websites.`,
+      `Browse all ${count} Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq and Jugantor, with direct links to every official website.`,
   },
   local: {
     title: 'Local Newspapers (স্থানীয় পত্রিকা) — 8 Divisions',
@@ -110,7 +110,7 @@ const categoryRoutes = categories
       pageType: 'CollectionPage',
       heading: seo.heading ?? label,
       intro: seo.intro ?? category.description,
-      title: seo.title,
+      title: typeof seo.title === 'function' ? seo.title(count) : seo.title,
       description:
         typeof seo.description === 'function'
           ? seo.description(count)

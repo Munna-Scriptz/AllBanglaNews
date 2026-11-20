@@ -2,7 +2,6 @@ import { useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { Plus } from 'lucide-react'
 import {
   getCategory,
-  publications,
   searchPublications,
 } from '../../data/publications'
 import CategoryNavigation from '../ui/CategoryNavigation'

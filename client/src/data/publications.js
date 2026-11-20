@@ -38,12 +38,12 @@ export const categories = [
   },
   {
     id: 'bangla',
-    label: 'Bangla Newspapers',
+    label: 'All Bangla Newspapers',
     shortLabel: 'Bangla',
     path: '/bangla-newspapers',
     icon: 'Newspaper',
     description:
-      'A complete list of Bengali-language dailies published in Bangladesh, from national titles to regional voices.',
+      'All Bangla newspapers published in Bangladesh, from national Bengali dailies to regional titles.',
     countLabel: 'newspapers',
     meta: 'Bengali language',
   },
@@ -528,7 +528,7 @@ const publicationRecords = [
     id: 'loksamaj',
     name: 'Loksamaj',
     banglaName: 'লোকসমাজ',
-    logo: null,
+    logo: '/logos/loksamaj.png',
     website: 'https://loksamaj.com/',
     category: 'bangla',
     language: 'Bangla',
