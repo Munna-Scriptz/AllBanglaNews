@@ -218,6 +218,9 @@ export const staticPageRoutes = [
       name: entry.displayName,
       url: entry.publication.website,
     })),
+    // Drives <lastmod> in sitemap.xml; keep it equal to the article's
+    // dateModified when the page is reviewed again.
+    lastmod: TOP_NEWSPAPERS_LAST_VERIFIED,
   },
 ]
 

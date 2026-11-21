@@ -90,8 +90,8 @@ npm run preview
 The prerenderer:
 
 1. Checks that every React route has matching SEO metadata.
-2. Produces static HTML for all 23 public routes, including `/local-newspapers`,
-   the eight division pages and `/radio`.
+2. Produces static HTML for all 24 public routes, including `/local-newspapers`,
+   the eight division pages and `/top-newspapers-in-bangladesh`.
 3. Writes `404.html`.
 4. Regenerates `sitemap.xml`, `robots.txt` and `llms.txt`, including all eight
    division URLs in the sitemap.
@@ -106,9 +106,8 @@ client/
 ├── public/
 │   ├── divisions/             # Credited division photos for the local page
 │   ├── logos/                 # Publication, local-title and radio marks
-│   ├── llms.txt               # Crawl summary (regenerated during build)
-│   ├── robots.txt             # Crawl rules (regenerated during build)
-│   └── sitemap.xml            # Public sitemap (regenerated during build)
+│   └── robots.txt             # Crawl rules (sitemap.xml and llms.txt are
+│                              # generated into dist/ during the build)
 ├── scripts/
 │   ├── prerender.mjs          # Static HTML, sitemap, robots and llms.txt
 │   └── check-links.mjs        # External-link checker

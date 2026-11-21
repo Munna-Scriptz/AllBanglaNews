@@ -84,19 +84,54 @@ const writeRoute = (routePath, page) => {
 }
 
 const buildSitemap = () => {
-  const urls = seoRoutes.map((route) => getPageMeta(route.path).canonical)
-  const entries = urls
+  const entries = seoRoutes.map((route) => {
+    const meta = getPageMeta(route.path)
+
+    return {
+      loc: meta.canonical,
+      // Prefer the page's own update date. Only fall back to the build date
+      // when a route has no recorded review date.
+      lastmod: meta.lastmod ?? buildDate,
+    }
+  })
+  const seen = new Set()
+
+  for (const entry of entries) {
+    if (seen.has(entry.loc)) {
+      throw new Error(`Duplicate sitemap URL: ${entry.loc}`)
+    }
+    seen.add(entry.loc)
+  }
+
+  const urls = entries
     .map(
-      (url) =>
-        `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`,
+      (entry) =>
+        `  <url>\n    <loc>${escapeXml(entry.loc)}</loc>\n    <lastmod>${escapeXml(entry.lastmod)}</lastmod>\n  </url>`,
     )
     .join('\n')
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries}
+${urls}
 </urlset>
 `
+}
+
+/**
+ * sitemap.xml and llms.txt are derived from the route table at build time.
+ * A copy in public/ would be shipped by `vite build` before prerendering and
+ * silently drift out of date, so refuse to build when one is present.
+ */
+const assertGeneratedFilesAreNotDuplicated = () => {
+  for (const asset of ['sitemap.xml', 'llms.txt']) {
+    const publicAsset = path.join(root, 'public', asset)
+
+    if (fs.existsSync(publicAsset)) {
+      throw new Error(
+        `public/${asset} must be removed: ${asset} is generated into dist/ by prerender.mjs, and a stale copy hides newly added routes.`,
+      )
+    }
+  }
 }
 
 const buildRobots = () =>
@@ -181,6 +216,8 @@ ${categoryLines}
 }
 
 const main = async () => {
+  assertGeneratedFilesAreNotDuplicated()
+
   const template = readTemplate()
   const vite = await createServer({
     root,
