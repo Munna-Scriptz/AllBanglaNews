@@ -73,12 +73,12 @@ const categorySeo = {
       `Browse ${count} Bangladeshi radio stations, including Bangladesh Betar, Radio Foorti and Radio Today, with official websites and live-listening pages.`,
   },
   english: {
-    title: 'English Newspapers (ইংরেজি পত্রিকা) — Bangladesh List',
-    heading: 'English Newspapers in Bangladesh',
+    title: (count) => `List of English Newspapers in Bangladesh - All ${count} Titles`,
+    heading: 'All English Newspapers in Bangladesh',
     intro:
-      'This page lists the English-language dailies, business papers and weekly magazines published in Bangladesh. Each entry links to the publisher’s official website, where you can read current reporting and, where available, the e-paper.',
+      "This is the complete list of English newspapers in Bangladesh, covering the Bangladeshi English-language dailies and weeklies in the directory. From The Daily Star and Dhaka Tribune to The Financial Express and New Age, every entry links to the publisher's official website and, where available, its e-paper edition.",
     description: (count) =>
-      `Browse ${count} English-language newspapers in Bangladesh, including The Daily Star, Dhaka Tribune and The Financial Express, with official website links.`,
+      `List of English newspapers in Bangladesh: all ${count} Bangladeshi English titles, with official links to The Daily Star, Dhaka Tribune and Financial Express.`,
   },
   tv: {
     title: 'Bangladeshi TV Channels (বাংলা টিভি) — Full List',

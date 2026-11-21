@@ -36,7 +36,7 @@ export const categoryContent = {
         description: 'Market, banking and economy coverage.',
       },
       {
-        label: 'See English newspapers in Bangladesh',
+        label: 'See all English newspapers in Bangladesh',
         to: '/english-newspapers',
         description: 'English-language dailies and business papers.',
       },
@@ -124,7 +124,7 @@ export const categoryContent = {
         description: 'The Bengali dailies behind the digital editions.',
       },
       {
-        label: 'See English newspapers',
+        label: 'See all English newspapers',
         to: '/english-newspapers',
         description: 'English-language dailies with online editions.',
       },
@@ -167,23 +167,24 @@ export const categoryContent = {
     ],
   },
   english: {
-    heading: 'About English newspapers in Bangladesh',
+    heading: 'About the All English Newspapers list',
     banglaParagraph:
       'বাংলাদেশ থেকে প্রকাশিত ইংরেজি দৈনিক ও ব্যবসায়িক পত্রিকার তালিকা এখানে রয়েছে। জাতীয়, আন্তর্জাতিক, অর্থনীতি ও মতামতের ইংরেজি সংবাদ পড়তে প্রতিটি পত্রিকার অফিসিয়াল ওয়েবসাইটে যান।',
     paragraphs: [
-      'Bangladesh’s English-language press serves readers who prefer English coverage of national politics, business, culture and international affairs. This list includes established dailies, business papers and weekly magazines published in Bangladesh.',
-      'English titles often provide analysis and opinion alongside daily news. Each entry links to the publisher’s official website; some also offer e-paper editions, which you can find in the e-paper directory. The list covers established dailies, business papers and weeklies rather than every English-language blog or magazine in the country.',
+      'Bangladesh’s English-language press serves readers who prefer English coverage of national politics, business, culture and international affairs. This list covers all Bangladeshi English newspapers in the directory, from The Daily Star and Dhaka Tribune to business, financial and weekly titles.',
+      'English titles often provide analysis and opinion alongside daily news. Each entry links to the publisher’s official website; some also offer e-paper editions, which you can find in the e-paper directory. For Bengali-language titles, use the All Bangla Newspapers list. Together, the two pages cover all Bangla and English newspapers in the directory.',
     ],
     highlights: [
-      'National English dailies',
-      'Business and financial newspapers',
+      'All Bangladeshi English newspapers in the directory',
+      'National English dailies and business papers',
       'Weekly news magazines and analysis',
+      'Official publisher websites and e-paper editions',
     ],
     related: [
       {
-        label: 'Browse Bangla newspapers',
+        label: 'Browse all Bangla newspapers',
         to: '/bangla-newspapers',
-        description: 'The Bengali-language press in Bangladesh.',
+        description: 'The Bengali-language press, alongside this English list.',
       },
       {
         label: 'Find English e-papers',
@@ -263,7 +264,7 @@ export const categoryContent = {
         description: 'Digital-first newsrooms covering the economy.',
       },
       {
-        label: 'See English newspapers',
+        label: 'See all English newspapers',
         to: '/english-newspapers',
         description: 'English-language business and financial dailies.',
       },
@@ -346,7 +347,7 @@ export const categoryContent = {
     ],
     related: [
       {
-        label: 'Browse English newspapers in Bangladesh',
+        label: 'Browse all English newspapers in Bangladesh',
         to: '/english-newspapers',
         description: 'Bangladeshi English-language dailies.',
       },

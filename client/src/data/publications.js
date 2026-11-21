@@ -49,12 +49,12 @@ export const categories = [
   },
   {
     id: 'english',
-    label: 'English Newspapers',
+    label: 'All English Newspapers',
     shortLabel: 'English',
     path: '/english-newspapers',
     icon: 'Languages',
     description:
-      'English-language newspapers and business dailies published in Bangladesh.',
+      'All English-language newspapers and business dailies published in Bangladesh.',
     countLabel: 'newspapers',
     meta: 'English language',
   },
