@@ -55,7 +55,7 @@ export const buildHeadTags = (meta, schemas) => {
   }
 
   tags.push(
-    metaTag('property', 'og:type', 'website', 'og:type'),
+    metaTag('property', 'og:type', meta.ogType ?? 'website', 'og:type'),
     metaTag('property', 'og:site_name', SITE_NAME, 'og:site_name'),
     metaTag('property', 'og:title', meta.title, 'og:title'),
     metaTag('property', 'og:description', meta.description, 'og:description'),

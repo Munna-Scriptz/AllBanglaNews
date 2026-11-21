@@ -108,7 +108,7 @@ export default function Seo() {
       removeMeta('og:url')
     }
 
-    upsertMeta('og:type', 'property', 'og:type', 'website')
+    upsertMeta('og:type', 'property', 'og:type', meta.ogType ?? 'website')
     upsertMeta('og:site_name', 'property', 'og:site_name', SITE_NAME)
     upsertMeta('og:title', 'property', 'og:title', meta.title)
     upsertMeta('og:description', 'property', 'og:description', meta.description)

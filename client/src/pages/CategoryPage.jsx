@@ -53,9 +53,7 @@ export default function CategoryPage({ categoryId }) {
       <section className="py-4" aria-label={`${pageTitle} directory`}>
         <div className="shell">
           <h2 className="sr-only">{pageTitle} list</h2>
-          <CategoryNavigation variant="tabs" activeId={categoryId} />
-
-          <div className="mt-4 flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-b border-line pb-4 sm:flex-row sm:items-center sm:justify-between">
             <SearchBar
               id={`${categoryId}-search`}
               value={query}
@@ -64,16 +62,18 @@ export default function CategoryPage({ categoryId }) {
               className="w-full max-w-md"
               label={`Search ${category.countLabel}`}
             />
-            <p
-              aria-live="polite"
-              className="text-[11.5px] font-medium text-muted"
-            >
-              {isSearching
-                ? `${results.length} ${results.length === 1 ? 'result' : 'results'
-                } for “${query.trim()}”`
-                : `${total} ${category.countLabel} in the directory`}
-            </p>
           </div>
+
+          <CategoryNavigation variant="tabs" activeId={categoryId} />
+          <p
+            aria-live="polite"
+            className="text-[11.5px] font-medium text-muted"
+          >
+            {isSearching
+              ? `${results.length} ${results.length === 1 ? 'result' : 'results'
+              } for “${query.trim()}”`
+              : `${total} ${category.countLabel} in the directory`}
+          </p>
 
           <div className="mt-4">
             {results.length > 0 ? (

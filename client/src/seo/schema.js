@@ -61,7 +61,7 @@ const buildPage = (meta, type = 'WebPage') => {
   const pageUrl = meta.canonical
   if (!pageUrl) return null
 
-  return {
+  const page = {
     '@type': type,
     '@id': `${pageUrl}#webpage`,
     url: pageUrl,
@@ -74,6 +74,25 @@ const buildPage = (meta, type = 'WebPage') => {
       url: absoluteUrl(meta.image),
     },
   }
+
+  // Editorial articles carry their own verified dates and publisher. No
+  // author is invented: the directory itself is credited as the publisher.
+  if (type === 'Article') {
+    page.headline = meta.title
+    page.datePublished = meta.datePublished
+    page.dateModified = meta.dateModified ?? meta.datePublished
+    page.image = absoluteUrl(meta.image)
+    page.author = {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: absoluteUrl('/'),
+    }
+    page.publisher = { '@id': organizationId }
+    page.mainEntityOfPage = pageUrl
+    page.articleSection = meta.articleSection
+  }
+
+  return page
 }
 
 const buildBreadcrumb = (meta) => {
@@ -116,27 +135,31 @@ const buildItemList = (meta) => {
   const pageUrl = meta.canonical
   if (!pageUrl) return null
 
-  const items = meta.divisionId
-    ? (getLocalDivision(meta.divisionId)?.items ?? [])
-    : meta.id === 'home'
-      ? publications
-      : getPublicationsByCategory(meta.categoryId)
+  const items = meta.itemList
+    ? meta.itemList
+    : meta.divisionId
+      ? (getLocalDivision(meta.divisionId)?.items ?? [])
+      : meta.id === 'home'
+        ? publications
+        : getPublicationsByCategory(meta.categoryId)
 
   return {
     '@type': 'ItemList',
     '@id': `${pageUrl}#itemlist`,
     name:
-      meta.id === 'home'
+      meta.itemListName ??
+      (meta.id === 'home'
         ? 'Bangladeshi newspaper directory'
-        : `${meta.label} directory`,
+        : `${meta.label} directory`),
     description: meta.description,
     numberOfItems: items.length,
-    itemListOrder: 'https://schema.org/ItemListUnordered',
+    itemListOrder:
+      meta.itemListOrder ?? 'https://schema.org/ItemListUnordered',
     itemListElement: items.map((publication, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: publication.name,
-      url: publication.website,
+      url: publication.website ?? publication.url,
     })),
   }
 }
@@ -150,7 +173,8 @@ export const buildSchemas = (meta) => {
 
   const graph = [buildWebSite(), buildOrganization()]
   const pageType = meta.pageType ?? (meta.categoryId ? 'CollectionPage' : 'WebPage')
-  const isListingPage = meta.id === 'home' || Boolean(meta.categoryId)
+  const isListingPage =
+    Boolean(meta.itemList) || meta.id === 'home' || Boolean(meta.categoryId)
   const page = buildPage(meta, pageType)
   const itemList = isListingPage ? buildItemList(meta) : null
 

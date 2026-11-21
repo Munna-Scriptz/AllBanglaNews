@@ -9,12 +9,14 @@ import DivisionPage from './pages/DivisionPage'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
+import TopNewspapers from './pages/TopNewspapers'
 import NotFound from './pages/NotFound'
 
 const staticPageComponents = {
   about: <About />,
   contact: <Contact />,
   privacy: <Privacy />,
+  'top-newspapers': <TopNewspapers />,
 }
 
 const categoryRoutes = categories

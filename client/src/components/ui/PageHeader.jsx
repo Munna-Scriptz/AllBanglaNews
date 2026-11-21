@@ -50,11 +50,11 @@ export default function PageHeader({
               News directory
             </p>
 
-            <h1 className="xl:mt-3 text-[34px] font-semibold leading-[1.06] tracking-[-0.05em] text-ink sm:text-[42px] md:text-[50px]">
+            <h1 className="xl:mt-3 text-[30px] font-semibold leading-[1.06] tracking-[-0.05em] text-ink sm:text-[42px] md:text-[50px]">
               {title}
             </h1>
 
-            <p className="mt-3 max-w-4xl text-[13.5px] leading-[1.8] text-ink-soft/90 md:mt-4 md:text-[14.5px]">
+            <p className="mt-3 max-w-4xl text-[11px] text-ink-soft/90 md:mt-4 md:text-[14.5px]">
               {description}
             </p>
 
@@ -69,9 +69,6 @@ export default function PageHeader({
                   <span>{category.meta}</span>
                 </>
               )}
-
-              <span aria-hidden="true" className="text-line-strong">/</span>
-              <span>Links open the publisher's website</span>
             </div>
           </div>
 

@@ -274,7 +274,7 @@ const publicationRecords = [
     name: 'Naya Diganta',
     banglaName: 'দৈনিক নয়া দিগন্ত',
     logo: '/logos/naya-diganta.png',
-    website: 'https://www.dailynayadiganta.com/',
+    website: 'https://dailynayadiganta.com/',
     category: 'bangla',
     language: 'Bangla',
     description:

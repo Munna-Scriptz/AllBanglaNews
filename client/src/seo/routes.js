@@ -7,6 +7,11 @@ import {
 import { divisions } from '../data/localPublications.js'
 import { divisionImages } from '../data/divisionImages.js'
 import {
+  TOP_NEWSPAPERS_LAST_VERIFIED,
+  TOP_NEWSPAPERS_PATH,
+  topNewspapers,
+} from '../data/topNewspapers.js'
+import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
   INDEX_ROBOTS,
@@ -190,6 +195,29 @@ export const staticPageRoutes = [
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: 'Privacy policy for All Bangla Newspapers',
+  },
+  {
+    id: 'top-newspapers',
+    path: TOP_NEWSPAPERS_PATH,
+    label: 'Top 10 Newspapers in Bangladesh',
+    categoryId: null,
+    pageType: 'Article',
+    ogType: 'article',
+    title: 'Top 10 Newspapers in Bangladesh (2026) | All Bangla Newspapers',
+    description:
+      'Explore 10 leading newspapers in Bangladesh, compare Bangla and English publications, discover their coverage and visit official websites.',
+    robots: INDEX_ROBOTS,
+    image: DEFAULT_OG_IMAGE,
+    imageAlt: 'Top 10 newspapers in Bangladesh — editorial guide',
+    datePublished: TOP_NEWSPAPERS_LAST_VERIFIED,
+    dateModified: TOP_NEWSPAPERS_LAST_VERIFIED,
+    articleSection: 'Bangladesh newspapers',
+    itemListName: 'Top 10 newspapers in Bangladesh',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    itemList: topNewspapers.map((entry) => ({
+      name: entry.displayName,
+      url: entry.publication.website,
+    })),
   },
 ]
 

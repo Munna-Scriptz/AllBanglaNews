@@ -19,6 +19,12 @@ export const categoryContent = {
     ],
     related: [
       {
+        label: 'Top 10 newspapers in Bangladesh',
+        to: '/top-newspapers-in-bangladesh',
+        description:
+          'An editorial guide to ten national dailies, with verified facts.',
+      },
+      {
         label: 'Browse Bangladeshi e-papers',
         to: '/e-paper',
         description:
