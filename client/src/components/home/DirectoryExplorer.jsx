@@ -39,7 +39,7 @@ export default function DirectoryExplorer({ query, onClear }) {
   return (
     <section
       id="directory"
-      className="scroll-mt-20 py-4 md:py-2"
+      className="scroll-mt-20 py-2"
       aria-labelledby="directory-heading"
     >
       <div className="shell">
@@ -58,7 +58,7 @@ export default function DirectoryExplorer({ query, onClear }) {
           }
         />
 
-        <div className="mt-4 space-y-3">
+        <div className="mt-2 md:mt-4 space-y-3">
           <CategoryNavigation
             variant="tabs"
             activeId={categoryId}
@@ -66,7 +66,7 @@ export default function DirectoryExplorer({ query, onClear }) {
           />
         </div>
 
-        <div className="mt-5 flex flex-col gap-1.5 border-b border-line pb-4 text-[11.5px] text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-2 md:mt-4 flex flex-col gap-1.5 border-b border-line pb-4 text-[11.5px] text-muted sm:flex-row sm:items-center sm:justify-between">
           <p aria-live="polite" className="font-medium text-ink-soft">
             {results.length === 0
               ? 'No publications match your filters'

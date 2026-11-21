@@ -35,7 +35,7 @@ export default function CategoryNavigation({
               to={category.path}
               onClick={() => onSelect?.(category.id)}
               className={cn(
-                'group relative flex min-h-[112px] w-[164px] shrink-0 snap-start flex-col justify-between rounded-[10px] border p-3 transition-all duration-200 sm:min-h-[128px] sm:w-[178px] sm:p-3.5',
+                'group relative flex min-h-[64px] w-fit shrink-0 snap-start flex-row items-center gap-2.5 rounded-[10px] border p-2.5 transition-all duration-200 sm:min-h-[128px] sm:w-[178px] sm:flex-col sm:items-stretch sm:justify-between sm:gap-0 sm:p-3.5',
                 isActive
                   ? 'border-ink bg-ink text-white shadow-card'
                   : 'border-line bg-surface text-ink hover:-translate-y-0.5 hover:border-line-strong hover:shadow-card',
@@ -73,7 +73,7 @@ export default function CategoryNavigation({
                 )}
               </span>
 
-              <span className="absolute right-3 top-3 flex sm:right-3.5 sm:top-3.5">
+              <span className="absolute right-3 top-3 flex sm:right-3.5 sm:top-3.5 hidden sm:flex">
                 <ArrowUpRight
                   className={cn(
                     'h-3.5 w-3.5 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
@@ -91,9 +91,10 @@ export default function CategoryNavigation({
   }
 
   return (
+
     <div
       className={cn(
-        'hide-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 pb-1',
+        'hide-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 pb-2',
         className,
       )}
       aria-label={onSelect ? 'Filter by category' : 'Browse categories'}
@@ -101,16 +102,17 @@ export default function CategoryNavigation({
       {items.map((category) => {
         const isActive = activeId === category.id
         const count = getCategoryCount(category.id)
+
         const content = (
           <>
             <span>{category.shortLabel}</span>
             {showCounts && (
               <span
                 className={cn(
-                  'rounded-full px-1.5 py-0.5 text-[10px] font-medium leading-none',
+                  'inline-flex min-w-[23px] items-center justify-center rounded-md px-1.5 py-1 text-[10px] font-bold leading-none tabular-nums transition-colors',
                   isActive
-                    ? 'bg-white/15 text-white/80'
-                    : 'bg-tint text-muted',
+                    ? 'bg-white text-[#171918]'
+                    : 'bg-[#EAE8E2] text-[#44413B]',
                 )}
               >
                 {count}
@@ -120,10 +122,11 @@ export default function CategoryNavigation({
         )
 
         const classes = cn(
-          'inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-2 text-[12px] font-medium transition-colors duration-200',
+          'inline-flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-[12px] font-semibold transition-all duration-200',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2',
           isActive
-            ? 'border-ink bg-ink text-white'
-            : 'border-line bg-surface text-ink-soft hover:border-line-strong hover:text-ink',
+            ? 'border-[#171918] bg-[#171918] text-white shadow-sm'
+            : 'border-[#DEDAD1] bg-white text-[#48453F] shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-[#AAA59A] hover:bg-[#F4F2ED] hover:text-[#171918]',
         )
 
         if (onSelect) {
@@ -152,5 +155,6 @@ export default function CategoryNavigation({
         )
       })}
     </div>
+
   )
 }

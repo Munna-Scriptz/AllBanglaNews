@@ -11,7 +11,7 @@ export default function PageHeader({
 }) {
   return (
     <header className="border-b border-line bg-surface">
-      <div className="shell py-7 md:py-12">
+      <div className="shell py-4">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-1.5 text-[11px] font-medium text-muted">
             <li>
@@ -43,7 +43,7 @@ export default function PageHeader({
           </ol>
         </nav>
 
-        <div className="mt-6 flex flex-col gap-6 md:mt-9 md:flex-row md:items-end md:justify-between">
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="min-w-0 flex-1">
             <p className="eyebrow hidden xl:flex">
               <span className="eyebrow-dot" aria-hidden="true" />
@@ -54,7 +54,7 @@ export default function PageHeader({
               {title}
             </h1>
 
-            <p className="mt-3 max-w-2xl text-[13.5px] leading-[1.8] text-ink-soft/90 md:mt-4 md:text-[14.5px] md:leading-7">
+            <p className="mt-3 max-w-4xl text-[13.5px] leading-[1.8] text-ink-soft/90 md:mt-4 md:text-[14.5px]">
               {description}
             </p>
 

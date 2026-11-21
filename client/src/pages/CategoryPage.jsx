@@ -50,12 +50,12 @@ export default function CategoryPage({ categoryId }) {
         countLabel={category.countLabel}
       />
 
-      <section className="py-4 md:py-14" aria-label={`${pageTitle} directory`}>
+      <section className="py-4" aria-label={`${pageTitle} directory`}>
         <div className="shell">
           <h2 className="sr-only">{pageTitle} list</h2>
           <CategoryNavigation variant="tabs" activeId={categoryId} />
 
-          <div className="mt-4 xl:mt-6 flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-4 flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">
             <SearchBar
               id={`${categoryId}-search`}
               value={query}
@@ -75,7 +75,7 @@ export default function CategoryPage({ categoryId }) {
             </p>
           </div>
 
-          <div className="mt-7">
+          <div className="mt-4">
             {results.length > 0 ? (
               <NewspaperGrid
                 items={results}

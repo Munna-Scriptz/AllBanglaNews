@@ -28,12 +28,12 @@ export default function SectionHeader({
           </p>
         )}
 
-        <h2 className="text-[22px] mt-3 font-semibold leading-[1.15] tracking-[-0.04em] text-ink min-[480px]:text-[25px] sm:text-[30px]">
+        <h2 className="text-[20px] mt-3 font-semibold leading-[1.15] tracking-[-0.04em] text-ink min-[480px]:text-[25px] sm:text-[30px]">
           {title}
         </h2>
 
         {description && (
-          <p className="mt-2 max-w-xl text-[12.5px] leading-[1.7] text-ink-soft/85 min-[480px]:text-[13px] sm:mt-2.5 sm:text-[14px] sm:leading-6">
+          <p className="mt-2 max-w-xl text-[11px] leading-[1.7] text-ink-soft/85 min-[480px]:text-[13px] sm:mt-2.5 sm:text-[14px] sm:leading-6">
             {description}
           </p>
         )}

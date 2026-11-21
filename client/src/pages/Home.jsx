@@ -41,7 +41,7 @@ export default function Home() {
       />
 
       <section
-        className="border-b border-line py-8 md:py-10"
+        className="border-b border-line md:py-6 py-4"
         aria-labelledby="browse-categories"
       >
         <div className="shell">

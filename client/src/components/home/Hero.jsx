@@ -52,7 +52,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
         NEWS
       </div>
 
-      <div className="shell relative py-5 md:py-9 lg:py-12">
+      <div className="shell relative py-5">
         <div className="flex flex-col gap-8 xl:flex-row xl:items-start xl:gap-14">
           {/* Main hero content */}
           <div className="min-w-0 max-w-4xl flex-1">
@@ -110,7 +110,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
               </span>
             </h1>
 
-            <p className="mt-3 max-w-xl text-[13px] leading-6 text-ink-soft/90 sm:text-[14px] sm:leading-7">
+            <p className="mt-3 max-w-xl text-[13px] text-ink-soft/90 sm:text-[14px]">
               Browse national and local newspapers, radio stations, online
               portals, e-papers, TV channels and international publications in
               one organised directory.
@@ -147,7 +147,7 @@ export default function Hero({ query, onQueryChange, onSearch }) {
             </div>
 
             {/* Directory statistics */}
-            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-4 sm:mt-7 sm:gap-x-7 sm:pt-5">
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-line pt-4 sm:pt-5">
               <div className="flex items-baseline gap-1.5">
                 <span className="text-[15px] font-bold tabular-nums tracking-tight text-accent sm:text-[17px]">
                   {publications.length}
@@ -274,10 +274,6 @@ export default function Hero({ query, onQueryChange, onSearch }) {
                 </a>
               </div>
             </div>
-
-            <p className="mt-3 text-right text-[9px] uppercase tracking-[0.14em] text-muted">
-              Curated in Dhaka · Bangladesh
-            </p>
           </aside>
         </div>
       </div>
