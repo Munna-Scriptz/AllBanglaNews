@@ -39,27 +39,28 @@ const categorySeo = {
       `Browse ${count} district-level newspapers and local news portals from Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur and Mymensingh.`,
   },
   online: {
-    title: 'Online Bangla News (অনলাইন পত্রিকা) — Portal Directory',
-    heading: 'Online Bangla News Portals',
+    title: (count) =>
+      `Bangladesh Online Newspaper List - All ${count} News Portals`,
+    heading: 'Bangladesh Online Newspapers',
     intro:
-      'This page lists Bangladeshi digital-first newsrooms, national portals and specialist news sites. Each link opens the publisher’s own website, where stories are updated throughout the day.',
+      'This is the complete list of Bangladeshi online newspapers and news portals, including Bangla-language sites such as bdnews24, Bangla Tribune and Jago News 24 alongside English and specialist outlets. Each link opens the publisher’s own website, where stories are updated throughout the day.',
     description: (count) =>
-      `Browse ${count} Bangladeshi online news portals, including bdnews24, Bangla Tribune and Jago News 24, with direct publisher links.`,
+      `Browse all ${count} Bangladeshi online newspapers and news portals, including bdnews24, Bangla Tribune, Jago News 24 and English-language outlets.`,
   },
   business: {
     title: 'Bangladeshi Business News (ব্যবসা ও অর্থনীতি) — List',
-    description:
-      'Browse Bangladeshi business and financial news, including Arthosuchak, Share Biz, Business Post, Amader Orthoneeti and market portals.',
+    description: (count) =>
+      `Browse ${count} Bangladeshi business and financial news sources, including Arthosuchak, Share Biz, Business Post, Amader Orthoneeti and market portals.`,
   },
   magazines: {
     title: 'Bangladeshi Magazines (ম্যাগাজিন) — Periodicals List',
-    description:
-      'Browse Bangladeshi magazines and periodicals, including Computer Jagat, Kali O Kalam, Weekly Bangalee, Scientific Bangladesh and specialist publications.',
+    description: (count) =>
+      `Browse ${count} Bangladeshi magazines and periodicals, including Computer Jagat, Kali O Kalam, Weekly Bangalee, Scientific Bangladesh and specialist publications.`,
   },
   agencies: {
     title: 'News Agencies (সংবাদ সংস্থা) — Bangladesh & World',
-    description:
-      'Find Bangladeshi and international news agencies, including BSS, UNB, Reuters, Associated Press, AFP and other wire services in one directory.',
+    description: (count) =>
+      `Find ${count} Bangladeshi and international news agencies, including BSS, UNB, Reuters, Associated Press, AFP and other wire services in one directory.`,
   },
   epaper: {
     title: 'Bangladeshi E-Paper (ই-পেপার) — Today’s Editions',
@@ -95,8 +96,8 @@ const categorySeo = {
   },
   international: {
     title: 'International News (আন্তর্জাতিক সংবাদ) — World Papers',
-    description:
-      'Browse international newspapers and global news sites, including BBC News, CNN, Al Jazeera, The Guardian and The New York Times.',
+    description: (count) =>
+      `Browse ${count} international newspapers and global news sites, including BBC News, CNN, Al Jazeera, The Guardian and The New York Times.`,
   },
 }
 
