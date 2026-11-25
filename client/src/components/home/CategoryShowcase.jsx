@@ -10,6 +10,20 @@ import NewspaperGrid from '../newspaper/NewspaperGrid'
 
 const PAGE_SIZE = 12
 
+const viewAllLabels = {
+  bangla: 'View all Bangla newspapers',
+  english: 'View all English newspapers',
+  epaper: 'View all e-papers',
+  tv: 'View all TV channels',
+  online: 'View all online news portals',
+  local: 'View all local newspapers',
+  international: 'View all international publications',
+  radio: 'View all radio stations',
+  magazines: 'View all magazines',
+  business: 'View all business and finance publications',
+  'news-agencies': 'View all news agencies',
+}
+
 /**
  * The local category is ordered by district on its own page. For the homepage
  * preview, take one title from each division in turn so the first twelve cards
@@ -76,7 +90,7 @@ function CategorySection({ category }) {
               to={category.path}
               className="group inline-flex w-fit items-center gap-1.5 rounded-sm py-1 text-[11.5px] font-medium text-ink-soft transition-colors hover:text-accent sm:text-[12.5px]"
             >
-              View all
+              {viewAllLabels[category.id] ?? `View all ${category.label}`}
               <ArrowRight
                 className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1 sm:h-4 sm:w-4"
                 strokeWidth={1.8}
