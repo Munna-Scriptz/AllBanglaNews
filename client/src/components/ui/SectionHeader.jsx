@@ -28,7 +28,7 @@ export default function SectionHeader({
           </p>
         )}
 
-        <h2 className="text-[20px] mt-3 font-semibold leading-[1.15] tracking-[-0.04em] text-ink min-[480px]:text-[25px] sm:text-[30px]">
+        <h2 className="text-[18px] mt-3 font-semibold leading-[1.15] tracking-[-0.04em] text-ink min-[480px]:text-[25px] sm:text-[30px]">
           {title}
         </h2>
 

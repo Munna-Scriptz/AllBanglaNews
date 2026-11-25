@@ -55,6 +55,25 @@ export default function CategoryGuide({ categoryId }) {
             publisher&apos;s official website. Last verified:{' '}
             {formatVerifiedDate()}.
           </p>
+
+          {content.sources?.length > 0 && (
+            <p className="mt-2 text-[11px] text-muted">
+              Sources:{' '}
+              {content.sources.map((source, index) => (
+                <span key={source.url}>
+                  {index > 0 && ', '}
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-line-strong underline-offset-2 transition-colors hover:text-accent"
+                  >
+                    {source.label}
+                  </a>
+                </span>
+              ))}
+            </p>
+          )}
         </div>
 
         <aside className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">

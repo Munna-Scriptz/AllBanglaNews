@@ -62,11 +62,10 @@ export default function Hero({ query, onQueryChange, onSearch }) {
             </p>
 
             <h1 className="mt-2 text-[30px] font-semibold leading-[1.06] tracking-[-0.045em] text-ink min-[480px]:text-[34px] sm:text-[42px] md:text-[50px] lg:text-[54px]">
-              All Bangla newspapers,
+              All Bangla Newspapers –
               <br className="hidden sm:block" />{' '}
-              <span className="relative inline-block text-accent">
-                one place.
-
+              <span className="relative mt-1 inline-block text-[26px] min-[480px]:text-[32px] sm:text-[36px] md:text-[42px] lg:text-[46px] text-accent">
+                Bangladesh Newspaper List
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 300 20"
@@ -147,53 +146,43 @@ export default function Hero({ query, onQueryChange, onSearch }) {
             </div>
 
             {/* Directory statistics */}
-            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-line pt-4 sm:pt-5">
+
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 sm:mt-6 sm:gap-x-6">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-[15px] font-bold tabular-nums tracking-tight text-accent sm:text-[17px]">
+                <span className="text-base font-bold tabular-nums tracking-tight text-accent sm:text-lg">
                   {publications.length}
                 </span>
-                <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-muted sm:text-[10px]">
+                <span className="text-[10px] font-medium tracking-wide text-muted sm:text-[11px]">
                   Unique outlets
                 </span>
               </div>
 
-              <span
-                className="hidden h-4 w-px bg-line sm:block"
-                aria-hidden="true"
-              />
-
               <div className="flex items-baseline gap-1.5">
-                <span className="text-[15px] font-bold tabular-nums tracking-tight text-accent sm:text-[17px]">
+                <span className="text-base font-bold tabular-nums tracking-tight text-accent sm:text-lg">
                   {getCategoryCount('epaper')}
                 </span>
-                <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-muted sm:text-[10px]">
+                <span className="text-[10px] font-medium tracking-wide text-muted sm:text-[11px]">
                   Digital editions
                 </span>
               </div>
 
-              <span
-                className="hidden h-4 w-px bg-line sm:block"
-                aria-hidden="true"
-              />
-
               <div className="flex items-baseline gap-1.5">
-                <span className="text-[15px] font-bold tabular-nums tracking-tight text-accent sm:text-[17px]">
+                <span className="text-base font-bold tabular-nums tracking-tight text-accent sm:text-lg">
                   {categories.length - 1}
                 </span>
-                <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-muted sm:text-[10px]">
+                <span className="text-[10px] font-medium tracking-wide text-muted sm:text-[11px]">
                   Categories
                 </span>
               </div>
 
-              <span
-                className="hidden h-4 w-px bg-line sm:block"
-                aria-hidden="true"
-              />
-
-              <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-muted sm:text-[10px]">
-                Free to browse
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                <span className="text-[10px] font-medium tracking-wide text-muted sm:text-[11px]">
+                  Free to browse
+                </span>
+              </div>
             </div>
+
           </div>
 
           {/* Quick picks sidebar */}

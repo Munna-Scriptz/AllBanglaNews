@@ -49,7 +49,7 @@ export default function DirectoryExplorer({ query, onClear }) {
           title={
             isSearching
               ? `Results for “${query.trim()}”`
-              : 'The complete Bangladesh newspaper list.'
+              : 'Bangladesh Newspaper Directory.'
           }
           description={
             isSearching

@@ -5,17 +5,21 @@
  */
 export const categoryContent = {
   bangla: {
-    heading: 'About the All Bangla Newspapers list',
+    heading: 'About the Bangla newspaper list',
     banglaParagraph:
       'বাংলাদেশের জাতীয়, আঞ্চলিক, ব্যবসা ও খেলাধুলার খবর প্রকাশ করে এমন বাংলা দৈনিক পত্রিকার তালিকা এখানে একত্র করা হয়েছে। প্রতিটি লিংক সরাসরি পত্রিকার অফিসিয়াল ওয়েবসাইটে নিয়ে যাবে, যেখানে আজকের সংবাদ ও ই-পেপার পড়া যাবে।',
     paragraphs: [
-      'Bangla newspapers remain the backbone of daily news in Bangladesh. This list brings together the Bengali-language dailies that publish national, regional, business, sports and cultural reporting, from long-established titles such as Ittefaq and Prothom Alo to newer national dailies.',
-      'Every entry links directly to the publication’s official website, where you can read today’s stories, browse the archive or open the e-paper edition. The directory does not republish news; it helps you find the right Bangla newspaper quickly, whether you read in English or Bengali.',
+      'Bangla newspapers remain the backbone of daily news in Bangladesh. This Bangla newspaper list brings together Bengali-language dailies that publish national, regional, business, sports and cultural reporting, from long-established titles such as Ittefaq and Prothom Alo to newer national dailies.',
+      'The list includes national papers, regional titles and publications with printed editions, e-paper editions or online newspapers. A printed edition is the physical newspaper; an e-paper reproduces those pages online; an online Bangla newspaper or news portal updates stories throughout the day. They are different ways to follow newspaper news, and each entry here opens the publisher’s own site.',
+      'Start with a national daily if you want broad Bangladesh news and analysis. For district reporting, use the local newspapers directory, where regional titles are grouped by division. You can also search this list by publication name, then check the official site for coverage, archive access and the current edition.',
+      'People often search for popular Bangla newspapers, but this directory does not measure circulation, readership or influence. Display order is editorial. For a broader Bangladeshi newspaper list that also includes English-language papers, use the English newspapers directory linked below. This list is a finding aid: it helps you compare sources and reach the right publisher without republishing any stories.',
+      'Every entry links directly to the publication’s official website, where you can read today’s stories, browse the archive or open the e-paper edition when one is offered. If a link has changed, use the contact page to suggest a correction.',
     ],
     highlights: [
       'National Bengali dailies and their official websites',
-      'Business, sports and regional reporting',
-      'Direct links to each publisher, with no intermediary',
+      'Regional titles and routes to division-based local papers',
+      'Printed editions, e-papers and online news portals',
+      'Direct publisher links, with no republished stories',
     ],
     related: [
       {
@@ -23,6 +27,12 @@ export const categoryContent = {
         to: '/top-newspapers-in-bangladesh',
         description:
           'An editorial guide to ten national dailies, with verified facts.',
+      },
+      {
+        label: 'Find district-level Bangla newspapers',
+        to: '/local-newspapers',
+        description:
+          'Regional titles grouped by Bangladesh’s eight divisions.',
       },
       {
         label: 'Browse Bangladeshi e-papers',
@@ -210,17 +220,22 @@ export const categoryContent = {
     ],
   },
   tv: {
-    heading: 'About Bangladeshi TV channels and news broadcasters',
+    heading: 'About television channels in Bangladesh',
     banglaParagraph:
       'বাংলাদেশের বাংলা টিভি চ্যানেল ও সংবাদ সম্প্রচারকের তালিকা এখানে দেওয়া হয়েছে। লাইভ বাংলা নিউজ, টক শো ও বুলেটিন দেখতে চ্যানেলের অফিসিয়াল ওয়েবসাইট বা লাইভ স্ট্রিম পেজ ব্যবহার করুন।',
     paragraphs: [
-      'Bangladesh’s television sector includes 24-hour news channels, general entertainment broadcasters and state-run television. This list focuses on channels that publish news and current-affairs content online, so you can follow bulletins, talk shows and live streams.',
-      'Each link opens the broadcaster’s official website or live-stream page. Channel availability, schedules and streaming rights are controlled by the broadcaster and may differ by country. The directory links to official pages only; it does not host live streams or embed broadcaster video. Where a channel does not publish a working live page, the listing still points to its official website.',
+      'Bangladesh’s television sector includes 24-hour news channels, general entertainment broadcasters and state-owned television. This list of television channels in Bangladesh focuses on broadcasters with a public website or live news page, so you can follow bulletins, talk shows and current-affairs coverage from the source.',
+      'Television channels including Somoy TV, Ekattor TV, Jamuna TV, NTV and RTV publish rolling news and current-affairs programmes. Channels such as Ekushey Television (listed as Ekushey TV), Independent Television (Independent TV) and Diganta TV sit alongside general broadcasters including ATN Bangla, Channel i and Maasranga TV. Listing here is editorial and does not rank outlets by audience, reach or influence.',
+      'BTV is the state owned television broadcaster of Bangladesh. Its own history page records the first experimental transmission on 25 December 1964 in what was then East Pakistan; Banglapedia describes the same pilot service. The station later became Bangladesh Television after independence, so the 1964 date belongs to the broadcaster’s origin, not to a private channel.',
+      'What a broadcaster puts online varies. Some channels broadcast live bulletins on their own websites; others publish clips, schedules or programme pages. Streaming rights, country restrictions and caption options are controlled by the broadcaster, so check the official page for the channels broadcast in your region rather than assuming every feed is available everywhere.',
+      'Use this list to compare coverage, not to choose by popularity alone. For fast text updates, pair a channel with an online news portal or one of the Bangla newspapers in the directory. For major stories, reading more than one source helps you separate reporting from commentary. Every entry opens the publisher’s own site; the directory does not embed video or claim access to paywalled streams.',
+      'If a live page has moved, send a correction through the contact page. Schedules, programme names and streaming availability can change without notice.',
     ],
     highlights: [
-      '24-hour Bangla news channels',
-      'National and state-run broadcasters',
-      'Official live-stream and programme pages',
+      '24-hour Bangla news and current-affairs channels',
+      'State-owned, private and satellite broadcasters',
+      'Official websites, live pages and programme schedules',
+      'No ranking by audience, reach or influence',
     ],
     related: [
       {
@@ -242,6 +257,16 @@ export const categoryContent = {
         label: 'See international broadcasters',
         to: '/international',
         description: 'Global news channels and publications.',
+      },
+    ],
+    sources: [
+      {
+        label: 'BTV history',
+        url: 'https://btv.gov.bd/site/page/e487d0cb-a283-4640-9bed-fa73044d84bd/%E0%A6%87%E0%A6%A4%E0%A6%BF%E0%A6%B9%E0%A6%BE%E0%A6%B8',
+      },
+      {
+        label: 'Banglapedia: Television',
+        url: 'https://en.banglapedia.org/index.php/Television',
       },
     ],
   },

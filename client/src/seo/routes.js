@@ -23,12 +23,13 @@ import {
 
 const categorySeo = {
   bangla: {
-    title: (count) => `All Bangla Newspaper List - ${count} Newspapers in Bangladesh`,
-    heading: 'All Bangla Newspapers in Bangladesh',
+    title: (count) => `Bangla Newspaper List — ${count} Newspapers in Bangladesh`,
+    heading: 'Bangla Newspaper List — All Bangla Newspapers in Bangladesh',
     intro:
-      "This is the complete list of all Bangla newspapers in Bangladesh, from national dailies such as Prothom Alo and Ittefaq to regional titles. Every entry links to the publisher's official website, where you can read today's news and, where available, the e-paper edition.",
+      "This Bangla newspaper list brings together the Bengali-language newspapers in Bangladesh, from national dailies such as Prothom Alo and Ittefaq to regional titles. Every entry links to the publisher's official website, where you can find today's news, archived reports and, where available, the e-paper edition.",
     description: (count) =>
-      `Browse all ${count} Bangla newspapers in Bangladesh, including Prothom Alo, Kaler Kantho, Ittefaq and Jugantor, with direct links to every official website.`,
+      `Browse the Bangla newspaper list of ${count} Bengali-language newspapers in Bangladesh, including Prothom Alo and Ittefaq, with official links and e-paper options.`,
+    imageAlt: 'Bangla newspaper list from All Bangla Newspapers',
   },
   local: {
     title: 'Local Newspapers (স্থানীয় পত্রিকা) — 8 Divisions',
@@ -87,12 +88,13 @@ const categorySeo = {
       `List of English newspapers in Bangladesh: all ${count} Bangladeshi English titles, with official links to The Daily Star, Dhaka Tribune and Financial Express.`,
   },
   tv: {
-    title: 'Bangladeshi TV Channels (বাংলা টিভি) — Full List',
-    heading: 'Bangladeshi TV Channels',
+    title: (count) => `Television Channels in Bangladesh — ${count} TV Channels`,
+    heading: 'Television Channels in Bangladesh',
     intro:
-      'This page lists Bangladeshi television channels that publish news or current-affairs content online. Each link opens the broadcaster’s official website or live page where one is available; the directory does not host or relay video.',
+      'This list of television channels in Bangladesh covers broadcasters with a public website or live news page, including 24-hour news services, state-owned television and general entertainment channels. Each link opens the broadcaster’s own site; the directory does not host or relay video.',
     description: (count) =>
-      `Browse ${count} Bangladeshi TV channels, including Somoy TV, Jamuna TV, Channel i and NTV, with official websites and live-stream pages where available.`,
+      `Browse ${count} television channels in Bangladesh, including BTV, Somoy TV, Jamuna TV, NTV and RTV, with official websites and live pages where available.`,
+    imageAlt: 'Television channels in Bangladesh from All Bangla Newspapers',
   },
   international: {
     title: 'International News (আন্তর্জাতিক সংবাদ) — World Papers',
@@ -123,7 +125,7 @@ const categoryRoutes = categories
           : seo.description,
       robots: INDEX_ROBOTS,
       image: DEFAULT_OG_IMAGE,
-      imageAlt: `${label} in the All Bangla Newspapers directory`,
+      imageAlt: seo.imageAlt ?? `${label} in the All Bangla Newspapers directory`,
     }
   })
 

@@ -69,10 +69,6 @@ const buildPage = (meta, type = 'WebPage') => {
     description: meta.description,
     isPartOf: { '@id': websiteId },
     inLanguage: 'en',
-    primaryImageOfPage: {
-      '@type': 'ImageObject',
-      url: absoluteUrl(meta.image),
-    },
   }
 
   // Editorial articles carry their own verified dates and publisher. No
@@ -90,6 +86,13 @@ const buildPage = (meta, type = 'WebPage') => {
     page.publisher = { '@id': organizationId }
     page.mainEntityOfPage = pageUrl
     page.articleSection = meta.articleSection
+  } else {
+    // primaryImageOfPage is a WebPage property. Articles use `image` above,
+    // which is the property supported by Article structured data.
+    page.primaryImageOfPage = {
+      '@type': 'ImageObject',
+      url: absoluteUrl(meta.image),
+    }
   }
 
   return page
