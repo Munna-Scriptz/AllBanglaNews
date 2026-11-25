@@ -14,8 +14,10 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '../src/seo/site.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const dist = path.join(root, 'dist')
+const publicDir = path.join(root, 'public')
 const seoPattern = /<!--seo:start-->[\s\S]*?<!--seo:end-->/
 const buildDate = new Date().toISOString().slice(0, 10)
+
 
 const escapeXml = (value = '') =>
   String(value)
@@ -89,9 +91,8 @@ const buildSitemap = () => {
 
     return {
       loc: meta.canonical,
-      // Prefer the page's own update date. Only fall back to the build date
-      // when a route has no recorded review date.
-      lastmod: meta.lastmod ?? buildDate,
+      // Every sitemap entry carries the date this sitemap was generated.
+      lastmod: buildDate,
     }
   })
   const seen = new Set()
@@ -118,19 +119,19 @@ ${urls}
 }
 
 /**
- * sitemap.xml and llms.txt are derived from the route table at build time.
- * A copy in public/ would be shipped by `vite build` before prerendering and
- * silently drift out of date, so refuse to build when one is present.
+ * llms.txt is derived from the route table at build time and is only written
+ * into dist/. A copy in public/ would be shipped by `vite build` before
+ * prerendering and silently drift out of date, so refuse to build when one is
+ * present. sitemap.xml is also generated, but prerender.mjs writes a
+ * synchronized copy into public/ after the route table is validated.
  */
 const assertGeneratedFilesAreNotDuplicated = () => {
-  for (const asset of ['sitemap.xml', 'llms.txt']) {
-    const publicAsset = path.join(root, 'public', asset)
+  const publicLlms = path.join(publicDir, 'llms.txt')
 
-    if (fs.existsSync(publicAsset)) {
-      throw new Error(
-        `public/${asset} must be removed: ${asset} is generated into dist/ by prerender.mjs, and a stale copy hides newly added routes.`,
-      )
-    }
+  if (fs.existsSync(publicLlms)) {
+    throw new Error(
+      'public/llms.txt must be removed: llms.txt is generated into dist/ by prerender.mjs, and a stale copy hides newly added routes.',
+    )
   }
 }
 
@@ -254,11 +255,15 @@ const main = async () => {
     fs.writeFileSync(path.join(dist, '404.html'), notFoundPage)
     console.log('prerendered 404.html')
 
-    fs.writeFileSync(path.join(dist, 'sitemap.xml'), buildSitemap())
+    const sitemap = buildSitemap()
+
+    fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap)
+    fs.mkdirSync(publicDir, { recursive: true })
+    fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap)
     fs.writeFileSync(path.join(dist, 'robots.txt'), buildRobots())
     fs.writeFileSync(path.join(dist, 'llms.txt'), buildLlmsTxt())
     console.log(
-      `generated sitemap.xml (${seoRoutes.length} URLs), robots.txt and llms.txt`,
+      `generated sitemap.xml (${seoRoutes.length} URLs in dist/ and public/), robots.txt and llms.txt`,
     )
   } finally {
     await vite.close()

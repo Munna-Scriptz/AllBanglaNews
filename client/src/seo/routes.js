@@ -12,6 +12,10 @@ import {
   topNewspapers,
 } from '../data/topNewspapers.js'
 import {
+  DAILY_NEWSPAPERS_PATH,
+  dailyNewspapers,
+} from '../data/dailyNewspapers.js'
+import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
   INDEX_ROBOTS,
@@ -200,6 +204,26 @@ export const staticPageRoutes = [
     imageAlt: 'Privacy policy for All Bangla Newspapers',
   },
   {
+    id: 'daily-newspapers',
+    path: DAILY_NEWSPAPERS_PATH,
+    label: 'Daily Newspapers',
+    categoryId: null,
+    pageType: 'CollectionPage',
+    title:
+      'Bangladesh Daily Newspaper List — Daily Newspapers in Bangla & English',
+    description:
+      'A curated Bangladesh daily newspaper list of daily-published Bangla and English newspapers, with official links, coverage notes and no circulation claims.',
+    robots: INDEX_ROBOTS,
+    image: DEFAULT_OG_IMAGE,
+    imageAlt: 'Daily newspapers in Bangladesh — Bangla and English dailies',
+    itemListName: 'Bangladesh daily newspaper list',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    itemList: dailyNewspapers.map((entry) => ({
+      name: entry.publication.name,
+      url: entry.publication.website,
+    })),
+  },
+  {
     id: 'top-newspapers',
     path: TOP_NEWSPAPERS_PATH,
     label: 'Top 10 Newspapers in Bangladesh',
@@ -221,9 +245,6 @@ export const staticPageRoutes = [
       name: entry.displayName,
       url: entry.publication.website,
     })),
-    // Drives <lastmod> in sitemap.xml; keep it equal to the article's
-    // dateModified when the page is reviewed again.
-    lastmod: TOP_NEWSPAPERS_LAST_VERIFIED,
   },
 ]
 

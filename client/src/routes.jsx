@@ -10,12 +10,14 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import TopNewspapers from './pages/TopNewspapers'
+import DailyNewspapers from './pages/DailyNewspapers'
 import NotFound from './pages/NotFound'
 
 const staticPageComponents = {
   about: <About />,
   contact: <Contact />,
   privacy: <Privacy />,
+  'daily-newspapers': <DailyNewspapers />,
   'top-newspapers': <TopNewspapers />,
 }
 

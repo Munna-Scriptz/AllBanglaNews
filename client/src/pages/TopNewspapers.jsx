@@ -19,6 +19,11 @@ const internalLinkClass =
 
 const exploreLinks = [
   {
+    to: '/daily-newspapers',
+    label: 'Bangladesh daily newspaper list',
+    description: 'Daily-published Bangla and English titles in one curated list.',
+  },
+  {
     to: '/',
     label: 'Complete newspaper directory',
     description: 'Every publication and media outlet in one searchable index.',

@@ -29,6 +29,12 @@ export const categoryContent = {
           'An editorial guide to ten national dailies, with verified facts.',
       },
       {
+        label: 'Bangladesh daily newspaper list',
+        to: '/daily-newspapers',
+        description:
+          'Daily-published Bangla and English papers in one curated list.',
+      },
+      {
         label: 'Find district-level Bangla newspapers',
         to: '/local-newspapers',
         description:
@@ -201,6 +207,11 @@ export const categoryContent = {
         label: 'Browse all Bangla newspapers',
         to: '/bangla-newspapers',
         description: 'The Bengali-language press, alongside this English list.',
+      },
+      {
+        label: 'Bangladesh daily newspaper list',
+        to: '/daily-newspapers',
+        description: 'English and Bangla titles that publish every day.',
       },
       {
         label: 'Find English e-papers',
