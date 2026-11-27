@@ -268,9 +268,9 @@ Bulk listings are a starting point, not proof that a site is active today. The
 November 2026 link audit checked 634 outbound URLs: 506 were reachable, 113
 redirected, and 128 failed or were blocked. Many failures were bot protection
 (401/403), timeouts or temporary DNS failures, so a failed probe is not proof
-that an outlet is dead. `LAST_VERIFIED` remains **2026-11-12** until blocked and
-unreachable links are manually reviewed. Run `npm run check-links` and spot-check
-before describing the entire directory as freshly verified.
+that an outlet is dead. `LAST_VERIFIED` is **2026-11-27**, the date of the
+follow-up review of flagged outbound links. Run `npm run check-links` and
+spot-check before describing the entire directory as freshly verified.
 
 ## Pull request checklist
 

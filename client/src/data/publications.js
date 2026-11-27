@@ -361,7 +361,7 @@ const publicationRecords = [
     name: 'Bhorer Kagoj',
     banglaName: 'ভোরের কাগজ',
     logo: '/logos/bhorer-kagoj.png',
-    website: 'https://bhorerkagoj.com/',
+    website: 'https://www.bhorerkagoj.net/',
     category: 'bangla',
     language: 'Bangla',
     description:
@@ -436,7 +436,7 @@ const publicationRecords = [
     name: 'Sangbad',
     banglaName: 'দৈনিক সংবাদ',
     logo: '/logos/sangbad.png',
-    website: 'https://sangbad.net.bd/',
+    website: 'https://sangbad.net/',
     category: 'bangla',
     language: 'Bangla',
     description:
@@ -1105,7 +1105,7 @@ const publicationRecords = [
     name: 'Independent TV',
     banglaName: 'ইনডিপেনডেন্ট টিভি',
     logo: '/logos/independent-tv.png',
-    website: 'https://www.independent24.tv/',
+    website: 'https://www.itvbd.com/',
     category: 'tv',
     language: 'Bangla',
     description:
@@ -1120,7 +1120,7 @@ const publicationRecords = [
     name: 'DBC News',
     banglaName: 'ডিবিসি নিউজ',
     logo: '/logos/dbc-news.png',
-    website: 'https://www.dbcnews.tv/',
+    website: 'https://dbcnews.tv/',
     category: 'tv',
     language: 'Bangla',
     description:
@@ -1210,7 +1210,7 @@ const publicationRecords = [
     name: 'Banglavision',
     banglaName: 'বাংলাভিশন',
     logo: '/logos/banglavision.png',
-    website: 'https://www.banglavision.tv/',
+    website: 'https://www.bvnews24.com/',
     category: 'tv',
     language: 'Bangla',
     description:

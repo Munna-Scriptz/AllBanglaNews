@@ -3,15 +3,17 @@ import { publications } from './publications.js'
 /**
  * Editorial guide to ten notable Bangladeshi newspapers.
  *
- * Every fact below is checked against the publisher's own website and its
- * Wikipedia entry on the date in TOP_NEWSPAPERS_LAST_VERIFIED. Circulation,
- * readership, traffic and market-share figures are deliberately omitted: the
- * publicly available numbers are dated, self-reported or incomplete, so they
- * cannot support a precise 1–10 ranking. The order is an editorial judgement,
- * not an official or audited ranking.
+ * Every fact below was checked against the publisher's own website and its
+ * Wikipedia entry when the guide was first published. The displayed review
+ * date is updated after later link checks; the schema publication date is kept
+ * unchanged. Circulation, readership, traffic and market-share figures are
+ * deliberately omitted: the publicly available numbers are dated,
+ * self-reported or incomplete, so they cannot support a precise 1–10 ranking.
+ * The order is an editorial judgement, not an official or audited ranking.
  */
 export const TOP_NEWSPAPERS_PATH = '/top-newspapers-in-bangladesh'
-export const TOP_NEWSPAPERS_LAST_VERIFIED = '2026-11-21'
+export const TOP_NEWSPAPERS_DATE_PUBLISHED = '2026-11-21'
+export const TOP_NEWSPAPERS_LAST_VERIFIED = '2026-11-27'
 
 const byId = new Map(
   publications.map((publication) => [publication.id, publication]),
@@ -41,7 +43,7 @@ const entries = [
     epaper: {
       label: 'Prothom Alo e-paper',
       url: 'https://epaper.prothomalo.com/',
-      note: 'Direct page-by-page edition, checked on 21 November 2026.',
+      note: 'Direct page-by-page edition, checked on 27 November 2026.',
     },
     summary:
       'Prothom Alo began publishing on 4 November 1998 and is owned by Transcom Group, with Matiur Rahman as publisher. The Bangla daily works from Kawran Bazar in Dhaka, and its website carries sections for Bangladesh news, politics, world affairs, business, opinion, sport, entertainment, jobs and lifestyle, alongside video. A page-by-page e-paper edition is published at epaper.prothomalo.com. The combination of daily reporting, a substantial opinion section and a verified digital edition makes it a practical starting point for readers who want one Bangla source across the day.',
@@ -105,7 +107,7 @@ const entries = [
     epaper: {
       label: 'Ittefaq e-paper',
       url: 'https://epaper.ittefaq.com.bd/',
-      note: 'Direct page-by-page edition, checked on 21 November 2026.',
+      note: 'Direct page-by-page edition, checked on 27 November 2026.',
     },
     summary:
       'Ittefaq published its first issue on 15 August 1949 and became a daily on 24 December 1953, which makes it one of the oldest newspapers in Bangladesh. It is owned by Ittefaq Group of Publications Ltd, with Tareen Hossain as publisher, and is edited from Karwan Bazar in Dhaka. The newspaper’s website covers national news, the capital, districts, politics, world affairs, economy, sport, entertainment, technology, education, health, law and literature. A verified e-paper is available at epaper.ittefaq.com.bd, and the site keeps an archive of earlier editions for readers tracing how a story developed.',
@@ -231,7 +233,7 @@ const entries = [
     epaper: {
       label: 'Samakal e-paper',
       url: 'https://epaper.samakal.com/',
-      note: 'Direct page-by-page edition, checked on 21 November 2026.',
+      note: 'Direct page-by-page edition, checked on 27 November 2026.',
     },
     summary:
       'Samakal began publication in 2005 and is owned by Ha-meem Group, with Abul Kalam Azad as publisher. The Bangla daily is published from Dhaka, and its website groups news by national, politics, economy, world, sport, entertainment, crime and opinion sections, alongside dedicated pages for each of the eight divisions, from Dhaka and Chattogram to Rangpur and Mymensingh. It also carries education, technology, share market, lifestyle, travel and feature sections, plus an archive and a verified e-paper at epaper.samakal.com. The division pages make it convenient for readers who want national news and regional reporting in one place.',
@@ -325,7 +327,7 @@ const entries = [
     epaper: {
       label: 'Daily Inqilab e-paper',
       url: 'https://epaper.dailyinqilab.com/',
-      note: 'Direct page-by-page edition, checked on 21 November 2026.',
+      note: 'Direct page-by-page edition, checked on 27 November 2026.',
     },
     summary:
       'Daily Inqilab was founded on 4 June 1986 by Maulana Abdul Mannan and is owned by Inqilab Enterprise & Publications Limited; A. M. M. Bahauddin is publisher and editor. The Bangla daily is based on R. K. Mission Road in Dhaka. Its website covers national and international news, politics, economy, cricket, football and other sports, entertainment across Dhallywood, Bollywood and Hollywood, along with sections on Islamic life, religion and philosophy, health, literature, campus, information technology and expatriate life. A verified e-paper is available at epaper.dailyinqilab.com. Readers interested in its religious and opinion pages will find them alongside daily news.',

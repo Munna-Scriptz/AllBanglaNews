@@ -7,6 +7,7 @@ import {
 import { divisions } from '../data/localPublications.js'
 import { divisionImages } from '../data/divisionImages.js'
 import {
+  TOP_NEWSPAPERS_DATE_PUBLISHED,
   TOP_NEWSPAPERS_LAST_VERIFIED,
   TOP_NEWSPAPERS_PATH,
   topNewspapers,
@@ -249,7 +250,7 @@ export const staticPageRoutes = [
     robots: INDEX_ROBOTS,
     image: DEFAULT_OG_IMAGE,
     imageAlt: 'Top 10 newspapers in Bangladesh — editorial guide',
-    datePublished: TOP_NEWSPAPERS_LAST_VERIFIED,
+    datePublished: TOP_NEWSPAPERS_DATE_PUBLISHED,
     dateModified: TOP_NEWSPAPERS_LAST_VERIFIED,
     articleSection: 'Bangladesh newspapers',
     itemListName: 'Top 10 newspapers in Bangladesh',

@@ -5,7 +5,7 @@
  * are reviewed. The same date is rendered on category, about and privacy
  * pages so the site never shows conflicting "last checked" claims.
  */
-export const LAST_VERIFIED = '2026-11-12'
+export const LAST_VERIFIED = '2026-11-27'
 
 /**
  * Contact mailbox for directory corrections.

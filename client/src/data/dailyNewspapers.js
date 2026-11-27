@@ -11,7 +11,7 @@ import { topNewspapers } from './topNewspapers.js'
  * language only; no keyword metrics are published.
  */
 export const DAILY_NEWSPAPERS_PATH = '/daily-newspapers'
-export const DAILY_NEWSPAPERS_LAST_VERIFIED = '2026-11-25'
+export const DAILY_NEWSPAPERS_LAST_VERIFIED = '2026-11-27'
 
 const publicationById = new Map(
   publications.map((publication) => [publication.id, publication]),
