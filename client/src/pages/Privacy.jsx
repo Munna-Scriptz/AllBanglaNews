@@ -5,7 +5,7 @@ export default function Privacy() {
   return (
     <ContentPage
       eyebrow="Privacy"
-      title="Privacy Policy"
+      title="Privacy Policy for All Bangla Newspapers"
       intro="This policy explains what All Bangla Newspapers processes when you browse the directory. It does not describe the practices of the external publisher websites linked from this site."
     >
       <h2 className="text-[20px] font-semibold tracking-[-0.03em] text-ink">

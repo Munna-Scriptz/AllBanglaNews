@@ -375,12 +375,13 @@ export const categoryContent = {
     ],
   },
   international: {
-    heading: 'About international newspapers and global news sites',
+    heading: 'About international news today and Bangla-language sources',
     banglaParagraph:
       'বিশ্বের বিভিন্ন দেশের সংবাদপত্র, নিউজ এজেন্সি ও আন্তর্জাতিক সংবাদমাধ্যমের তালিকা এখানে রয়েছে। বিবিসি বাংলা, ডয়চে ভেলে বাংলা ও ভিওএ বাংলাসহ বাংলা ভাষার আন্তর্জাতিক সংবাদসেবাও এখানে পাবেন।',
     paragraphs: [
       'International publications add context to Bangladesh’s news, from South Asian politics to global markets and conflict reporting. This selection includes global news agencies, newspapers and broadcasters with strong online coverage.',
       'These links leave the All Bangla Newspapers directory and open the publisher’s own website. Paywalls, registration requirements and regional availability are set by each publication. The selection focuses on outlets with accessible online reporting and, where available, Bangla-language services. It is a reading list, not a claim that every outlet covers Bangladesh equally.',
+      'For international news in Bangla, sources such as BBC Bangla, DW Bangla and VOA Bangla explain world events for Bengali readers. Readers looking for international news bangla coverage can compare those services with English-language outlets such as BBC News, Al Jazeera and Reuters to see how the same story is framed in each language.',
     ],
     highlights: [
       'Global news agencies and wire services',

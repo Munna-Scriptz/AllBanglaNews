@@ -31,7 +31,7 @@ export default function DivisionPage({ divisionId: fixedDivisionId }) {
   return (
     <>
       <PageHeader
-        title={`${division.label} Newspapers`}
+        title={`Local Newspapers in ${division.label} Division`}
         description={`All regional and ${division.label} newspapers in one place. Browse ${division.items.length} local Bangla titles listed for ${division.label} Division, with direct links to each publisher's official website.`}
         category={{ ...category, meta: `${division.districts.length} districts` }}
         count={division.items.length}

@@ -54,16 +54,25 @@ const categorySeo = {
   },
   business: {
     title: 'Bangladeshi Business News (ব্যবসা ও অর্থনীতি) — List',
+    heading: 'Business and Finance News in Bangladesh',
+    intro:
+      'This list covers Bangladeshi business and financial news sources, from market portals and policy coverage to national economic reporting. Each link opens the publisher’s own website, where the latest articles and archives are maintained by the source.',
     description: (count) =>
       `Browse ${count} Bangladeshi business and financial news sources, including Arthosuchak, Share Biz, Business Post, Amader Orthoneeti and market portals.`,
   },
   magazines: {
     title: 'Bangladeshi Magazines (ম্যাগাজিন) — Periodicals List',
+    heading: 'Magazines and Periodicals in Bangladesh',
+    intro:
+      'This directory lists Bangladeshi magazines, weekly periodicals and specialist publications alongside the daily newspaper listings. Opening a title takes you to its official website or publisher page for current issues and archives.',
     description: (count) =>
       `Browse ${count} Bangladeshi magazines and periodicals, including Computer Jagat, Kali O Kalam, Weekly Bangalee, Scientific Bangladesh and specialist publications.`,
   },
   agencies: {
     title: 'News Agencies (সংবাদ সংস্থা) — Bangladesh & World',
+    heading: 'News Agencies in Bangladesh and Worldwide',
+    intro:
+      'This list brings together Bangladeshi news agencies and international wire services that supply reporting to newspapers, broadcasters and websites. Each entry opens the agency’s official site, where public reporting and subscriber services are described by the organisation itself.',
     description: (count) =>
       `Find ${count} Bangladeshi and international news agencies, including BSS, UNB, Reuters, Associated Press, AFP and other wire services in one directory.`,
   },
@@ -101,9 +110,13 @@ const categorySeo = {
     imageAlt: 'Television channels in Bangladesh from All Bangla Newspapers',
   },
   international: {
-    title: 'International News (আন্তর্জাতিক সংবাদ) — World Papers',
+    title: 'International News Today — Bangla & World News Sources',
+    heading: 'International News Today — Global and Bangla News Sources',
+    intro:
+      'Follow international news today from global newspapers, broadcasters and news agencies in one directory. Bangla-language services such as BBC Bangla, DW Bangla and VOA Bangla are listed alongside English-language reporting, with a direct link to every publisher.',
     description: (count) =>
-      `Browse ${count} international newspapers and global news sites, including BBC News, CNN, Al Jazeera, The Guardian and The New York Times.`,
+      `Browse ${count} international news sources for today’s world headlines, including BBC News, CNN, Al Jazeera, BBC Bangla and DW Bangla, with official links.`,
+    imageAlt: 'International news today from global and Bangla news sources',
   },
 }
 
